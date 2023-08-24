@@ -56,7 +56,6 @@
         @error('num_room')
             <div class="invalid-feedback">{{ $message }}</div>
         @enderror
-        </div>
 
 
         {{-- input per bagni --}}
@@ -70,7 +69,6 @@
         @error('num_bathroom')
             <div class="invalid-feedback">{{ $message }}</div>
         @enderror
-        </div>
 
 
         {{-- input per metri quadrati --}}
@@ -79,7 +77,6 @@
         @error('square_meters')
             <div class="invalid-feedback">{{ $message }}</div>
         @enderror
-        </div>
 
         {{-- input per indirizzo --}}
 
