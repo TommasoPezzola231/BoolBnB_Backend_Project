@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('apartment_sponsorhip', function (Blueprint $table) {
+        Schema::create('apartment_sponsorship', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('apartment_id')->nullable()->constrained()->onDelete("cascade");
-            $table->foreignId('sponsorship_id')->nullable()->constrained()->onDelete("cascade");
+            $table->foreignId('apartment_id');
+            $table->foreignId('sponsorship_id');
             $table->dateTimeTz('start_time');
             $table->dateTimeTz('end_time');
             $table->timestamps();
