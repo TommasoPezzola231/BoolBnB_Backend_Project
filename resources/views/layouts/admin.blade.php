@@ -43,7 +43,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.appartments.create' ? 'bg-secondary' : '' }}" href="{{route('admin.appartments.create')}}">
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.apartments.create' ? 'bg-secondary' : '' }}" href="{{route('admin.apartments.create')}}">
                                     <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Aggiungi Casa
                                 </a>
                             </li>

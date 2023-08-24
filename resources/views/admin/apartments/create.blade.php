@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <form action="{{ route('admin.appartments.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.apartments.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <h2>Aggiungi Appartamento</h2>
