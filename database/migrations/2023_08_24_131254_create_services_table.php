@@ -17,8 +17,7 @@ return new class extends Migration
             $table->id();
 
             $table->string('name_service', 255);
-            $table->string('image_service', 255);
-
+            $table->string('icon_service', 255);
             $table->timestamps();
         });
     }
