@@ -6,6 +6,7 @@ use App\Models\Apartment;
 use App\Models\Service;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Schema;
 
 class ApartmentSeeder extends Seeder
 {
@@ -16,9 +17,12 @@ class ApartmentSeeder extends Seeder
      */
     public function run()
     {
+
+        Schema::disableForeignKeyConstraints();
+        Apartment::truncate();
+        Schema::enableForeignKeyConstraints();
+
         $allServices = Service::all(["id"]);
-
-
 
         $apartments = [
             [
@@ -34,7 +38,8 @@ class ApartmentSeeder extends Seeder
                 'address' => 'Via del Corso, 123',
                 "service" => ["Wi-Fi", "Riscaldamento"],
                 'latitude' => 41.9028,
-                'longitude' => 12.4964
+                'longitude' => 12.4964,
+                'visible' => 0
             ],
             [
                 'user_id' => 2,
@@ -49,7 +54,8 @@ class ApartmentSeeder extends Seeder
                 'address' => 'Viale delle Palme, 45',
                 "service" => ["Wi-Fi", "Riscaldamento"],
                 'latitude' => 38.1157,
-                'longitude' => 13.3615
+                'longitude' => 13.3615,
+                'visible' => 1
             ],
             [
                 'user_id' => 1,
@@ -64,7 +70,8 @@ class ApartmentSeeder extends Seeder
                 'address' => 'Via Roma 123',
                 'service' => ['Wi-Fi', 'Aria condizionata', 'Parcheggio'],
                 'latitude' => 41.9028,
-                'longitude' => 12.4964
+                'longitude' => 12.4964,
+                'visible' => 1
             ],
             [
                 'user_id' => 2,
@@ -79,7 +86,8 @@ class ApartmentSeeder extends Seeder
                 'address' => 'Via Milano 456',
                 'service' => ['Piscina', 'Palestra', 'Sicurezza 24/7'],
                 'latitude' => 45.4642,
-                'longitude' => 9.1900
+                'longitude' => 9.1900,
+                'visible' => 0
             ],
             [
                 'user_id' => 1,
@@ -94,7 +102,8 @@ class ApartmentSeeder extends Seeder
                 'address' => 'Via Roma 123',
                 'service' => ['Wi-Fi', 'Aria condizionata', 'Parcheggio'],
                 'latitude' => 41.9028,
-                'longitude' => 12.4964
+                'longitude' => 12.4964,
+                'visible' => 1
             ],
             [
                 'user_id' => 2,
@@ -109,7 +118,8 @@ class ApartmentSeeder extends Seeder
                 'address' => 'Via Milano 456',
                 'service' => ['Piscina', 'Palestra', 'Sicurezza 24/7'],
                 'latitude' => 45.4642,
-                'longitude' => 9.1900
+                'longitude' => 9.1900,
+                'visible' => 1
             ],
             [
                 'user_id' => 3,
@@ -124,7 +134,8 @@ class ApartmentSeeder extends Seeder
                 'address' => 'Via Napoli 789',
                 'service' => ['Vista mare', 'Terrazza', 'Parcheggio'],
                 'latitude' => 40.8522,
-                'longitude' => 14.2681
+                'longitude' => 14.2681,
+                'visible' => 1
             ],
             [
                 "user_id" => 1,
@@ -139,7 +150,8 @@ class ApartmentSeeder extends Seeder
                 "address" => "Via del Corso, 123",
                 "service" => ["Wi-Fi", "Aria condizionata", "Riscaldamento"],
                 "latitude" => 41.9028,
-                "longitude" => 12.4964
+                "longitude" => 12.4964,
+                'visible' => 0
             ],
             [
                 "user_id" => 1,
@@ -154,7 +166,8 @@ class ApartmentSeeder extends Seeder
                 "address" => "Via del Corso, 123",
                 "service" => ["Wi-Fi", "Aria condizionata", "Riscaldamento"],
                 "latitude" => 41.9028,
-                "longitude" => 12.4964
+                "longitude" => 12.4964,
+                'visible' => 1
             ],
             [
                 "user_id" => 2,
@@ -169,7 +182,8 @@ class ApartmentSeeder extends Seeder
                 "address" => "Carrer de la Marina, 45",
                 "service" => ["Piscina", "Palestra", "Garage"],
                 "latitude" => 41.3851,
-                "longitude" => 2.1734
+                "longitude" => 2.1734,
+                'visible' => 0
             ],
             [
                 "user_id" => 3,
@@ -184,7 +198,8 @@ class ApartmentSeeder extends Seeder
                 "address" => "Via dei Calzaiuoli, 67",
                 "service" => ["Wi-Fi", "Riscaldamento"],
                 "latitude" => 43.7696,
-                "longitude" => 11.2558
+                "longitude" => 11.2558,
+                'visible' => 1
             ],
 
             [
@@ -200,7 +215,8 @@ class ApartmentSeeder extends Seeder
                 "address" => "Abbey Road, 10",
                 "service" => ["Terrazza", "Aria condizionata", "Garage"],
                 "latitude" => 51.5074,
-                "longitude" => -0.1278
+                "longitude" => -0.1278,
+                'visible' => 1
             ],
 
             [
@@ -216,7 +232,8 @@ class ApartmentSeeder extends Seeder
                 "address" => "Via delle Vigne, 22",
                 "service" => ["Giardino", "Camino"],
                 "latitude" => 43.7711,
-                "longitude" => 11.2486
+                "longitude" => 11.2486,
+                'visible' => 1
             ],
 
             [
@@ -232,7 +249,8 @@ class ApartmentSeeder extends Seeder
                 "address" => "5th Avenue, 123",
                 "service" => ["Portineria", "Piscina", "Palestra"],
                 "latitude" => 40.7128,
-                "longitude" => -74.0060
+                "longitude" => -74.0060,
+                'visible' => 1
             ],
             [
                 "user_id" => 7,
@@ -247,7 +265,8 @@ class ApartmentSeeder extends Seeder
                 "address" => "Ocean Drive, 456",
                 "service" => ["Accesso diretto alla spiaggia", "Parcheggio", "Piscina"],
                 "latitude" => 25.7617,
-                "longitude" => -80.1918
+                "longitude" => -80.1918,
+                'visible' => 1
             ],
 
             [
@@ -263,7 +282,8 @@ class ApartmentSeeder extends Seeder
                 "address" => "Staroměstské náměstí, 15",
                 "service" => ["Riscaldamento", "Posizione centrale"],
                 "latitude" => 50.0755,
-                "longitude" => 14.4378
+                "longitude" => 14.4378,
+                'visible' => 1
             ],
 
             [
@@ -279,7 +299,8 @@ class ApartmentSeeder extends Seeder
                 "address" => "Woodland Avenue, 789",
                 "service" => ["Balcone", "Parcheggio"],
                 "latitude" => 47.6062,
-                "longitude" => -122.3321
+                "longitude" => -122.3321,
+                'visible' => 1
             ],
 
             [
@@ -295,7 +316,8 @@ class ApartmentSeeder extends Seeder
                 "address" => "Mountain View Drive, 234",
                 "service" => ["Terrazza", "Camino", "Garage"],
                 "latitude" => 39.7392,
-                "longitude" => -104.9903
+                "longitude" => -104.9903,
+                'visible' => 1
             ],
 
             [
@@ -311,7 +333,8 @@ class ApartmentSeeder extends Seeder
                 "address" => "Schönhauser Allee, 78",
                 "service" => ["Wi-Fi", "Riscaldamento"],
                 "latitude" => 52.5200,
-                "longitude" => 13.4050
+                "longitude" => 13.4050,
+                'visible' => 1
             ],
 
             [
@@ -327,7 +350,8 @@ class ApartmentSeeder extends Seeder
                 "address" => "Beverly Hills, 456",
                 "service" => ["Piscina", "Palestra", "Sicurezza 24/7"],
                 "latitude" => 34.0522,
-                "longitude" => -118.2437
+                "longitude" => -118.2437,
+                'visible' => 0
             ],
         ];
 
@@ -350,6 +374,7 @@ class ApartmentSeeder extends Seeder
             $newApartment->visible = $apartment["visible"];
             $newApartment->latitude = $apartment["latitude"];
             $newApartment->longitude = $apartment["longitude"];
+            $newApartment->save();
         }
     }
 }
