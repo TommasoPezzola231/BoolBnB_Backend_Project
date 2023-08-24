@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Apartment;
+use App\Models\Image;
 use App\Models\Service;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -23,6 +24,7 @@ class ApartmentSeeder extends Seeder
         Schema::enableForeignKeyConstraints();
 
         $allServices = Service::all(["id"]);
+        $allImage = Image::all(["id"]);
 
         $apartments = [
             [
@@ -362,7 +364,7 @@ class ApartmentSeeder extends Seeder
             $newApartment->user_id = $apartment["user_id"];
             $newApartment->title = $apartment["title"];
             $newApartment->principal_image = $apartment["principal_image"];
-            $newApartment->imageID = $apartment["imageID"];
+            $newApartment->imageID = $allImage->random()->id;
             $newApartment->description = $apartment["description"];
             $newApartment->price = $apartment["price"];
             $newApartment->country = $apartment["country"];
