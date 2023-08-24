@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Appartment;
+use App\Models\Message;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreAppartmentRequest;
-use App\Http\Requests\UpdateAppartmentRequest;
+use App\Http\Requests\StoreMessageRequest;
+use App\Http\Requests\UpdateMessageRequest;
 
-class AppartmentController extends Controller
+class MessageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,16 +26,16 @@ class AppartmentController extends Controller
      */
     public function create()
     {
-        return view("admin.appartments.create");
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreAppartmentRequest  $request
+     * @param  \App\Http\Requests\StoreMessageRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreAppartmentRequest $request)
+    public function store(StoreMessageRequest $request)
     {
         //
     }
@@ -43,10 +43,10 @@ class AppartmentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Appartment  $appartment
+     * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function show(Appartment $appartment)
+    public function show(Message $message)
     {
         //
     }
@@ -54,10 +54,10 @@ class AppartmentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Appartment  $appartment
+     * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function edit(Appartment $appartment)
+    public function edit(Message $message)
     {
         //
     }
@@ -65,11 +65,11 @@ class AppartmentController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateAppartmentRequest  $request
-     * @param  \App\Models\Appartment  $appartment
+     * @param  \App\Http\Requests\UpdateMessageRequest  $request
+     * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateAppartmentRequest $request, Appartment $appartment)
+    public function update(UpdateMessageRequest $request, Message $message)
     {
         //
     }
@@ -77,10 +77,10 @@ class AppartmentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Appartment  $appartment
+     * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Appartment $appartment)
+    public function destroy(Message $message)
     {
         //
     }
