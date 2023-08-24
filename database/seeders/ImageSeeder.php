@@ -27,7 +27,7 @@ class ImageSeeder extends Seeder
             $newImage->Image_url = $faker->image();
             $newImage->apartment_id = $apartmentsID->random()->id;
 
-            $$newImage->save();
+            $newImage->save();
         }
     }
 }
