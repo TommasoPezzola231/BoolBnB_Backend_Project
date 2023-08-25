@@ -18,13 +18,13 @@ return new class extends Migration
             $table->foreignId('user_id');
             $table->string("title", 255);
             $table->string("principal_image", 255);
-            $table->string("imageID");
+            $table->string("imageID")->nullable();
             $table->text("description");
             $table->decimal("price", 10, 2);
             $table->string("country", 50);
             $table->tinyInteger("num_rooms");
             $table->tinyInteger("num_bathrooms");
-            $table->tinyInteger("square_meters");
+            $table->bigInteger("square_meters");
             $table->string("address", 255);
             $table->string("serviceID");
             $table->boolean("visible");
