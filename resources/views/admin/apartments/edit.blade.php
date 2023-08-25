@@ -76,27 +76,27 @@
 
 
         {{-- input per stanze --}}
-        <label for="num_room" class="form-label">Stanze</label>
-        <select class="form-select" id="num_room" name="num_room">
+        <label for="num_rooms" class="form-label">Stanze</label>
+        <select class="form-select" id="num_rooms" name="num_rooms">
             <option selected disabled>Select a type</option>
             @for ($i = 1; $i <= 15; $i++)
                 <option value="{{ $i }}">{{ $i }}</option>
             @endfor
         </select>
-        @error('num_room')
+        @error('num_rooms')
             <div class="invalid-feedback">{{ $message }}</div>
         @enderror
 
 
         {{-- input per bagni --}}
-        <label for="num_bathroom" class="form-label">Bagno</label>
-        <select class="form-select" id="num_bathroom" name="num_bathroom">
+        <label for="num_bathrooms" class="form-label">Bagno</label>
+        <select class="form-select" id="num_bathrooms" name="num_bathrooms">
             <option selected disabled>Select a type</option>
             @for ($i = 1; $i <= 7; $i++)
                 <option value="{{ $i }}">{{ $i }}</option>
             @endfor
         </select>
-        @error('num_bathroom')
+        @error('num_bathrooms')
             <div class="invalid-feedback">{{ $message }}</div>
         @enderror
 
