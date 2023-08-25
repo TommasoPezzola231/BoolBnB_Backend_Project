@@ -15,6 +15,7 @@ class Apartment extends Model
         "imageID",
         "description",
         "price",
+        "City",
         "country",
         "num_rooms",
         "num_bathrooms",
@@ -36,7 +37,8 @@ class Apartment extends Model
         return $this->hasMany(Message::class);
     }
 
-    public function images() {
+    public function images()
+    {
         return $this->hasMany(Image::class);
     }
 }
