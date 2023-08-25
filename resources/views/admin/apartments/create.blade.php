@@ -1,6 +1,17 @@
 @extends('layouts.admin')
 
 @section('content')
+    {{-- validation errors --}}
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                {{-- loop to show all the errors --}}
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+            <div>
+    @endif
     <form action="{{ route('admin.apartments.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
@@ -14,11 +25,23 @@
         <input class="form-control" type="text" name="title" value="{{ old('title') }}" required>
 
         {{-- input per immagine --}}
-        <label for="image">Immagine</label>
+
+        <label for="principal_image">Carica Immagine</label>
+        <div class="d-flex align-items-center p-2 mb-4 gap-2">
+            {{-- <img id="previewCreate" src="{{ asset('/storage') . '/placeholder/placeholder-img.png' }}" alt="img"
+                width="50" height="50" class="object-fit-cover rounded"> --}}
+            <input type="file" name="principal_image" id="imgCreate" value="{{ old('principal_image') }}"
+                class="form-control @error('principal_image') is-invalid @enderror">
+        </div>
+        @error('principal_image')
+            <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
+
+        {{-- <label for="image">Immagine</label>
         @error('principal_image')
             <div class="bg-danger-subtle rounded">{{ $message }}</div>
         @enderror
-        <input class="form-control" type="text" name="title" value="{{ old('principal_image') }}" required>
+        <input class="form-control" type="text" name="title" value="{{ old('principal_image') }}" required> --}}
 
 
         {{-- input per decrizione --}}

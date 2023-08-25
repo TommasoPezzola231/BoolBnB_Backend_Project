@@ -9,6 +9,7 @@ use App\Models\Service;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreApartmentRequest;
 use App\Http\Requests\UpdateApartmentRequest;
+use Illuminate\Support\Facades\Storage;
 
 class ApartmentController extends Controller
 {
@@ -33,6 +34,7 @@ class ApartmentController extends Controller
     {
         $services = Service::all();
 
+
         return view("admin.apartments.create", compact('services'));
     }
 
@@ -46,8 +48,11 @@ class ApartmentController extends Controller
     {
         $data = $request->validated();
 
-        // $img_path = storage::put('uploads', $data['image']);
-        // $data['image'] = $img_path;
+
+        $img_path = $data["principal_image"]->store("uploads");
+        // $img_path = Storage::put("uploads", $data["image"]);
+        $data['principal_image'] = $img_path;
+
 
         $newApartment = new Apartment();
         $newApartment->fill($data);
@@ -56,7 +61,7 @@ class ApartmentController extends Controller
 
         $newApartment->save();
 
-        return to_route('admin.apartments.index', $newApartment->id); // da cambiare dopo
+        return to_route('admin.apartments.show', $newApartment->id);
     }
 
     /**
@@ -94,8 +99,8 @@ class ApartmentController extends Controller
     {
         $data = $request->validated();
 
-        // $img_path = storage::put('uploads', $data['image']);
-        // $data['image'] = $img_path;
+        $img_path = storage::put('uploads', $data['image']);
+        $data['image'] = $img_path;
 
         $newApartment = new Apartment();
         $newApartment->fill($data);
