@@ -55,11 +55,12 @@ class ApartmentController extends Controller
 
 
         $newApartment = new Apartment();
+
         $newApartment->fill($data);
 
-        $newApartment->services()->attach($data['serviceID']);
-
         $newApartment->save();
+
+        $newApartment->services()->attach($data['serviceID']);
 
         return to_route('admin.apartments.show', $newApartment->id);
     }
@@ -102,14 +103,16 @@ class ApartmentController extends Controller
         $img_path = storage::put('uploads', $data['image']);
         $data['image'] = $img_path;
 
-        $newApartment = new Apartment();
-        $newApartment->fill($data);
+        $apartment = new Apartment();
+        $apartment->fill($data);
 
-        $newApartment->services()->attach($data['serviceID']);
+        // $newApartment->services()->attach($data['serviceID']);
 
-        $newApartment->update();
+        $apartment->update();
 
-        return to_route('admin.apartments.index', $newApartment->id); //da cambiare
+        $apartment->services()->sync($data["serviceID"]);
+
+        return to_route('admin.apartments.index', $apartment->id); //da cambiare
     }
 
     /**

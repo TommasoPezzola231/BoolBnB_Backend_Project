@@ -28,7 +28,7 @@ class Apartment extends Model
 
     public function services()
     {
-        return $this->belongToMany(Service::class);
+        return $this->hasMany(Service::class);
     }
 
     public function messages()
@@ -36,7 +36,8 @@ class Apartment extends Model
         return $this->hasMany(Message::class);
     }
 
-    public function images() {
+    public function images()
+    {
         return $this->hasMany(Image::class);
     }
 }
