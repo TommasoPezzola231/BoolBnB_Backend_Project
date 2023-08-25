@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Apartment;
+use App\Models\User;
+use App\Models\Service;
+
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreApartmentRequest;
 use App\Http\Requests\UpdateApartmentRequest;
@@ -16,7 +19,9 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-        //
+        $apartments = Apartment::all();
+
+        return view('admin.apartments.index', compact('apartments'));
     }
 
     /**
@@ -26,7 +31,9 @@ class ApartmentController extends Controller
      */
     public function create()
     {
-        return view("admin.apartments.create");
+        $services = Service::all();
+
+        return view("admin.apartments.create", compact('services'));
     }
 
     /**
@@ -37,7 +44,19 @@ class ApartmentController extends Controller
      */
     public function store(StoreApartmentRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        // $img_path = storage::put('uploads', $data['image']);
+        // $data['image'] = $img_path;
+
+        $newApartment = new Apartment();
+        $newApartment->fill($data);
+
+        $newApartment->services()->attach($data['serviceID']);
+
+        $newApartment->save();
+
+        return to_route('admin.apartments.index', $newApartment->id); // da cambiare dopo
     }
 
     /**
@@ -48,7 +67,7 @@ class ApartmentController extends Controller
      */
     public function show(Apartment $apartment)
     {
-        //
+        return view('admin.apartments.show', compact('apartment'));
     }
 
     /**
@@ -59,7 +78,9 @@ class ApartmentController extends Controller
      */
     public function edit(Apartment $apartment)
     {
-        //
+        $services = Service::all();
+
+        return view('admin.apartments.edit', compact('apartment', 'services'));
     }
 
     /**
@@ -71,7 +92,19 @@ class ApartmentController extends Controller
      */
     public function update(UpdateApartmentRequest $request, Apartment $apartment)
     {
-        //
+        $data = $request->validated();
+
+        // $img_path = storage::put('uploads', $data['image']);
+        // $data['image'] = $img_path;
+
+        $newApartment = new Apartment();
+        $newApartment->fill($data);
+
+        $newApartment->services()->attach($data['serviceID']);
+
+        $newApartment->update();
+
+        return to_route('admin.apartments.index', $newApartment->id); //da cambiare
     }
 
     /**
@@ -82,6 +115,8 @@ class ApartmentController extends Controller
      */
     public function destroy(Apartment $apartment)
     {
-        //
+        $apartment->delete();
+
+        return redirect()->route("admin.apartments.index");
     }
 }
