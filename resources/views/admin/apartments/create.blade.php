@@ -19,10 +19,11 @@
 
         {{-- input per titolo --}}
         <label for="title">Titolo</label>
+        <input class="form-control" type="text" name="title" value="{{ old('title') }}" required>
         @error('title')
             <div class="bg-danger-subtle rounded">{{ $message }}</div>
         @enderror
-        <input class="form-control" type="text" name="title" value="{{ old('title') }}" required>
+
 
         {{-- input per immagine --}}
 
@@ -46,26 +47,29 @@
 
         {{-- input per decrizione --}}
         <label for="description">Descrizione</label>
+        <input class="form-control" type="text" name="description" value="{{ old('description') }}" required>
+
         @error('description')
             <div class="bg-danger-subtle rounded">{{ $message }}</div>
         @enderror
-        <input class="form-control" type="text" name="description" value="{{ old('description') }}" required>
 
 
         {{-- input per prezzo --}}
         <label for="price">Prezzo</label>
+        <input class="form-control" type="text" name="price" value="{{ old('price') }}" required>
+
         @error('price')
             <div class="bg-danger-subtle rounded">{{ $message }}</div>
         @enderror
-        <input class="form-control" type="text" name="price" value="{{ old('price') }}" required>
 
 
         {{-- input per paese --}}
         <label for="country">Paese</label>
+        <input class="form-control" type="text" name="country" value="{{ old('country') }}" required>
+
         @error('country')
             <div class="bg-danger-subtle rounded">{{ $message }}</div>
         @enderror
-        <input class="form-control" type="text" name="country" value="{{ old('country') }}" required>
 
 
         {{-- input per stanze --}}
@@ -104,10 +108,20 @@
         {{-- input per indirizzo --}}
 
         <label for="address">Indirizzo</label>
+        <input class="form-control" type="text" name="address" value="{{ old('address') }}" required>
+
         @error('address')
             <div class="bg-danger-subtle rounded">{{ $message }}</div>
         @enderror
-        <input class="form-control" type="text" name="address" value="{{ old('address') }}" required>
+
+
+        @foreach ($services as $i => $service)
+            <div class="form-check">
+                <input type="checkbox" value="{{ $service->name_service }}" name="services[]"
+                    id="services{{ $i }}" class="form-check-input">
+                <label for="services{{ $i }}" class="form-check-label">{{ $service->name_service }}</label>
+            </div>
+        @endforeach
 
 
         {{-- input per visibilità --}}

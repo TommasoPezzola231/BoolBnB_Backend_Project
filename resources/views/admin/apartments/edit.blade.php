@@ -12,7 +12,8 @@
             </ul>
             <div>
     @endif
-    <form action="{{ route('admin.apartments.update', ['apartment' => $apartment->id]) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.apartments.update', ['apartment' => $apartment->id]) }}" method="POST"
+        enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -109,6 +110,14 @@
             <div class="bg-danger-subtle rounded">{{ $message }}</div>
         @enderror
         <input class="form-control" type="text" name="address" value="{{ old('address') }}" required>
+
+        @foreach ($services as $i => $service)
+            <div class="form-check">
+                <input type="checkbox" value="{{ $service->name_service }}" name="services[]"
+                    id="services{{ $i }}" class="form-check-input">
+                <label for="services{{ $i }}" class="form-check-label">{{ $service->name_service }}</label>
+            </div>
+        @endforeach
 
 
         {{-- input per visibilità --}}
