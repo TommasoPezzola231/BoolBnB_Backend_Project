@@ -124,7 +124,7 @@ class ApartmentSeeder extends Seeder
                 'address' => 'Via Milano 456',
                 'service' => ['Piscina', 'Palestra', 'Sicurezza 24/7'],
                 'latitude' => 41.9028,
-                'longitude' => 9.1900,
+                'longitude' => 12.4964,
                 'visible' => 1
             ],
             [
@@ -141,7 +141,7 @@ class ApartmentSeeder extends Seeder
                 'address' => 'Via Napoli 789',
                 'service' => ['Vista mare', 'Terrazza', 'Parcheggio'],
                 'latitude' => 41.9028,
-                'longitude' => 14.2681,
+                'longitude' => 12.4964,
                 'visible' => 1
             ],
             [
@@ -175,7 +175,7 @@ class ApartmentSeeder extends Seeder
                 "address" => "Via del Corso, 123",
                 "service" => ["Wi-Fi", "Aria condizionata", "Riscaldamento"],
                 "latitude" => 41.9028,
-                "longitude" => 12.4964,
+                'longitude' => 12.4964,
                 'visible' => 1
             ],
             [
@@ -192,7 +192,7 @@ class ApartmentSeeder extends Seeder
                 "address" => "Carrer de la Marina, 45",
                 "service" => ["Piscina", "Palestra", "Garage"],
                 "latitude" => 41.9028,
-                "longitude" => 2.1734,
+                'longitude' => 12.4964,
                 'visible' => 0
             ],
             [
@@ -209,7 +209,7 @@ class ApartmentSeeder extends Seeder
                 "address" => "Via dei Calzaiuoli, 67",
                 "service" => ["Wi-Fi", "Riscaldamento"],
                 "latitude" => 41.9028,
-                "longitude" => 11.2558,
+                'longitude' => 12.4964,
                 'visible' => 1
             ],
 
@@ -227,7 +227,7 @@ class ApartmentSeeder extends Seeder
                 "address" => "Abbey Road, 10",
                 "service" => ["Terrazza", "Aria condizionata", "Garage"],
                 "latitude" => 41.9028,
-                "longitude" => -0.1278,
+                'longitude' => 12.4964,
                 'visible' => 1
             ],
 
@@ -245,7 +245,7 @@ class ApartmentSeeder extends Seeder
                 "address" => "Via delle Vigne, 22",
                 "service" => ["Giardino", "Camino"],
                 "latitude" => 41.9028,
-                "longitude" => 11.2486,
+                'longitude' => 12.4964,
                 'visible' => 1
             ],
 
@@ -263,7 +263,7 @@ class ApartmentSeeder extends Seeder
                 "address" => "5th Avenue, 123",
                 "service" => ["Portineria", "Piscina", "Palestra"],
                 "latitude" => 41.9028,
-                "longitude" => -74.0060,
+                'longitude' => 12.4964,
                 'visible' => 1
             ],
             [
@@ -280,7 +280,7 @@ class ApartmentSeeder extends Seeder
                 "address" => "Ocean Drive, 456",
                 "service" => ["Accesso diretto alla spiaggia", "Parcheggio", "Piscina"],
                 "latitude" => 41.9028,
-                "longitude" => -80.1918,
+                'longitude' => 12.4964,
                 'visible' => 1
             ],
 
@@ -298,7 +298,7 @@ class ApartmentSeeder extends Seeder
                 "address" => "Staroměstské náměstí, 15",
                 "service" => ["Riscaldamento", "Posizione centrale"],
                 "latitude" => 41.9028,
-                "longitude" => 14.4378,
+                'longitude' => 12.4964,
                 'visible' => 1
             ],
 
@@ -316,7 +316,7 @@ class ApartmentSeeder extends Seeder
                 "address" => "Woodland Avenue, 789",
                 "service" => ["Balcone", "Parcheggio"],
                 "latitude" => 41.9028,
-                "longitude" => -122.3321,
+                'longitude' => 12.4964,
                 'visible' => 1
             ],
 
@@ -334,7 +334,7 @@ class ApartmentSeeder extends Seeder
                 "address" => "Mountain View Drive, 234",
                 "service" => ["Terrazza", "Camino", "Garage"],
                 "latitude" => 41.9028,
-                "longitude" => -104.9903,
+                'longitude' => 12.4964,
                 'visible' => 1
             ],
 
@@ -352,7 +352,7 @@ class ApartmentSeeder extends Seeder
                 "address" => "Schönhauser Allee, 78",
                 "service" => ["Wi-Fi", "Riscaldamento"],
                 "latitude" => 41.9028,
-                "longitude" => 13.4050,
+                'longitude' => 12.4964,
                 'visible' => 1
             ],
 
@@ -370,7 +370,7 @@ class ApartmentSeeder extends Seeder
                 "address" => "Beverly Hills, 456",
                 "service" => ["Piscina", "Palestra", "Sicurezza 24/7"],
                 "latitude" => 41.9028,
-                "longitude" => -118.2437,
+                'longitude' => 12.4964,
                 'visible' => 0
             ],
         ];
