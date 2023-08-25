@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('views', function (Blueprint $table) {
             $table->id();
             $table->foreignId('apartment_id')->constrained();
-            $table->string('ip', 20);
-            $table->dateTime('viewed_at',);
+            $table->ipAddress('ip_adress');
+            $table->dateTime('viewed_at');
             $table->timestamps();
         });
     }
