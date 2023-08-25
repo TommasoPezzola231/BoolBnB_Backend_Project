@@ -7,5 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class view extends Model
 {
+    // protected $fillable = [
+    //     'apartment_id',
+    //     'ip',
+    //     'viewed_at',
+    // ];
+
+
     use HasFactory;
 }
