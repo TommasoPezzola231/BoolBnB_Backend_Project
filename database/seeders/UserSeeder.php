@@ -23,21 +23,21 @@ class UserSeeder extends Seeder
                 "surname" => "Sansi",
                 "birth_date" => "1975/07/04",
                 "email" => "Sansimone@ciao.it",
-                "password" => "prova123",
+                "password" => '$2y$10$nsKQuan86Z9wevj6qUnz1ext8DIDWWZp49Au6dT1xjeZ0fIUDzbn.',
             ],
             [
                 "name" => "Marino",
                 "surname" => "Caro",
                 "birth_date" => "1955/07/04",
                 "email" => "caro@Marino.it",
-                "password" => "prova123",
+                "password" => '$2y$10$nsKQuan86Z9wevj6qUnz1ext8DIDWWZp49Au6dT1xjeZ0fIUDzbn.',
             ],
             [
                 "name" => "Nessi",
                 "surname" => "Loch",
                 "birth_date" => "2003/03/04",
                 "email" => "L.Nessi@lake.it",
-                "password" => "prova123",
+                "password" => '$2y$10$nsKQuan86Z9wevj6qUnz1ext8DIDWWZp49Au6dT1xjeZ0fIUDzbn.',
             ],
             [
 
@@ -45,7 +45,7 @@ class UserSeeder extends Seeder
                 "surname" => "Ciccone",
                 "birth_date" => "2001/10/02",
                 "email" => "Ciccio@berto.it",
-                "password" => "prova123",
+                "password" => '$2y$10$nsKQuan86Z9wevj6qUnz1ext8DIDWWZp49Au6dT1xjeZ0fIUDzbn.',
             ],
         ];
 
