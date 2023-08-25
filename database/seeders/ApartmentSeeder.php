@@ -29,7 +29,7 @@ class ApartmentSeeder extends Seeder
                 'user_id' => 1,
                 'title' => 'Appartamento elegante nel centro storico',
                 'principal_image' => 'path/immagine.jpg',
-                // 'imageID' => 'path/immagine.jpg',
+                'imageID' => 'path/immagine.jpg',
                 'description' => 'Spazioso appartamento nel cuore della city, arredato con stile e comfort.',
                 'price' => 120,
                 'country' => 'Italia',
@@ -47,7 +47,7 @@ class ApartmentSeeder extends Seeder
                 'user_id' => 2,
                 'title' => 'Appartamento accogliente vicino alla spiaggia',
                 'principal_image' => 'path/immagine2.jpg',
-                // 'imageID' => 'path/immagine.jpg',
+                'imageID' => 'path/immagine.jpg',
                 'description' => 'Appartamento luminoso a pochi passi dalla spiaggia, ideale per le vacanze estive.',
                 'price' => 80,
                 'country' => 'Italia',
@@ -65,7 +65,7 @@ class ApartmentSeeder extends Seeder
                 'user_id' => 1,
                 'title' => 'Appartamento elegante nel centro storico',
                 'pricipal_img' => 'img1.jpg',
-                // 'imageID' => 'path/immagine.jpg',
+                'imageID' => 'path/immagine.jpg',
                 'description' => 'Splendido appartamento nel cuore della city, arredato con stile.',
                 'price' => 150,
                 'country' => 'Italia',
@@ -83,7 +83,7 @@ class ApartmentSeeder extends Seeder
                 'user_id' => 1,
                 'title' => 'Appartamento moderno con vista panoramica',
                 'pricipal_img' => 'img2.jpg',
-                // 'imageID' => 'path/immagine.jpg',
+                'imageID' => 'path/immagine.jpg',
                 'description' => 'Appartamento di lusso con una vista mozzafiato sulla city.',
                 'price' => 200,
                 'country' => 'Italia',
@@ -365,7 +365,7 @@ class ApartmentSeeder extends Seeder
 
 
         $allServices = Service::all(["id"]);
-        // $allImage = Image::all(["id"]);
+        $allImage = Image::all(["id"]);
 
         foreach ($apartments as $apartment) {
 
@@ -374,7 +374,7 @@ class ApartmentSeeder extends Seeder
             $newApartment->user_id = $apartment["user_id"];
             $newApartment->title = $apartment["title"];
             $newApartment->principal_image = $faker->imageUrl();
-            // $newApartment->imageID = $allImage->random()->id;
+            $newApartment->imageID = $allImage->random()->id;
             $newApartment->description = $apartment["description"];
             $newApartment->price = $apartment["price"];
             $newApartment->country = $apartment["country"];
@@ -383,7 +383,7 @@ class ApartmentSeeder extends Seeder
             $newApartment->num_bathrooms = $apartment["num_bathrooms"];
             $newApartment->square_meters = $apartment["square_meters"];
             $newApartment->address = $apartment["address"];
-            $newApartment->serviceID = $allServices->random()->id; //
+            $newApartment->serviceID = $allServices->random()->id;
             $newApartment->visible = $apartment["visible"];
             $newApartment->latitude = $apartment["latitude"];
             $newApartment->longitude = $apartment["longitude"];
