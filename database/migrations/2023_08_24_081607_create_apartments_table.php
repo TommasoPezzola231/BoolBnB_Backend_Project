@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string("imageID")->nullable();
             $table->text("description");
             $table->decimal("price", 10, 2);
+            $table->string("city", 50);
             $table->string("country", 50);
             $table->tinyInteger("num_rooms");
             $table->tinyInteger("num_bathrooms");
