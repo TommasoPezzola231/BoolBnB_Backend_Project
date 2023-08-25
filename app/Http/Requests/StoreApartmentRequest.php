@@ -30,6 +30,7 @@ class StoreApartmentRequest extends FormRequest
             'serviceID' => 'required|exists:services,id',
             'price' => 'required|',
             'country' => 'required|min:3|max:50',
+            'city' => 'required|min:3|max:50',
             'num_rooms' => 'required|integer|between:1,15',
             'num_bathrooms' => 'required|integer|between:1,7',
             'square_meters' => 'required|integer|between:10,400',
@@ -64,6 +65,10 @@ class StoreApartmentRequest extends FormRequest
             'country.required' => 'Aggiungi città',
             'country.min' => 'Devi inserire almeno :min Caratteri',
             'country.max' => 'Puoi inserire un massimo di :max caratteri',
+
+            'city.required' => 'Aggiungi città',
+            'city.min' => 'Devi inserire almeno :min Caratteri',
+            'city.max' => 'Puoi inserire un massimo di :max caratteri',
 
             'num_rooms.required' => 'Indica il numero di stanze disponibili',
             'num_bathrooms.required' => 'Indica il numero di bagni disponibili',
