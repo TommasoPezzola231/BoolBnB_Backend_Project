@@ -35,6 +35,8 @@ class UpdateApartmentRequest extends FormRequest
             'square_meters' => 'required|integer|between:10,400',
             'address' => 'required|min:10|max:255',
             'visible' => 'required|boolean',
+            'latitude' => 'required',
+            'longitude' => 'required',
         ];
     }
 
