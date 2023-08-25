@@ -8,6 +8,7 @@ use App\Models\Service;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Schema;
+use Faker\Generator as Faker;
 
 class ApartmentSeeder extends Seeder
 {
@@ -16,15 +17,14 @@ class ApartmentSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
 
         Schema::disableForeignKeyConstraints();
         Apartment::truncate();
         Schema::enableForeignKeyConstraints();
 
-        $allServices = Service::all(["id"]);
-        $allImage = Image::all(["id"]);
+
 
         $apartments = [
             [
@@ -357,14 +357,18 @@ class ApartmentSeeder extends Seeder
             ],
         ];
 
+
+        $allServices = Service::all(["id"]);
+        // $allImage = Image::all(["id"]);
+
         foreach ($apartments as $apartment) {
 
             $newApartment = new Apartment();
 
             $newApartment->user_id = $apartment["user_id"];
             $newApartment->title = $apartment["title"];
-            $newApartment->principal_image = $apartment["principal_image"];
-            $newApartment->imageID = $allImage->random()->id;
+            $newApartment->principal_image = $faker->imageUrl();
+            // $newApartment->imageID = $allImage->random()->id;
             $newApartment->description = $apartment["description"];
             $newApartment->price = $apartment["price"];
             $newApartment->country = $apartment["country"];
@@ -372,7 +376,7 @@ class ApartmentSeeder extends Seeder
             $newApartment->num_bathrooms = $apartment["num_bathrooms"];
             $newApartment->square_meters = $apartment["square_meters"];
             $newApartment->address = $apartment["address"];
-            $newApartment->service_id = $allServices->random()->id; //
+            $newApartment->serviceID = $allServices->random()->id; //
             $newApartment->visible = $apartment["visible"];
             $newApartment->latitude = $apartment["latitude"];
             $newApartment->longitude = $apartment["longitude"];

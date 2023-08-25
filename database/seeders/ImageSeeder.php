@@ -21,10 +21,10 @@ class ImageSeeder extends Seeder
 
         $apartmentsID = Apartment::all(["id"]);
 
-        for ($i=1; $i < 30; $i++) { 
+        for ($i = 1; $i < 30; $i++) {
             $newImage = new Image();
 
-            $newImage->Image_url = $faker->image();
+            $newImage->Image_url = $faker->imageUrl();
             $newImage->apartment_id = $apartmentsID->random()->id;
 
             $newImage->save();
