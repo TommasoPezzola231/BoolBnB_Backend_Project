@@ -13,7 +13,7 @@ class StoreApartmentRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,56 @@ class StoreApartmentRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required|min:3|max:50',
+            'description' => 'required|min:5',
+            'principal_image' => 'nullable',
+            'serviceID' => 'required|exists:services,id',
+            'price' => 'required|decimal:10,2',
+            'country' => 'required|min:3|max:50',
+            'num_rooms' => 'required|integer|between:1,15',
+            'num_bathrooms' => 'required|integer|between:1,7',
+            'square_meters' => 'required|integer|between:10,400',
+            'address' => 'required|min:10|max:255',
+            'visible' => 'required|boolean',
+        ];
+    }
+
+    /**
+     * Get the validation messages that apply to the request.
+     *
+     * @return array<string, mixed>
+     */
+    public function messages()
+    {
+        return [
+            "title.required" => "Il Titolo è obbligatorio!",
+            "title.min" => "Devi inserire almeno :min Caratteri",
+            "title.max" => "Puoi inserire un massimo di :max caratteri",
+
+            "description.required" => "Il contenuto è obbligatorio!",
+            "description.min" => "Devi inserire almeno :min caratteri",
+
+            "principal_image.max" => "Puoi inserire un massimo di :max caratteri",
+
+            'serviceID.required' => "Devi inserire almeno un servizio",
+
+            'price.required' => 'Indica il prezzo',
+            'price.decimal' => 'Indica il prezzo',
+
+            'country.required' => 'Aggiungi città',
+            'country.min' => 'Devi inserire almeno :min Caratteri',
+            'country.max' => 'Puoi inserire un massimo di :max caratteri',
+
+            'num_rooms.required' => 'Indica il numero di stanze disponibili',
+            'num_bathrooms.required' => 'Indica il numero di bagni disponibili',
+            'square_meters.required' => 'Indica i metri quadri disponibili',
+
+            'address.required' => 'Aggiungi indirizzo',
+            'address.min' => 'Devi inserire almeno :min Caratteri',
+            'address.max' => 'Puoi inserire un massimo di :max caratteri',
+
+            'visible.required' => 'Indica se privato o meno'
+
         ];
     }
 }
