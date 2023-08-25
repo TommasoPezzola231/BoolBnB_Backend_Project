@@ -15,7 +15,7 @@ class Apartment extends Model
         "imageID",
         "description",
         "price",
-        "City",
+        "city",
         "country",
         "num_rooms",
         "num_bathrooms",
