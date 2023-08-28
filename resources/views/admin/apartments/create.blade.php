@@ -127,4 +127,34 @@
         {{-- crea --}}
         <button class="btn btn-success my-2" type="submit" value="Modifica">Crea</button>
     </form>
+
+
+    <script>
+        const apiKey = "{{ env('TOMTOM_API_KEY') }}";
+        const searchURL = 'https://api.tomtom.com/search/2/search/';
+
+        const addressInput = document.getElementById('address');
+        const cityInput = document.getElementById('city');
+        const countryInput = document.getElementById('country');
+
+        addressInput.addEventListener('input', async () => {
+            const query = addressInput.value;
+
+            if (query.length >= 2) {
+                const response = await fetch(`${searchURL}${query}.json?key=${apiKey}`);
+                const suggestions = await response.json();
+
+                if (suggestions.results && suggestions.results.length > 0) {
+                    const firstResult = suggestions.results[0];
+
+                    cityInput.value = firstResult.address.municipality || '';
+                    countryInput.value = firstResult.address.country || '';
+                    inputLat.value = firstResult.position.lat || '';
+                    inputLon.value = firstResult.position.lon || '';
+                }
+            }
+        });
+    </script>
+
 @endsection
+
