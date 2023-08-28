@@ -121,21 +121,41 @@ class ApartmentController extends Controller
      */
     public function update(UpdateApartmentRequest $request, Apartment $apartment)
     {
+
+        $indirizzo = $request['address'];
+        $url = 'https://api.tomtom.com/search/2/geocode/' . urlencode($indirizzo) . '.json';
+
+        $response = Http::get($url, [
+            'key' => 'U6BQ1DicdzYIkj5nrK4823OxJuCY6gyP' //env('KEY_TOMTOM') 
+        ]);
+
+        $data_api = $response->json();
+
+        $latitudine = $data_api['results'][0]['position']['lat'];
+        $longitudine = $data_api['results'][0]['position']['lon'];
+        
         $data = $request->validated();
 
-        $img_path = storage::put('uploads', $data['image']);
-        $data['image'] = $img_path;
+        $data['latitude'] = $latitudine;
+        $data['longitude'] = $longitudine;
 
-        $apartment = new Apartment();
-        $apartment->fill($data);
+        if (array_key_exists("principal_image", $data)) {
+            
+            //$img_path = $data["principal_image"]->store("uploads");
+            $img_path = Storage::put("uploads", $data["principal_image"]);
+            $data['principal_image'] = $img_path;
+        }
 
-        // $newApartment->services()->attach($data['serviceID']);
+        //$apartment = new Apartment();
+        //$apartment->fill($data);
 
-        $apartment->update();
-
+        
+        $apartment->update($data);
+        
+        //$apartment->services()->attach($data['serviceID']);
         $apartment->services()->sync($data["serviceID"]);
 
-        return to_route('admin.apartments.index', $apartment->id); //da cambiare
+        return to_route('admin.apartments.show', $apartment->id); //da cambiare
     }
 
     /**

@@ -28,7 +28,7 @@ class UpdateApartmentRequest extends FormRequest
             'description' => 'required|min:5',
             'principal_image' => 'nullable',
             'serviceID' => 'required|exists:services,id',
-            'price' => 'required|decimal:10,2',
+            'price' => 'required|',
             'country' => 'required|min:3|max:50',
             'city' => 'required|min:3|max:50',
             'num_rooms' => 'required|integer|between:1,15',
@@ -36,8 +36,8 @@ class UpdateApartmentRequest extends FormRequest
             'square_meters' => 'required|integer|between:10,400',
             'address' => 'required|min:10|max:255',
             'visible' => 'required|boolean',
-            'latitude' => 'required',
-            'longitude' => 'required',
+            //'latitude' => 'required',
+            //'longitude' => 'required',
         ];
     }
 
