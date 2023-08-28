@@ -17,10 +17,12 @@
                     </div>
                     {{-- body --}}
                     <div class="card-body">
-                        <img src="{{ ($apartment['principal_image']) ? asset('storage/' . $apartment->principal_image) : "https://www.signfix.com.au/wp-content/uploads/2017/09/placeholder-600x400.png" }}" class="card-img-top" alt="{{ $apartment->title }}">
+                        <img src="{{ $apartment['principal_image'] ? asset('storage/' . $apartment->principal_image) : 'https://www.signfix.com.au/wp-content/uploads/2017/09/placeholder-600x400.png' }}"
+                            class="card-img-top" alt="{{ $apartment->title }}">
                         {{-- text --}}
                         <div class="card-tex py-3">
                             <p><strong>Paese :</strong> {{ $apartment->country }} </p>
+                            <p><strong>Città :</strong> {{ $apartment->city }} </p>
                             <p><strong>Descrizione :</strong> {{ $apartment->description }} </p>
                             <p><strong>Prezzo :</strong> {{ $apartment->price }} </p>
                             <p><strong>Stanze :</strong> {{ $apartment->num_rooms }}</p>
@@ -33,10 +35,10 @@
                                     <li>{{ $service->name_service }}</li>
                                 @endforeach
                             </ul>
-                                {{-- @foreach ($apartment->serviceID as $service)
+                            {{-- @foreach ($apartment->serviceID as $service)
                                     {{ $service->serviceID }}{{ $loop->last ? '' : ', ' }}
                                 @endforeach --}}
-                            
+
                             <p><strong>Visible :</strong> {{ $apartment->visible ? 'Yes' : 'No' }} </p>
                         </div>
                         {{-- footer --}}
