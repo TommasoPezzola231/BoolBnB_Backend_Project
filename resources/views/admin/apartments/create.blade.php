@@ -99,7 +99,6 @@
         {{-- input per indirizzo --}}
         <label for="address">Indirizzo</label>
         <input class="form-control" id="address" type="text" name="address" value="{{ old('address') }}" required>
-
         @error('address')
             <div class="bg-danger-subtle rounded">{{ $message }}</div>
         @enderror
