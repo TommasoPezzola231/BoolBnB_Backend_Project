@@ -8,13 +8,11 @@
                     <div class="card-header">{{ __('Registrati') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}">
+                        <form id="form" method="POST" action="{{ route('register') }}" onsubmit="register(event)">
                             @csrf
 
                             <div class="mb-4 row">
-                                <label for="name"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Nome') }}</label>
-
+                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nome') }}</label>
                                 <div class="col-md-6">
                                     <input id="name" type="text"
                                         class="form-control @error('name') is-invalid @enderror" name="name"
@@ -29,9 +27,7 @@
                             </div>
 
                             <div class="mb-4 row">
-                                <label for="surname"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Cognome') }}</label>
-
+                                <label for="surname" class="col-md-4 col-form-label text-md-right">{{ __('Cognome') }}</label>
                                 <div class="col-md-6">
                                     <input id="surname" type="text"
                                         class="form-control @error('surname') is-invalid @enderror" name="surname"
@@ -46,9 +42,7 @@
                             </div>
 
                             <div class="mb-4 row">
-                                <label for="birth_date"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Data di nascita') }}</label>
-
+                                <label for="birth_date" class="col-md-4 col-form-label text-md-right">{{ __('Data di nascita') }}</label>
                                 <div class="col-md-6">
                                     <input id="birth_date" type="date"
                                         class="form-control @error('birth_date') is-invalid @enderror" name="birth_date"
@@ -63,9 +57,7 @@
                             </div>
 
                             <div class="mb-4 row">
-                                <label for="email"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('email') }}</label>
-
+                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('email') }}</label>
                                 <div class="col-md-6">
                                     <input id="email" type="email"
                                         class="form-control @error('email') is-invalid @enderror" name="email"
@@ -80,13 +72,11 @@
                             </div>
 
                             <div class="mb-4 row">
-                                <label for="password"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
+                                <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
                                 <div class="col-md-6">
                                     <input id="password" type="password"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
-                                        required autocomplete="new-password">
+                                        required autocomplete="new-password" placeholder="Inserisci la password">
 
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
@@ -97,26 +87,76 @@
                             </div>
 
                             <div class="mb-4 row">
-                                <label for="password-confirm"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Conferma Password') }}</label>
+                                <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Conferma Password') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control"
-                                        name="password_confirmation" required autocomplete="new-password">
+                                        name="password_confirmation" required autocomplete="new-password" placeholder="conferma la password">
                                 </div>
                             </div>
 
                             <div class="mb-4 row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('Register') }}
+                                        {{ __('Registrati') }}
                                     </button>
                                 </div>
                             </div>
                         </form>
+
+                        {{-- log in href --}}
+                        <div class="mb-4 row">
+                            <div class="col-md-6 offset-md-4">
+                                <a href="{{ route('login') }}">Hai già un account? Accedi</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    {{-- axios --}}
+    <script>
+        function register(ev) {
+
+           ev.preventDefault();
+
+           const formData = new FormData(ev.target);
+
+            axios.post('/register', formData)
+              .then(function(response) {
+              // redirect alla dashboard utente
+              window.location.href = '{{ route('admin.dashboard') }}';
+            })
+                .catch(function(error) {
+                   // Display all errors
+                    const errors = error.response.data.errors;
+                    // loop errori e le stampa
+                    for (const fieldName in errors) {
+                       const inputElement = document.querySelector(`[name="${fieldName}"]`);
+                       const errorMessages = errors[fieldName].join(', ');
+                       inputElement.classList.add('is-invalid');
+                       inputElement.insertAdjacentHTML('afterend', `<div class="invalid-feedback">${errorMessages}</div>`);
+                    }
+
+                    // rimuove is anvalid
+                    const inputElements = document.querySelectorAll('.is-invalid');
+                    inputElements.forEach(function(inputElement) {
+                        inputElement.addEventListener('input', function() {
+                            this.classList.remove('is-invalid');
+                            this.nextElementSibling.remove();
+                        });
+                    });
+
+                    // se non ci sono piu errori manda i dati al server + redirect
+                    const errorMessages = document.querySelectorAll('.invalid-feedback');
+                    if (errorMessages.length === 0) {
+                        const form = document.getElementById('form');
+                        form.submit();
+                        window.location.href = '{{ route('admin.dashboard') }}';
+                    }
+                });
+        }
+    </script>
 @endsection
