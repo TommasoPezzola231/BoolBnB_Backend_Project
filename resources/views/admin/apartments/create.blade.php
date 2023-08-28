@@ -98,7 +98,12 @@
 
         {{-- input per indirizzo --}}
         <label for="address">Indirizzo</label>
-        <input class="form-control" id="address" type="text" name="address" value="{{ old('address') }}" required>
+        <input class="form-control" id="address" type="text" name="address" list="addressSuggestions" value="{{ old('address') }}" onkeyup="fetchAndPopulateSuggestions()"  required>
+
+
+        <datalist id="addressSuggestions">
+        </datalist>
+
         @error('address')
             <div class="bg-danger-subtle rounded">{{ $message }}</div>
         @enderror
@@ -153,6 +158,37 @@
                 }
             }
         });
+
+
+        //////////////
+
+        
+        function fetchAndPopulateSuggestions() {
+            
+        var input = document.getElementById('address').value.toLowerCase();
+        var inputWithHyphens = input.replace(/ /g, '-');
+        var datalist = document.getElementById('addressSuggestions');
+        datalist.innerHTML = ''; // Pulisci le opzioni suggerite precedenti
+
+        var apiUrl = 'https://api.tomtom.com/search/2/geocode/';
+        var fullUrl = `${apiUrl}${input}.json?key=${apiKey}`;
+        
+        // Effettua la chiamata AJAX per ottenere i suggerimenti dall'API
+        fetch(fullUrl)
+            .then(response => response.json())
+            .then(data => {
+                data.results.forEach(element => {
+                    var prova = element.address.freeformAddress;
+                    console.log(prova)
+                    var option = document.createElement('option');
+                    option.value = prova;
+                    datalist.appendChild(option);
+                });
+            })
+            .catch(error => {
+                console.error('Errore durante il recupero dei suggerimenti:', error);
+            });
+    }
     </script>
 
 @endsection
