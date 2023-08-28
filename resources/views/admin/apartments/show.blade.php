@@ -21,15 +21,15 @@
                             class="card-img-top" alt="{{ $apartment->title }}">
                         {{-- text --}}
                         <div class="card-tex py-3">
-                            <p><strong>Paese :</strong> {{ $apartment->country }} </p>
-                            <p><strong>Città :</strong> {{ $apartment->city }} </p>
                             <p><strong>Descrizione :</strong> {{ $apartment->description }} </p>
+                            <p><strong>Indirizzo:</strong> {{ $apartment->address }} </p>
+                            <p><strong>Città :</strong> {{ $apartment->city }} </p>
+                            <p><strong>Paese :</strong> {{ $apartment->country }} </p>
                             <p><strong>Prezzo :</strong> {{ $apartment->price }} </p>
                             <p><strong>Stanze :</strong> {{ $apartment->num_rooms }}</p>
                             <p><strong>Bagno :</strong> {{ $apartment->num_bathrooms }} </p>
-                            <p><strong>Square meters :</strong> {{ $apartment->square_meters }} mq</p>
-                            <p><strong>Address :</strong> {{ $apartment->address }} </p>
-                            <p><strong>Services</strong></p>
+                            <p><strong>Metri Quandri :</strong> {{ $apartment->square_meters }} mq</p>
+                            <p><strong>Servizi</strong></p>
                             <ul>
                                 @foreach ($apartment->services as $service)
                                     <li>{{ $service->name_service }}</li>
@@ -39,16 +39,17 @@
                                     {{ $service->serviceID }}{{ $loop->last ? '' : ', ' }}
                                 @endforeach --}}
 
-                            <p><strong>Visible :</strong> {{ $apartment->visible ? 'Yes' : 'No' }} </p>
+                            <p><strong>Visibilità :</strong> {{ $apartment->visible ? 'Yes' : 'No' }} </p>
                         </div>
                         {{-- footer --}}
                         <div class="card-footer">
                             {{-- link to show apartment id {{ $apartment->id }} --}}
-                            <a href="{{ route('admin.apartments.edit', $apartment->id) }}" class="btn btn-primary">Edit</a>
+                            <a href="{{ route('admin.apartments.edit', $apartment->id) }}"
+                                class="btn btn-primary">Modifica</a>
                             <form action="{{ route('admin.apartments.destroy', $apartment->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger mt-2">Delete</button>
+                                <button type="submit" class="btn btn-danger mt-2">Cancella</button>
                             </form>
                         </div>
                     </div>
