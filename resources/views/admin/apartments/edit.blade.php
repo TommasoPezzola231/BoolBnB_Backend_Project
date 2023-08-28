@@ -30,10 +30,13 @@
         {{-- input per immagine --}}
         <label for="principal_image">Carica Immagine</label>
         <div class="d-flex align-items-center p-2 mb-4 gap-2">
-            {{-- <img id="previewCreate" src="{{ asset('/storage') . '/placeholder/placeholder-img.png' }}" alt="img"
-               width="50" height="50" class="object-fit-cover rounded"> --}}
+            @if ($apartment->principal_image)
+                <img id="preview" src="{{ asset('/storage') .'/' . $apartment->principal_image }}" alt="{{$apartment->name}}" width="50" height="50" class="object-fit-cover rounded">
+            @else
+                <img id="preview" src="{{ asset('/storage') . '/placeholder/placeholder-img.png'}}" alt="img" width="50" height="50" class="object-fit-cover rounded">
+            @endif
             <input type="file" name="principal_image" id="principal_image" value="{{ old('principal_image', $apartment->principal_image) }}"
-                class="form-control @error('principal_image') is-invalid @enderror">
+                    class="form-control @error('principal_image') is-invalid @enderror">
         </div>
         @error('principal_image')
             <div class="invalid-feedback">{{ $message }}</div>
@@ -71,7 +74,7 @@
         {{-- input per stanze --}}
         <label for="num_rooms" class="form-label">Stanze</label>
         <select class="form-select" id="num_rooms" name="num_rooms">
-            <option selected disabled>{{ $apartment->num_rooms }}</option>
+            <option value="{{ $apartment->num_rooms }}" selected>{{ $apartment->num_rooms }}</option>
             @for ($i = 1; $i <= 15; $i++)
                 <option value="{{ $i }}">{{ $i }}</option>
             @endfor
@@ -83,7 +86,7 @@
         {{-- input per bagni --}}
         <label for="num_bathrooms" class="form-label">Bagno</label>
         <select class="form-select" id="num_bathrooms" name="num_bathrooms">
-            <option selected disabled>{{ $apartment->num_bathrooms }}</option>
+            <option value="{{ $apartment->num_bathrooms }}" selected>{{ $apartment->num_bathrooms }}</option>
             @for ($i = 1; $i <= 7; $i++)
                 <option value="{{ $i }}">{{ $i }}</option>
             @endfor
@@ -125,6 +128,7 @@
         </select>
 
         {{-- crea --}}
-        <button class="btn btn-success my-2" type="submit" value="Modifica">Crea</button>
+        <button class="btn btn-success my-2" type="submit" value="Modifica">Edit</button>
     </form>
 @endsection
+
