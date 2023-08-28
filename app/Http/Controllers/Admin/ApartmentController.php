@@ -22,7 +22,8 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-        $apartments = Apartment::all();
+        $user_id = Auth::user();
+        $apartments = $user_id->apartments;
 
         return view('admin.apartments.index', compact('apartments'));
     }
@@ -53,14 +54,14 @@ class ApartmentController extends Controller
         $url = 'https://api.tomtom.com/search/2/geocode/' . urlencode($indirizzo) . '.json';
 
         $response = Http::get($url, [
-            'key' => 'U6BQ1DicdzYIkj5nrK4823OxJuCY6gyP' //env('KEY_TOMTOM') 
+            'key' => 'U6BQ1DicdzYIkj5nrK4823OxJuCY6gyP' //env('KEY_TOMTOM')
         ]);
 
         $data_api = $response->json();
 
         $latitudine = $data_api['results'][0]['position']['lat'];
         $longitudine = $data_api['results'][0]['position']['lon'];
-        
+
         $data = $request->validated();
 
         $data['latitude'] = $latitudine;
@@ -68,7 +69,7 @@ class ApartmentController extends Controller
 
 
         if (array_key_exists("principal_image", $data)) {
-            
+
             //$img_path = $data["principal_image"]->store("uploads");
             $img_path = Storage::put("uploads", $data["principal_image"]);
             $data['principal_image'] = $img_path;
@@ -79,11 +80,11 @@ class ApartmentController extends Controller
 
         $newApartment->fill($data);
         $newApartment->user_id = Auth::user()->id;
-        
+
         $newApartment->save();
-        
+
         $newApartment->services()->attach($data['serviceID']);
-        
+
 
         return to_route('admin.apartments.show', $newApartment->id);
     }
@@ -126,21 +127,21 @@ class ApartmentController extends Controller
         $url = 'https://api.tomtom.com/search/2/geocode/' . urlencode($indirizzo) . '.json';
 
         $response = Http::get($url, [
-            'key' => 'U6BQ1DicdzYIkj5nrK4823OxJuCY6gyP' //env('KEY_TOMTOM') 
+            'key' => 'U6BQ1DicdzYIkj5nrK4823OxJuCY6gyP' //env('KEY_TOMTOM')
         ]);
 
         $data_api = $response->json();
 
         $latitudine = $data_api['results'][0]['position']['lat'];
         $longitudine = $data_api['results'][0]['position']['lon'];
-        
+
         $data = $request->validated();
 
         $data['latitude'] = $latitudine;
         $data['longitude'] = $longitudine;
 
         if (array_key_exists("principal_image", $data)) {
-            
+
             //$img_path = $data["principal_image"]->store("uploads");
             $img_path = Storage::put("uploads", $data["principal_image"]);
             $data['principal_image'] = $img_path;
@@ -149,9 +150,9 @@ class ApartmentController extends Controller
         //$apartment = new Apartment();
         //$apartment->fill($data);
 
-        
+
         $apartment->update($data);
-        
+
         //$apartment->services()->attach($data['serviceID']);
         $apartment->services()->sync($data["serviceID"]);
 

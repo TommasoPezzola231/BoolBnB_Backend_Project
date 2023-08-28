@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\view;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -26,7 +27,8 @@ class DatabaseSeeder extends Seeder
             SponsorshipSeeder::class,
             ApartmentSeeder::class,
             MessageSeeder::class,
-            ImageSeeder::class
+            ImageSeeder::class,
+            viewSeeder::class,
         ]);
     }
 }

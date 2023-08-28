@@ -17,7 +17,7 @@ class ServiceSeeder extends Seeder
     {
         $services = [
             [
-                'name_service' => 'wi-fi',
+                'name_service' => 'Wi-fi',
                 'icon_service' => 'fa-solid fa-wifi',
             ],
             [
@@ -77,7 +77,7 @@ class ServiceSeeder extends Seeder
 
             ],
             [
-                'name_service' => 'fumo permesso',
+                'name_service' => 'Fumo permesso',
                 'icon_service' => 'fa-solid fa-smoking',
 
             ],
