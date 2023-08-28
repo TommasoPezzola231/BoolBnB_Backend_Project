@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->string("title", 255);
-            $table->string("principal_image", 255);
+            $table->string("principal_image", 255)->nullable();
             $table->string("imageID")->nullable();
             $table->text("description");
             $table->decimal("price", 10, 2);
@@ -27,10 +27,10 @@ return new class extends Migration
             $table->tinyInteger("num_bathrooms");
             $table->bigInteger("square_meters");
             $table->string("address", 255);
-            $table->string("serviceID");
+            //$table->integer("serviceID");
             $table->boolean("visible");
-            $table->string("latitude");
-            $table->string("longitude");
+            $table->decimal("latitude", 10, 7);
+            $table->decimal("longitude", 10, 7);
             $table->timestamps();
         });
     }

@@ -9,6 +9,8 @@ use App\Models\Service;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreApartmentRequest;
 use App\Http\Requests\UpdateApartmentRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 
 class ApartmentController extends Controller
@@ -46,21 +48,42 @@ class ApartmentController extends Controller
      */
     public function store(StoreApartmentRequest $request)
     {
+
+        $indirizzo = $request['address'];
+        $url = 'https://api.tomtom.com/search/2/geocode/' . urlencode($indirizzo) . '.json';
+
+        $response = Http::get($url, [
+            'key' => 'U6BQ1DicdzYIkj5nrK4823OxJuCY6gyP' //env('KEY_TOMTOM') 
+        ]);
+
+        $data_api = $response->json();
+
+        $latitudine = $data_api['results'][0]['position']['lat'];
+        $longitudine = $data_api['results'][0]['position']['lon'];
+        
         $data = $request->validated();
 
+        $data['latitude'] = $latitudine;
+        $data['longitude'] = $longitudine;
 
-        $img_path = $data["principal_image"]->store("uploads");
-        // $img_path = Storage::put("uploads", $data["image"]);
-        $data['principal_image'] = $img_path;
+
+        if (array_key_exists("principal_image", $data)) {
+            
+            //$img_path = $data["principal_image"]->store("uploads");
+            $img_path = Storage::put("uploads", $data["principal_image"]);
+            $data['principal_image'] = $img_path;
+        }
 
 
         $newApartment = new Apartment();
 
         $newApartment->fill($data);
-
+        $newApartment->user_id = Auth::user()->id;
+        
         $newApartment->save();
-
+        
         $newApartment->services()->attach($data['serviceID']);
+        
 
         return to_route('admin.apartments.show', $newApartment->id);
     }

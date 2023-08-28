@@ -17,7 +17,7 @@
                     </div>
                     {{-- body --}}
                     <div class="card-body">
-                        <img src="{{ $apartment->principal_image }}" alt="principal image" class="img-top img-thumbnail">
+                        <img src="{{ ($apartment['principal_image']) ? asset('storage/' . $apartment->principal_image) : "https://www.signfix.com.au/wp-content/uploads/2017/09/placeholder-600x400.png" }}" class="card-img-top" alt="{{ $apartment->title }}">
                         {{-- text --}}
                         <div class="card-tex py-3">
                             <p><strong>Paese :</strong> {{ $apartment->country }} </p>

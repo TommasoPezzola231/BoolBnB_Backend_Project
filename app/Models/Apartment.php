@@ -21,7 +21,6 @@ class Apartment extends Model
         "num_bathrooms",
         "square_meters",
         "address",
-        "serviceID",
         "visible",
         "latitude",
         "longitude"
@@ -29,7 +28,7 @@ class Apartment extends Model
 
     public function services()
     {
-        return $this->hasMany(Service::class);
+        return $this->belongsToMany(Service::class);
     }
 
     public function messages()

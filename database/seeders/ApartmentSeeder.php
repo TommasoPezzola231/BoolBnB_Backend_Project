@@ -376,7 +376,7 @@ class ApartmentSeeder extends Seeder
         ];
 
 
-        $allServices = Service::all(["id"]);
+        //$allServices = Service::all(["id"]);
         // $allImage = Image::all(["id"]);
 
         foreach ($apartments as $apartment) {
@@ -385,7 +385,7 @@ class ApartmentSeeder extends Seeder
 
             $newApartment->user_id = $apartment["user_id"];
             $newApartment->title = $apartment["title"];
-            $newApartment->principal_image = $faker->imageUrl();
+            //$newApartment->principal_image = $faker->imageUrl();
             // $newApartment->imageID = $allImage->random()->id;
             $newApartment->description = $apartment["description"];
             $newApartment->price = $apartment["price"];
@@ -395,11 +395,16 @@ class ApartmentSeeder extends Seeder
             $newApartment->num_bathrooms = $apartment["num_bathrooms"];
             $newApartment->square_meters = $apartment["square_meters"];
             $newApartment->address = $apartment["address"];
-            $newApartment->serviceID = $allServices->random()->id;
+            //$newApartment->serviceID = $allServices->random()->id;
             $newApartment->visible = $apartment["visible"];
             $newApartment->latitude = $apartment["latitude"];
             $newApartment->longitude = $apartment["longitude"];
             $newApartment->save();
+
+            foreach ($apartment['service'] as $serviceName) {
+                $service = Service::firstOrCreate(['name_service' => $serviceName]);
+                $newApartment->services()->attach($service);
+            }
         }
     }
 }
