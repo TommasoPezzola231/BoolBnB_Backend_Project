@@ -46,10 +46,13 @@
                             {{-- link to show apartment id {{ $apartment->id }} --}}
                             <a href="{{ route('admin.apartments.edit', $apartment->id) }}"
                                 class="btn btn-primary">Modifica</a>
-                            <form action="{{ route('admin.apartments.destroy', $apartment->id) }}" method="POST">
+                            {{-- form per la cancellazione + pop up --}}
+                            <form id="deleteForm" action="{{ route('admin.apartments.destroy', $apartment) }}"
+                                method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger mt-2">Cancella</button>
+
+                                <button id="deleteButton" class="btn btn-danger" type="button">Cancella Elemento</button>
                             </form>
                         </div>
                     </div>
@@ -57,4 +60,23 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const deleteButton = document.getElementById('deleteButton');
+            const deleteForm = document.getElementById('deleteForm');
+
+            deleteButton.addEventListener('click', function() {
+                // Mostra un popup di conferma
+                const confirmDelete = confirm("Sei sicuro di voler eliminare l'elemento selezionato?");
+
+                if (confirmDelete) {
+                    // Invia il modulo per la cancellazione
+                    deleteForm.submit();
+                } else {
+                    console.log("Cancellazione annullata.");
+                }
+            });
+        });
+    </script>
 @endsection
