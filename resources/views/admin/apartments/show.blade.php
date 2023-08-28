@@ -27,11 +27,16 @@
                             <p><strong>Bagno :</strong> {{ $apartment->num_bathrooms }} </p>
                             <p><strong>Square meters :</strong> {{ $apartment->square_meters }} mq</p>
                             <p><strong>Address :</strong> {{ $apartment->address }} </p>
-                            <p><strong>Services : {{ $apartment->name_service }}</strong>
+                            <p><strong>Services</strong></p>
+                            <ul>
+                                @foreach ($apartment->services as $service)
+                                    <li>{{ $service->name_service }}</li>
+                                @endforeach
+                            </ul>
                                 {{-- @foreach ($apartment->serviceID as $service)
                                     {{ $service->serviceID }}{{ $loop->last ? '' : ', ' }}
                                 @endforeach --}}
-                            </p>
+                            
                             <p><strong>Visible :</strong> {{ $apartment->visible ? 'Yes' : 'No' }} </p>
                         </div>
                         {{-- footer --}}
