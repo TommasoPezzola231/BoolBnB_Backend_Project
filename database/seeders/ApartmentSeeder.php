@@ -38,8 +38,8 @@ class ApartmentSeeder extends Seeder
                 'square_meters' => 100,
                 'address' => 'Via del Corso, 123',
                 "service" => ["Wi-fi", "Palestra"],
-                'latitude' => 41.9028,
-                'longitude' => 12.4964,
+                'latitude' => 43.86987,
+                'longitude' => 11.01201,
                 'visible' => 1
             ],
             [
@@ -55,8 +55,8 @@ class ApartmentSeeder extends Seeder
                 'square_meters' => 75,
                 'address' => 'Viale delle Palme, 45',
                 "service" => ["Wi-fi", "Palestra"],
-                'latitude' => 41.9028,
-                'longitude' => 12.4964,
+                'latitude' => 43.18608,
+                'longitude' => 10.55127,
                 'visible' => 1
             ],
             [
@@ -72,8 +72,8 @@ class ApartmentSeeder extends Seeder
                 'square_meters' => 80,
                 'address' => 'Via Roma 123',
                 'service' => ['Wi-fi', 'Aria condizionata', 'Colazione'],
-                'latitude' => 41.9028,
-                'longitude' => 12.4964,
+                'latitude' => 41.35988,
+                'longitude' => 15.30843,
                 'visible' => 1
             ],
             [
@@ -89,8 +89,8 @@ class ApartmentSeeder extends Seeder
                 'square_meters' => 120,
                 'address' => 'Via Milano 456',
                 'service' => ['Piscina', 'Cucina', 'Kit di pronto soccorso'],
-                'latitude' => 41.9028,
-                'longitude' => 12.4964,
+                'latitude' => 45.74289,
+                'longitude' => 8.67418,
                 'visible' => 1
             ],
             [
@@ -106,8 +106,8 @@ class ApartmentSeeder extends Seeder
                 'square_meters' => 80,
                 'address' => 'Via Roma 123',
                 'service' => ['Wi-fi', 'Aria condizionata', 'Posto auto'],
-                'latitude' => 41.9028,
-                'longitude' => 12.4964,
+                'latitude' => 41.35988,
+                'longitude' => 15.30843,
                 'visible' => 1
             ],
             [
@@ -123,8 +123,8 @@ class ApartmentSeeder extends Seeder
                 'square_meters' => 120,
                 'address' => 'Via Milano 456',
                 'service' => ['Piscina', 'Palestra', 'Cucina'],
-                'latitude' => 41.9028,
-                'longitude' => 12.4964,
+                'latitude' => 45.74289,
+                'longitude' => 8.67418,
                 'visible' => 1
             ],
             [
@@ -140,8 +140,8 @@ class ApartmentSeeder extends Seeder
                 'square_meters' => 50,
                 'address' => 'Via Napoli 789',
                 'service' => ['Vista mare', 'Fumo permesso', 'Posto auto'],
-                'latitude' => 41.9028,
-                'longitude' => 12.4964,
+                'latitude' => 40.99266,
+                'longitude' => 14.42039,
                 'visible' => 1
             ],
             [
@@ -155,10 +155,10 @@ class ApartmentSeeder extends Seeder
                 "num_rooms" => 2,
                 "num_bathrooms" => 1,
                 "square_meters" => 80,
-                "address" => "Via del Corso, 123",
+                "address" => "Via Boccea, 123",
                 "service" => ["Wi-fi", "Aria condizionata", "Riscaldamento"],
-                "latitude" => 41.9028,
-                "longitude" => 12.4964,
+                "latitude" => 41.9023,
+                "longitude" => 12.42447,
                 'visible' => 0
             ],
             [
@@ -172,10 +172,10 @@ class ApartmentSeeder extends Seeder
                 "num_rooms" => 2,
                 "num_bathrooms" => 1,
                 "square_meters" => 80,
-                "address" => "Via del Corso, 123",
+                "address" => "Via Trionfale, 12",
                 "service" => ["Wi-fi", "Aria condizionata", "Riscaldamento"],
-                "latitude" => 41.9028,
-                'longitude' => 12.4964,
+                "latitude" => 41.91103,
+                'longitude' => 12.45415,
                 'visible' => 1
             ],
             [
@@ -189,10 +189,10 @@ class ApartmentSeeder extends Seeder
                 "num_rooms" => 3,
                 "num_bathrooms" => 2,
                 "square_meters" => 110,
-                "address" => "Carrer de la Marina, 45",
+                "address" => "Via Del Babbuino, 15",
                 "service" => ["Piscina", "Palestra"],
-                "latitude" => 41.9028,
-                'longitude' => 12.4964,
+                "latitude" => 41.90961,
+                'longitude' => 12.47772,
                 'visible' => 0
             ],
             [
@@ -208,8 +208,8 @@ class ApartmentSeeder extends Seeder
                 "square_meters" => 50,
                 "address" => "Via dei Calzaiuoli, 67",
                 "service" => ["Wi-fi", "Riscaldamento"],
-                "latitude" => 41.9028,
-                'longitude' => 12.4964,
+                "latitude" => 43.77124,
+                'longitude' => 11.25532,
                 'visible' => 1
             ],
 
@@ -224,10 +224,10 @@ class ApartmentSeeder extends Seeder
                 "num_rooms" => 4,
                 "num_bathrooms" => 2,
                 "square_meters" => 150,
-                "address" => "Abbey Road, 10",
+                "address" => "Via Della Pineta Sacchetti, 15",
                 "service" => ["Aria condizionata",],
-                "latitude" => 41.9028,
-                'longitude' => 12.4964,
+                "latitude" => 41.93508,
+                'longitude' => 12.42585,
                 'visible' => 1
             ],
 
@@ -242,10 +242,10 @@ class ApartmentSeeder extends Seeder
                 "num_rooms" => 2,
                 "num_bathrooms" => 1,
                 "square_meters" => 90,
-                "address" => "Via delle Vigne, 22",
+                "address" => "Via Trionfale, 155",
                 "service" => ["Camino"],
-                "latitude" => 41.9028,
-                'longitude' => 12.4964,
+                "latitude" => 41.91835,
+                'longitude' => 12.44948,
                 'visible' => 1
             ],
 
@@ -260,10 +260,10 @@ class ApartmentSeeder extends Seeder
                 "num_rooms" => 3,
                 "num_bathrooms" => 2,
                 "square_meters" => 180,
-                "address" => "5th Avenue, 123",
+                "address" => "Via Trionfale, 199",
                 "service" => ["Piscina", "Palestra"],
-                "latitude" => 41.9028,
-                'longitude' => 12.4964,
+                "latitude" => 41.92356,
+                'longitude' => 12.44793,
                 'visible' => 1
             ],
             [
@@ -277,10 +277,10 @@ class ApartmentSeeder extends Seeder
                 "num_rooms" => 2,
                 "num_bathrooms" => 2,
                 "square_meters" => 95,
-                "address" => "Ocean Drive, 456",
+                "address" => "Via Casilina, 51",
                 "service" => ["Posto auto", "Piscina"],
-                "latitude" => 41.9028,
-                'longitude' => 12.4964,
+                "latitude" => 41.77594,
+                'longitude' => 12.9112,
                 'visible' => 1
             ],
 
@@ -295,10 +295,10 @@ class ApartmentSeeder extends Seeder
                 "num_rooms" => 1,
                 "num_bathrooms" => 1,
                 "square_meters" => 60,
-                "address" => "Staroměstské náměstí, 15",
+                "address" => "Via Di Vigna Murata, 5",
                 "service" => ["Riscaldamento", "Wi-fi", "Aria condizionata"],
-                "latitude" => 41.9028,
-                'longitude' => 12.4964,
+                "latitude" => 41.82743,
+                'longitude' => 12.48063,
                 'visible' => 1
             ],
 
@@ -313,10 +313,10 @@ class ApartmentSeeder extends Seeder
                 "num_rooms" => 2,
                 "num_bathrooms" => 1,
                 "square_meters" => 75,
-                "address" => "Woodland Avenue, 789",
+                "address" => "Via Di Vigna Murata, 59",
                 "service" => ["Wi-fi", "Posto auto"],
-                "latitude" => 41.9028,
-                'longitude' => 12.4964,
+                "latitude" => 41.83026,
+                'longitude' => 12.49408,
                 'visible' => 1
             ],
 
@@ -331,10 +331,10 @@ class ApartmentSeeder extends Seeder
                 "num_rooms" => 3,
                 "num_bathrooms" => 2,
                 "square_meters" => 120,
-                "address" => "Mountain View Drive, 234",
+                "address" => "Via Dei Castelli Romani, 16",
                 "service" => ["Camino", "Palestra", "Posto auto"],
-                "latitude" => 41.9028,
-                'longitude' => 12.4964,
+                "latitude" => 41.77395,
+                'longitude' => 12.68454,
                 'visible' => 1
             ],
 
@@ -349,10 +349,10 @@ class ApartmentSeeder extends Seeder
                 "num_rooms" => 1,
                 "num_bathrooms" => 1,
                 "square_meters" => 55,
-                "address" => "Schönhauser Allee, 78",
+                "address" => "Via Gregorio VII, 59",
                 "service" => ["Wi-fi", "Riscaldamento"],
-                "latitude" => 41.9028,
-                'longitude' => 12.4964,
+                "latitude" => 41.89744,
+                'longitude' => 12.45067,
                 'visible' => 1
             ],
 
@@ -367,10 +367,10 @@ class ApartmentSeeder extends Seeder
                 "num_rooms" => 4,
                 "num_bathrooms" => 3,
                 "square_meters" => 200,
-                "address" => "Beverly Hills, 456",
+                "address" => "Via Del Quirinale, 256",
                 "service" => ["Piscina", "Palestra", "Posto auto"],
-                "latitude" => 41.9028,
-                'longitude' => 12.4964,
+                "latitude" => 41.90066,
+                'longitude' => 12.48889,
                 'visible' => 0
             ],
         ];
