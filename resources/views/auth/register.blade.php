@@ -13,12 +13,12 @@
 
                             <div class="mb-4 row">
                                 <label for="name"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Nome') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="name" type="text"
                                         class="form-control @error('name') is-invalid @enderror" name="name"
-                                        value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                        value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Inserisci il nome">
 
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
@@ -30,12 +30,12 @@
 
                             <div class="mb-4 row">
                                 <label for="surname"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Surname') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Cognome') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="surname" type="text"
                                         class="form-control @error('surname') is-invalid @enderror" name="surname"
-                                        value="{{ old('surname') }}" required autocomplete="surname" autofocus>
+                                        value="{{ old('surname') }}" required autocomplete="surname" autofocus placeholder="Inserisci il cognome">
 
                                     @error('surname')
                                         <span class="invalid-feedback" role="alert">
@@ -47,10 +47,10 @@
 
                             <div class="mb-4 row">
                                 <label for="birth_date"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Birth Date') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Data di nascita') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="birth_date" type="text"
+                                    <input id="birth_date" type="date"
                                         class="form-control @error('birth_date') is-invalid @enderror" name="birth_date"
                                         value="{{ old('birth_date') }}" required autocomplete="birth_date" autofocus>
 
@@ -64,12 +64,12 @@
 
                             <div class="mb-4 row">
                                 <label for="email"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('email') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email"
                                         class="form-control @error('email') is-invalid @enderror" name="email"
-                                        value="{{ old('email') }}" required autocomplete="email">
+                                        value="{{ old('email') }}" required autocomplete="email" placeholder="Inserisci l'indirizzo email">
 
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -98,7 +98,7 @@
 
                             <div class="mb-4 row">
                                 <label for="password-confirm"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Conferma Password') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control"
