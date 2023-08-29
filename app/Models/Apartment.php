@@ -26,6 +26,8 @@ class Apartment extends Model
         "longitude"
     ];
 
+    protected $casts = ['services' => 'array'];
+
     public function services()
     {
         return $this->belongsToMany(Service::class);

@@ -12,6 +12,9 @@ use App\Http\Requests\UpdateApartmentRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class ApartmentController extends Controller
 {
@@ -39,6 +42,27 @@ class ApartmentController extends Controller
 
 
         return view("admin.apartments.create", compact('services'));
+    }
+
+    //  funzione per cercare secondo i filtri impostati
+    public function search(Request $request)
+    {
+        $city = $request->input('city');
+        $num_rooms = $request->input('num_rooms', 0);
+        $num_bathrooms = $request->input('num_bathrooms', 0);
+        $radius = $request->input('radius', 20); //da ragionarla in km
+        $services = $request->input('services', []);
+
+        $apartments = DB::table('apartments')
+            ->select('*')
+            ->where('city', '=', $city)
+            ->where('rooms', '>=', $num_rooms)
+            ->where('bathrooms', '>=', $num_bathrooms)
+            ->whereIn('service', $services)
+
+            ->get();
+
+        return response()->json($apartments);
     }
 
     /**
