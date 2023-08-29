@@ -7,8 +7,7 @@ use App\Models\View;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-
-use Faker\Factory as Faker;
+use Faker\Generator as Faker;
 
 class ViewSeeder extends Seeder
 {
@@ -19,17 +18,16 @@ class ViewSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        // for ($i = 0; $i < 10000; $i++) {
+        $apartmentID = Apartment::all(["id"]);
 
-        //     $apartment_id = Apartment::inRandomOrder()->first()->id;
+        for ($i=0; $i < 10000; $i++) { 
+            $newView = new View();
 
-        //     $view = new View();
+            $newView->apartment_id = $apartmentID->random()->id;
+            $newView->ip_adress = $faker->ipv4();
+            $newView->viewed_at = now();
 
-        //     $view->apartment_id = $apartment_id;
-        //     $view->ip = $faker->ipv4;
-        //     $view->viewed_at = $faker->dateTime('now');
-
-        //     $view->save();
-        // }
+            $newView->save();
+        }
     }
 }
