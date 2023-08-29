@@ -406,5 +406,7 @@ class ApartmentSeeder extends Seeder
                 $newApartment->services()->attach($service);
             }
         }
+
+
     }
 }
