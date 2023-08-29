@@ -26,7 +26,7 @@ class Apartment extends Model
         "longitude"
     ];
 
-    protected $casts = ['services' => 'array'];
+    //protected $casts = ['services' => 'array'];
 
     public function services()
     {

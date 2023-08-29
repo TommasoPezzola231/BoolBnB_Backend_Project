@@ -58,6 +58,10 @@
                     </div>
                 </div>
             </div>
+
+            <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 mb-4">
+                <div id="map" class="w-100 ratio ratio-16x9" ></div>
+            </div>
         </div>
     </div>
 
@@ -77,6 +81,22 @@
                     console.log("Cancellazione annullata.");
                 }
             });
+
+            const latitude = {{ $apartment->latitude }};
+            const longitude = {{ $apartment->longitude }};
+            let longLat = [{{ $apartment->longitude }}, {{ $apartment->latitude }}]
+            // Inizializza la mappa
+            const map = tt.map({
+                key: 'U6BQ1DicdzYIkj5nrK4823OxJuCY6gyP',
+                container: "map",
+                center: longLat,
+                zoom: 15
+            });
+
+            map.on('load', () => {
+               new tt.Marker().setLngLat(longLat).addTo(map);
+            })
+            // Aggiungi un marker per le coordinate
         });
     </script>
 @endsection
