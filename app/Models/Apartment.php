@@ -26,8 +26,6 @@ class Apartment extends Model
         "longitude"
     ];
 
-    //protected $casts = ['services' => 'array'];
-
     public function services()
     {
         return $this->belongsToMany(Service::class);
@@ -47,4 +45,11 @@ class Apartment extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function sponsorships()
+    {
+        return $this->belongsToMany(Sponsorship::class);
+    }
+
+    //protected $casts = ['services' => 'array'];
 }

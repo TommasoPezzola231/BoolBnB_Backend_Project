@@ -14,5 +14,10 @@ class Sponsorship extends Model
         'duration',
     ];
 
+    public function apartments()
+    {
+        return $this->belongsToMany(Apartment::class);
+    }
+
     use HasFactory;
 }
