@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ApartmentController;
+use App\Http\Controllers\Api\ApartmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +19,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/search', [ApartmentController::class, 'search']);
+Route::get('/apartments/search', [ApartmentController::class, 'search']);
+ //rotta che, quando richiamata con richiesta GET all'endpoint /apartments/search, eseguirà il metodo search del \Api|ApartmentController
