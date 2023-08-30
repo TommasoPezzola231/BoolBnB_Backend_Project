@@ -20,6 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/search', [ApartmentController::class, 'search']);
+Route::get('/apartments/search', [ApiApartmentController::class, 'search']);
+//rotta che, quando richiamata con richiesta GET all'endpoint /apartments/search, eseguirà il metodo search del \Api|ApartmentController
 
 Route::get("/apartments", [ApiApartmentController::class, "index"]);
