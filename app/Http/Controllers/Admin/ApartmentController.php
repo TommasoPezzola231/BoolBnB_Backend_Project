@@ -193,16 +193,30 @@ class ApartmentController extends Controller
         return to_route('admin.apartments.show', $apartment->id); //da cambiare
     }
 
+    public function archive(Apartment $apartment)
+    {
+        $apartments = Apartment::onlyTrashed()->get();
+
+        return view('admin.apartments.archive', compact('apartments'));
+    }
+
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Apartment  $apartment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Apartment $apartment)
+    public function destroy(Apartment $apartment, Request $request)
     {
-        $apartment->delete();
-
-        return redirect()->route("admin.apartments.index");
+        if ($apartment->trashed()) {
+            $apartment->forceDelete();
+            return redirect()->route("admin.apartments.index");
+        } else {
+            $apartment->delete();
+            return redirect()->route("admin.apartments.index");
+        }        
     }
-}
+};
+
+
+

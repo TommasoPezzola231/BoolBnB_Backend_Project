@@ -29,7 +29,9 @@ Route::middleware(['auth'])
         // - il nome della rotta ->name("dashboard") diventa ->name("admin.dashboard")
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
         Route::get('/apartments', [ApartmentController::class, 'index'])->name('apartments.index');
+        Route::get('/apartments/archive', [ApartmentController::class, 'archive'])->name('apartments.archive');
         Route::resource('apartments', ApartmentController::class);
+        // Route::delete('/admin/apartments/{apartment}', [ApartmentController::class, 'destroy'])->name('admin.apartments.destroy');
     });
 
 require __DIR__ . '/auth.php';
