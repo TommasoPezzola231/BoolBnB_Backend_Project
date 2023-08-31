@@ -63,6 +63,15 @@ class ApartmentController extends Controller
                 ->having('distance', '<', $radius);
         }
 
+        $serviceName = 'name_service';
+
+        $apartmentIdService = DB::table('apartment_service')
+            ->join('services', 'apartment_service.service_id', '=', 'services.id')
+            ->where('services.name_service', $serviceName)
+            ->pluck('apartment_service.apartment_id'); //elenco id appartamenti della tabella pivot
+
+        $query->whereIn('id', $apartmentIdService); // filtro gli appartamenti nella query pricipale
+
         $apartments = $query->get();
 
         return response()->json(['apartments' => $apartments]);
