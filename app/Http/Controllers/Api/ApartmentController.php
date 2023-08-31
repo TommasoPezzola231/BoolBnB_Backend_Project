@@ -16,7 +16,7 @@ class ApartmentController extends Controller
 
         $response = [
             "success" => true,
-            "apartments" => $apartments
+            "apartments" => $apartments,
         ];
 
         return response()->json($response);
