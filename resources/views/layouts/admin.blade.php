@@ -52,14 +52,14 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.apartments.create' ? 'bg-secondary' : '' }}" href="{{route('admin.apartments.create')}}">
-                                    <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Aggiungi Casa
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.apartments.index' ? 'bg-secondary' : '' }}" href="{{route('admin.apartments.index')}}">
+                                    <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> I tuoi appartamenti
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.apartments.index' ? 'bg-secondary' : '' }}" href="{{route('admin.apartments.index')}}">
-                                    <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Elenco Case
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.apartments.create' ? 'bg-secondary' : '' }}" href="{{route('admin.apartments.create')}}">
+                                    <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Aggiungi appartamento
                                 </a>
                             </li>
 

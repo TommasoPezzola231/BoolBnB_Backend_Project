@@ -4,7 +4,7 @@
 
     <section>
         <div class="row">
-            <h2 class="my-3 text-center">Elenco Case</h2>
+            <h2 class="my-3 text-center">I tuoi appartamenti</h2>
             @foreach ($apartments as $apartment)
                 <a class="col-3" href="{{ route("admin.apartments.show", $apartment->id) }}">
                     <div class="card col-4 m-2" style="width: 18rem;">
