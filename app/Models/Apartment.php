@@ -13,6 +13,7 @@ class Apartment extends Model
     protected $fillable = [
         "user_id",
         "title",
+        "slug",
         "principal_image",
         "imageID",
         "description",
@@ -54,4 +55,17 @@ class Apartment extends Model
     }
 
     //protected $casts = ['services' => 'array'];
+
+    protected $appends = [
+        'full_path_principal_image',
+        // 'full_path_images',
+    ];
+
+    public function getFullPathPrincipalImageAttribute()
+    {
+        $fullPath = null;
+        if ($this->principal_image)
+            $fullPath = url('storage/' . $this->principal_image);
+        return $fullPath;
+    }
 }
