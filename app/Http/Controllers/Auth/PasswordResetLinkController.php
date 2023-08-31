@@ -37,8 +37,13 @@ class PasswordResetLinkController extends Controller
         );
 
         return $status == Password::RESET_LINK_SENT
-                    ? back()->with('status', __($status))
-                    : back()->withInput($request->only('email'))
-                            ->withErrors(['email' => __($status)]);
+            // ? back()->with('status', __($status))
+            // : back()->withInput($request->only('email'))
+            // ->withErrors(['email' => __($status)]);
+
+            // messaggi errore personalizzati in italiano
+            ? back()->with('status', 'Link per il reset della password inviato')
+            : back()->withInput($request->only('email'))
+            ->withErrors(['email' => 'Impossibile inviare il link per il reset della password, email non trovata']);
     }
 }

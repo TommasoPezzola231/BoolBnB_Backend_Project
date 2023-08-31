@@ -8,10 +8,10 @@
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+                    <form id="form" method="POST" action="{{ route('login') }}" onsubmit="login(event)">
                         @csrf
 
-                        <div class="mb-4 row">
+                        <div class='mb-4 row'>
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('email') }}</label>
 
                             <div class="col-md-6">
@@ -70,4 +70,46 @@
         </div>
     </div>
 </div>
+
+<script>
+    function login(ev) {
+        ev.preventDefault();
+
+        const formData = new FormData(ev.target);
+
+        axios.post('/login', formData)
+            .then(function(response) {
+                // Redirect to the desired page after successful login
+                window.location.href = '{{ route('admin.dashboard') }}';
+            })
+                .catch(function(error) {
+                    // Handle error
+                    const errors = error.response.data.errors;
+
+                    for (const fieldName in errors) {
+                        const inputElement = document.querySelector(`[name="${fieldName}"]`);
+                        const errorMessages = errors[fieldName].join(', ');
+                        inputElement.classList.add('is-invalid');
+                        inputElement.insertAdjacentHTML('afterend', `<div class="invalid-feedback">${errorMessages}</div>`);
+                    }
+
+                    // rimuove is anvalid
+                    const inputElements = document.querySelectorAll('.is-invalid');
+                        inputElements.forEach(function(inputElement) {
+                            inputElement.addEventListener('input', function() {
+                                this.classList.remove('is-invalid');
+                                this.nextElementSibling.remove();
+                            });
+                        });
+
+                        // se non ci sono piu errori manda i dati al server + redirect
+                        const errorMessages = document.querySelectorAll('.invalid-feedback');
+                        if (errorMessages.length === 0) {
+                            const form = document.getElementById('form');
+                            form.submit();
+                            window.location.href = '{{ route('admin.dashboard') }}';
+                        }
+            });
+    }
+</script>
 @endsection
