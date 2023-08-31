@@ -92,20 +92,23 @@ class ApartmentController extends Controller
 
             $cityCoordinates = ['latitude' => $latitudine, 'longitude' => $longitudine];
 
+            $radius = $request->input('radius', 20);
+            $radiusInDegrees = $radius / 111.32;
+
             // Calcola le coordinate dei limiti del rettangolo (approssimato)
-            $minLatitude = $cityCoordinates['latitude'] - 0.18; // Approssimazione per 20 km
-            $maxLatitude = $cityCoordinates['latitude'] + 0.18;
-            $minLongitude = $cityCoordinates['longitude'] - 0.18;
-            $maxLongitude = $cityCoordinates['longitude'] + 0.18;
+            $minLatitude = $cityCoordinates['latitude'] - $radiusInDegrees; // Approssimazione per 20 km
+            $maxLatitude = $cityCoordinates['latitude'] + $radiusInDegrees;
+            $minLongitude = $cityCoordinates['longitude'] - $radiusInDegrees;
+            $maxLongitude = $cityCoordinates['longitude'] + $radiusInDegrees;
 
             $apartments = Apartment::whereBetween('latitude', [$minLatitude, $maxLatitude])
             ->whereBetween('longitude', [$minLongitude, $maxLongitude]);
         }
 
-        $city = $request->input('city');
+        /*$city = $request->input('city');
         if ($city) {
             $apartments = Apartment::where('city', '=', $request->input('city'));
-        }
+        }*/
 
 
         $numRooms = $request->input('num_rooms');
@@ -128,7 +131,7 @@ class ApartmentController extends Controller
 
         $price = $request->input('price');
         if ($price) {
-            $apartments = Apartment::where('price', '>=', $request->input('price'));
+            $apartments = Apartment::where('price', '<=', $request->input('price'));
         }
 
 
