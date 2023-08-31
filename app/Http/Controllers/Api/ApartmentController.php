@@ -57,7 +57,7 @@ class ApartmentController extends Controller
             ->whereBetween('longitude', [$minLongitude, $maxLongitude])
             ->get();
 
-        return response()->json(['apartments' => $apartments]);
+        return response()->json($apartments);
         
     }
 
