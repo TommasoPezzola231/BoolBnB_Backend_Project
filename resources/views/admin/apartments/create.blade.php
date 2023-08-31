@@ -20,7 +20,7 @@
 
         {{-- input per titolo --}}
         <label for="title">Titolo</label>
-        <input class="form-control" type="text" id="title" name="title" value="{{ old('title') }}" required>
+        <input class="form-control" type="text" id="title" name="title" value="{{ old('title') }}" required placeholder="Inserisci il titolo">
         @error('title')
             <div class="bg-danger-subtle rounded">{{ $message }}</div>
         @enderror
@@ -39,36 +39,47 @@
 
         {{-- input per decrizione --}}
         <label for="description">Descrizione</label>
-        <input class="form-control" type="text" id="description" name="description" value="{{ old('description') }}"required>
+        <input class="form-control" type="text" id="description" name="description" value="{{ old('description') }}"required placeholder="Inserisci la descrizione">
         @error('description')
             <div class="bg-danger-subtle rounded">{{ $message }}</div>
         @enderror
 
         {{-- input per prezzo --}}
         <label for="price">Prezzo</label>
-        <input class="form-control" type="text" id="price" name="price" value="{{ old('price') }}" required>
+        <input class="form-control" type="text" id="price" name="price" value="{{ old('price') }}" required placeholder="Inserisci il prezzo">
         @error('price')
             <div class="bg-danger-subtle rounded">{{ $message }}</div>
         @enderror
 
-        {{-- input per paese --}}
-        <label for="country">Paese</label>
-        <input class="form-control" id="country" type="text" name="country" value="{{ old('country') }}" required>
-        @error('country')
+        {{-- input per indirizzo --}}
+        <label for="address">Indirizzo</label>
+        <input class="form-control" id="address" type="text" name="address" list="addressSuggestions" value="{{ old('address') }}" onkeyup="fetchAndPopulateSuggestions()"  required placeholder="Inserisci indirizzo">
+
+        <datalist id="addressSuggestions">
+        </datalist>
+
+        @error('address')
             <div class="bg-danger-subtle rounded">{{ $message }}</div>
         @enderror
 
         {{-- input citta --}}
         <label for="city">Città</label>
-        <input class="form-control" id="city" type="text" name="city" value="{{ old('city') }}" required>
+        <input class="form-control" id="city" type="text" name="city" value="{{ old('city') }}" required placeholder="Inserisci la città">
         @error('city')
+            <div class="bg-danger-subtle rounded">{{ $message }}</div>
+        @enderror
+
+        {{-- input per paese --}}
+        <label for="country">Paese</label>
+        <input class="form-control" id="country" type="text" name="country" value="{{ old('country') }}" required placeholder="Inserisci il paese">
+        @error('country')
             <div class="bg-danger-subtle rounded">{{ $message }}</div>
         @enderror
 
         {{-- input per stanze --}}
         <label for="num_rooms" class="form-label">Stanze</label>
         <select class="form-select" id="num_rooms" name="num_rooms">
-            <option selected disabled>Select a type</option>
+            <option selected disabled>Seleziona numero di stanze</option>
             @for ($i = 1; $i <= 15; $i++)
                 <option value="{{ $i }}">{{ $i }}</option>
             @endfor
@@ -80,7 +91,7 @@
         {{-- input per bagni --}}
         <label for="num_bathrooms" class="form-label">Bagno</label>
         <select class="form-control" id="num_bathrooms" name="num_bathrooms">
-            <option selected disabled value="">Select a type</option>
+            <option selected disabled value="">Seleziona numero di bagni</option>
             @for ($i = 1; $i <= 7; $i++)
                 <option value="{{ $i }}">{{ $i }}</option>
             @endfor
@@ -91,22 +102,11 @@
 
         {{-- input per metri quadrati --}}
         <label for="square_meters" class="form-label">Metri Quadrati</label>
-        <input type='number' class="form-control" id="square_meters" name="square_meters" min="10" max="400">
+        <input type='number' class="form-control" id="square_meters" name="square_meters" min="10" max="400" placeholder="Inserisci metri quadri">
         @error('square_meters')
             <div class="invalid-feedback">{{ $message }}</div>
         @enderror
 
-        {{-- input per indirizzo --}}
-        <label for="address">Indirizzo</label>
-        <input class="form-control" id="address" type="text" name="address" list="addressSuggestions" value="{{ old('address') }}" onkeyup="fetchAndPopulateSuggestions()"  required>
-
-
-        <datalist id="addressSuggestions">
-        </datalist>
-
-        @error('address')
-            <div class="bg-danger-subtle rounded">{{ $message }}</div>
-        @enderror
 
         {{-- servizi --}}
         <div class="mt-3">Seleziona Servizi</div>

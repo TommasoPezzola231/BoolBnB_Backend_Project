@@ -62,12 +62,11 @@
             <div class="bg-danger-subtle rounded">{{ $message }}</div>
         @enderror
 
-
-        {{-- input per paese --}}
-        <label for="country">Paese</label>
-        <input class="form-control" id="country" type="text" name="country"
-            value="{{ old('country', $apartment->country) }}" required>
-        @error('country')
+        {{-- input per indirizzo --}}
+        <label for="address">Indirizzo</label>
+        <input class="form-control" id="address" type="text" name="address"
+            value="{{ old('address', $apartment->address) }}" required>
+        @error('address')
             <div class="bg-danger-subtle rounded">{{ $message }}</div>
         @enderror
 
@@ -76,6 +75,14 @@
         <input class="form-control" id="city" type="text" name="city"
             value="{{ old('city', $apartment->city) }}" required>
         @error('city')
+            <div class="bg-danger-subtle rounded">{{ $message }}</div>
+        @enderror
+
+        {{-- input per paese --}}
+        <label for="country">Paese</label>
+        <input class="form-control" id="country" type="text" name="country"
+            value="{{ old('country', $apartment->country) }}" required>
+        @error('country')
             <div class="bg-danger-subtle rounded">{{ $message }}</div>
         @enderror
 
@@ -109,14 +116,6 @@
             value="{{ old('square_meters', $apartment->square_meters) }}">
         @error('square_meters')
             <div class="invalid-feedback">{{ $message }}</div>
-        @enderror
-
-        {{-- input per indirizzo --}}
-        <label for="address">Indirizzo</label>
-        <input class="form-control" id="address" type="text" name="address"
-            value="{{ old('address', $apartment->address) }}" required>
-        @error('address')
-            <div class="bg-danger-subtle rounded">{{ $message }}</div>
         @enderror
 
         {{-- servizi --}}
