@@ -17,8 +17,11 @@
                     </div>
                     {{-- body --}}
                     <div class="card-body">
-                        <img src="{{ $apartment['principal_image'] ? asset('storage/' . $apartment->principal_image) : 'https://www.signfix.com.au/wp-content/uploads/2017/09/placeholder-600x400.png' }}"
-                            class="card-img-top" alt="{{ $apartment->title }}">
+                        @if ($apartment->full_path_principal_image)
+                            <img src="{{ $apartment->full_path_principal_image }}" class="card-img-top" alt="{{ $apartment->title }}">
+                        @else
+                            <img src="https://www.signfix.com.au/wp-content/uploads/2017/09/placeholder-600x400.png" class="card-img-top" alt="Placeholder Image">
+                        @endif
                         {{-- text --}}
                         <div class="card-tex py-3">
                             <p><strong>Descrizione :</strong> {{ $apartment->description }} </p>
