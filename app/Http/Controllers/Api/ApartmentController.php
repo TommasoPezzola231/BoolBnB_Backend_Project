@@ -12,16 +12,9 @@ class ApartmentController extends Controller
 {
     public function index()
     {
-        $apartments = Apartment::with("services")->paginate(10);
-
-        $response = [
-            "success" => true,
-            "apartments" => $apartments,
-        ];
-
-        return response()->json($response);
-
-        //return view('admin.apartments.index', compact('apartments'));
+        $apartments = Apartment::all(); // Assuming you have an Apartment model
+    
+        return response()->json(['apartments' => $apartments]);
     }
 
     public function search(Request $request)
@@ -56,6 +49,11 @@ class ApartmentController extends Controller
         $apartments = Apartment::whereBetween('latitude', [$minLatitude, $maxLatitude])
             ->whereBetween('longitude', [$minLongitude, $maxLongitude])
             ->get();
+        
+        foreach ($apartments as $apartment) {
+            $apartment->load('services'); // Carica i servizi associati all'appartamento
+        }
+            
 
         return response()->json($apartments);
         
@@ -138,7 +136,7 @@ class ApartmentController extends Controller
         $selectedServices = $request->input('serviceID', []);
         if ($selectedServices) {
             $apartments = Apartment::whereHas('services', function ($query) use ($selectedServices) {
-                $query->whereIn('name', $selectedServices);
+                $query->whereIn('service_id', $selectedServices);
             });
         }
 
@@ -157,6 +155,11 @@ class ApartmentController extends Controller
             })
             ->get();*/
 
-        return response()->json($apartments->get());
+        $apartments = $apartments->get();
+        foreach ($apartments as $apartment) {
+            $apartment->load('services'); // Carica i servizi associati all'appartamento
+        }
+
+        return response()->json($apartments);
     }
 }
