@@ -40,7 +40,6 @@ class ApartmentController extends Controller
     {
         $services = Service::all();
 
-
         return view("admin.apartments.create", compact('services'));
     }
 
