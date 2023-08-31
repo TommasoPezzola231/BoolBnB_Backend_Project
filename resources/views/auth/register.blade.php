@@ -130,16 +130,20 @@
               window.location.href = '{{ route('admin.dashboard') }}';
             })
                 .catch(function(error) {
-                   // Display all errors
+                   // errori di validazione
                     const errors = error.response.data.errors;
                     // loop errori e le stampa
                     for (const fieldName in errors) {
-                       const inputElement = document.querySelector(`[name="${fieldName}"]`);
-                       const errorMessages = errors[fieldName].join(', ');
-                       inputElement.classList.add('is-invalid');
-                       inputElement.insertAdjacentHTML('afterend', `<div class="invalid-feedback">${errorMessages}</div>`);
+                        const inputElement = document.querySelector(`[name="${fieldName}"]`);
+                        const errorMessages = errors[fieldName].join(', ');
+                        if (!inputElement.classList.contains('is-invalid')) {
+                            inputElement.classList.add('is-invalid');
+                            inputElement.insertAdjacentHTML('afterend', `<div class="invalid-feedback">${errorMessages}</div>`);
+                        } else {
+                            const invalidFeedback = inputElement.nextElementSibling;
+                            invalidFeedback.innerHTML = errorMessages;
+                        }
                     }
-
                     // rimuove is anvalid
                     const inputElements = document.querySelectorAll('.is-invalid');
                     inputElements.forEach(function(inputElement) {
@@ -148,7 +152,6 @@
                             this.nextElementSibling.remove();
                         });
                     });
-
                     // se non ci sono piu errori manda i dati al server + redirect
                     const errorMessages = document.querySelectorAll('.invalid-feedback');
                     if (errorMessages.length === 0) {
