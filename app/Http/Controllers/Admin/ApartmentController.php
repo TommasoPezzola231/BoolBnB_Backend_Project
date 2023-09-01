@@ -93,6 +93,7 @@ class ApartmentController extends Controller
 
         $newApartment->fill($data);
         $newApartment->user_id = Auth::user()->id;
+        $newApartment->slug = $newApartment->title;
 
         $newApartment->save();
 
