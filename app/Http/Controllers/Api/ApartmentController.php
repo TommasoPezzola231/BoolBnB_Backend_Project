@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Http;
 
 class ApartmentController extends Controller
 {
-    public function index()
+    public function spnsoredApartments()
     {
         $apartments = Apartment::whereHas('sponsorships')->get();
     
