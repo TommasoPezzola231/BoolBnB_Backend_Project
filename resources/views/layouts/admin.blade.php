@@ -52,25 +52,25 @@
 
                             <li class="nav-item">
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'sidebarHover' : '' }}" href="{{route('admin.dashboard')}}">
-                                    <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Dashboard
+                                    <i class="fa-solid fa-tachometer-alt fa-lg fa-fw me-2"></i> Dashboard
                                 </a>
                             </li>
 
                             <li class="nav-item">
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.apartments.index' ? 'sidebarHover' : '' }}" href="{{route('admin.apartments.index')}}">
-                                    <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> I tuoi appartamenti
+                                    <i class="fa-solid fa-building-user fa-lg fa-fw me-2"></i> I tuoi appartamenti
                                 </a>
                             </li>
 
                             <li class="nav-item">
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.apartments.create' ? 'sidebarHover' : '' }}" href="{{route('admin.apartments.create')}}">
-                                    <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Aggiungi appartamento
+                                    <i class="fa-solid fa-square-plus fa-lg fa-fw me-2"></i> Aggiungi appartamento
                                 </a>
                             </li>
 
                             <li class="nav-item">
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.apartments.archive' ? 'sidebarHover' : '' }}" href="{{ route('admin.apartments.archive') }}">
-                                    <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Archivio
+                                    <i class="fa-solid fa-box-archive fa-lg fa-fw me-2"></i> Archivio
                                 </a>
                             </li>
 
