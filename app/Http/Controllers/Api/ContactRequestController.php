@@ -35,14 +35,15 @@ class ContactRequestController extends Controller
             );
         }
 
-        $message = new Message();
-        $message->name_sender = $request->input('sender_name');
-        $message->surname_sender = $request->input('sender_surname');
-        $message->email_sender = $request->input('sender_email');
-        $message->object = $request->input('message_object');
-        $message->text = $request->input('message_text');
-        $message->apartment_id = $request->input('apartment_id');
-        $message->save();
+        $contactRequest = new ContactRequest();
+
+        $contactRequest->name_sender = $request->input('sender_name');
+        $contactRequest->surname_sender = $request->input('sender_surname');
+        $contactRequest->email_sender = $request->input('sender_email');
+        $contactRequest->object = $request->input('message_object');
+        $contactRequest->text = $request->input('message_text');
+        $contactRequest->apartment_id = $request->input('apartment_id');
+        $contactRequest->save();
 
         $apartment = Apartment::find($request->input('apartment_id'));
         $hostEmail = $apartment->user->email;
@@ -52,7 +53,6 @@ class ContactRequestController extends Controller
         $object = $request->input('message_object');
         $text = $request->input('message_text');
         $email = [
-            'hostEmail' => $hostEmail,
             'contactEmail' => $contactEmail,
             'contactName' => $contactName,
             'contactSurname' => $contactSurname,
@@ -65,7 +65,7 @@ class ContactRequestController extends Controller
         return response()->json(
             [
                 "success" => true,
-                "result" => $message,
+                "result" => $contactRequest,
             ]
         );
     }
