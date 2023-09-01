@@ -12,7 +12,7 @@ class ApartmentController extends Controller
 {
     public function index()
     {
-        $apartments = Apartment::all(); // Assuming you have an Apartment model
+        $apartments = Apartment::whereHas('sponsorships')->get();
     
         return response()->json(['apartments' => $apartments]);
     }
