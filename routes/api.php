@@ -2,8 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ApartmentController;
 use App\Http\Controllers\Api\ApartmentController as ApiApartmentController;
+use App\Http\Controllers\Api\ContactRequestController as ApiContactRequestController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,10 +21,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/apartments/search', [ApiApartmentController::class, 'search']);
-//rotta che, quando richiamata con richiesta GET all'endpoint /apartments/search, eseguirà il metodo search del \Api|ApartmentController
-
-Route::get('/apartments/searchPlus', [ApiApartmentController::class, 'searchPlus']);
-
+Route::get("/apartments", [ApiApartmentController::class, "allApartments"]);
 Route::get("/apartments", [ApiApartmentController::class, "spnsoredApartments"]);
 Route::get("/apartments/{id}", [ApiApartmentController::class, "show"]);
+Route::get('/apartments/search', [ApiApartmentController::class, 'search']);
+Route::get('/apartments/searchPlus', [ApiApartmentController::class, 'searchPlus']);
+Route::post('/messages/store', [ApiContactRequestController::class, 'store'])->name('messages.store');

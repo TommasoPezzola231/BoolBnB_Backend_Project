@@ -39,36 +39,56 @@
                     <div class="position-sticky pt-3">
                         <ul class="nav flex-column">
 
+                            {{-- home --}}
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="/">
                                     <i class="fa-solid fa-home-alt fa-lg fa-fw"></i> Home
                                 </a>
                             </li>
 
+                            {{-- dashboard --}}
                             <li class="nav-item">
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}" href="{{route('admin.dashboard')}}">
                                     <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Dashboard
                                 </a>
                             </li>
 
+                            {{-- appartamenti --}}
                             <li class="nav-item">
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.apartments.index' ? 'bg-secondary' : '' }}" href="{{route('admin.apartments.index')}}">
                                     <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> I tuoi appartamenti
                                 </a>
                             </li>
 
+                            {{-- aggiungi appartamento --}}
                             <li class="nav-item">
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.apartments.create' ? 'bg-secondary' : '' }}" href="{{route('admin.apartments.create')}}">
                                     <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Aggiungi appartamento
                                 </a>
                             </li>
 
+                            {{-- archivio --}}
                             <li class="nav-item">
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.apartments.archive' ? 'bg-secondary' : '' }}" href="{{ route('admin.apartments.archive') }}">
                                     <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Archivio
                                 </a>
                             </li>
 
+                            {{-- messaggi--}}
+                            <li class="nav-item">
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.messages.index' ? 'bg-secondary' : '' }}" href="{{ route('admin.messages.index') }}">
+                                    <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Messaggi
+                                </a>
+                            </li>
+
+                            {{-- sponsorships --}}
+                            <li class="nav-item">
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.sponsorships.index' ? 'bg-secondary' : '' }}" href="{{ route('admin.sponsorships.index') }}">
+                                    <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Sponsorizzazioni
+                                </a>
+                            </li>
+
+                            {{-- logout --}}
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <i class="fa-solid fa-sign-out-alt fa-lg fa-fw"></i> {{ __('Logout') }}
