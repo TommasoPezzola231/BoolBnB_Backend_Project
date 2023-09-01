@@ -13,3 +13,29 @@ body {
     font-size: 1rem;
     line-height: 1.5;
 }
+
+// DAHSBOARD
+
+// side nav bar
+
+#sidebarMenu {
+    background-color: $color-pink;
+    background: linear-gradient(180deg, rgba(245, 129, 129, 1) 23%, rgba(233, 242, 241, 1) 85%, rgba(233, 242, 241, 1) 100%);
+    padding: 0;
+
+    a:hover {
+        background-color: rgba($color: #ff5a60f3, $alpha: 0.5);
+    }
+
+    ;
+
+    img {
+        width: 40%;
+    }
+
+    ;
+}
+
+.sidebarHover {
+    background-color: $color-primary;
+}
