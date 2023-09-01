@@ -190,17 +190,4 @@ class ApartmentController extends Controller
 
         return response()->json($apartments);
     }
-
-    // public function for take all services from db
-    public function services()
-    {
-        $services = DB::table('services')->get();
-        // $services = Service::all();
-
-        if (!$services) {
-            return response()->json(['error' => 'Servizi non trovati'], 404);
-        }
-
-        return response()->json(['services' => $services]);
-    }
 }
