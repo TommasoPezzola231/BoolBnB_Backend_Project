@@ -11,10 +11,19 @@ use Illuminate\Support\Facades\Http;
 
 class ApartmentController extends Controller
 {
+
+    // apartments all
+    public function allApartments()
+    {
+        $apartments = Apartment::where('visible', 1)->get();
+
+        return response()->json(['apartments' => $apartments]);
+    }
+
     // sponsored apartments
     public function spnsoredApartments()
     {
-        $apartments = Apartment::whereHas('sponsorships')->get();
+        $apartments = Apartment::whereHas('sponsorships')->where('visible', 1)->get();
 
         return response()->json(['apartments' => $apartments]);
     }
@@ -22,8 +31,7 @@ class ApartmentController extends Controller
     // apartments id
     public function show($id)
     {
-
-        $apartment = Apartment::with('services', 'images')->find($id);
+        $apartment = Apartment::with('services', 'images')->where('visible', 1)->find($id);
 
         if (!$apartment) {
             return response()->json(['error' => 'Appartamento non trovato'], 404);
@@ -66,15 +74,14 @@ class ApartmentController extends Controller
         $minLongitude = $cityCoordinates['longitude'] - 0.18;
         $maxLongitude = $cityCoordinates['longitude'] + 0.18;
 
-        // Filtra gli appartamenti
         $apartments = Apartment::whereBetween('latitude', [$minLatitude, $maxLatitude])
             ->whereBetween('longitude', [$minLongitude, $maxLongitude])
+            ->where('visible', 1)
             ->get();
 
         foreach ($apartments as $apartment) {
             $apartment->load('services'); // Carica i servizi associati all'appartamento
         }
-
 
         return response()->json($apartments);
     }
@@ -119,7 +126,8 @@ class ApartmentController extends Controller
         $selectedServices = $request->input('serviceID', []);
 
         $apartments = Apartment::whereBetween('latitude', [$minLatitude, $maxLatitude])
-            ->whereBetween('longitude', [$minLongitude, $maxLongitude]);
+            ->whereBetween('longitude', [$minLongitude, $maxLongitude])
+            ->where('visible', 1);
         if ($numRooms) {
             $apartments->where('num_rooms', '>=', $request->input('num_rooms'));
         }
@@ -141,47 +149,6 @@ class ApartmentController extends Controller
                 $query->whereIn('service_id', $selectedServices);
             });
         }
-
-
-        /*$city = $request->input('city');
-        if ($city) {
-            $apartments = Apartment::where('city', '=', $request->input('city'));
-        }*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        // Filtra gli appartamenti
-        /* $apartments = Apartment::whereBetween('latitude', [$minLatitude, $maxLatitude])
-            ->whereBetween('longitude', [$minLongitude, $maxLongitude])
-            ->where('city', 'LIKE', '%' . $city . '%')
-            ->where('num_rooms', '<=', $numRooms)
-            ->where('num_bathrooms', '<=', $numBathrooms)
-            ->where('square_meters', '<=', $squareMeters)
-            ->where('price', '<=', $price)
-            ->whereHas('services', function ($query) use ($selectedServices) {
-                $query->whereIn('name', $selectedServices);
-            })
-            ->get();*/
 
         $apartments = $apartments->get();
         foreach ($apartments as $apartment) {
