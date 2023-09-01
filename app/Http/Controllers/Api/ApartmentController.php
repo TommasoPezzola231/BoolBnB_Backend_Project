@@ -17,6 +17,22 @@ class ApartmentController extends Controller
         return response()->json(['apartments' => $apartments]);
     }
 
+    public function show($id) {
+
+        $apartment = Apartment::with('services', 'images')->find($id);
+
+        if (!$apartment) {
+            return response()->json(['error' => 'Appartamento non trovato'], 404);
+        }
+
+        $response = [
+            "success" => true,
+            "projects" => $apartment
+        ];
+
+        return response()->json($response);
+    }
+
     public function search(Request $request)
     {
         $city = $request->input('city');

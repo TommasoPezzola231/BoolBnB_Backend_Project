@@ -26,3 +26,4 @@ Route::get('/apartments/search', [ApiApartmentController::class, 'search']);
 Route::get('/apartments/searchPlus', [ApiApartmentController::class, 'searchPlus']);
 
 Route::get("/apartments", [ApiApartmentController::class, "spnsoredApartments"]);
+Route::get("/apartments/{id}", [ApiApartmentController::class, "show"]);
