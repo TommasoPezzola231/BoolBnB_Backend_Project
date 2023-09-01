@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Message;
+use App\Models\Apartment;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreMessageRequest;
 use App\Http\Requests\UpdateMessageRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MessageController extends Controller
 {
@@ -14,9 +17,22 @@ class MessageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $user = Auth::user();
+
+        $apartment_id = $request->input('apartment_id');
+
+        if ($apartment_id) {
+
+            $messages = Message::where('apartment_id', $apartment_id)->sortByDesc('sent_at')->get();
+        } else {
+            $messages = Message::orderByDesc('sent_at')->get();
+        }
+
+        $apartments = Apartment::all();
+
+        return view('admin.messages.index', compact('messages', 'user', 'apartment_id', 'apartments'));
     }
 
     /**

@@ -26,7 +26,7 @@ class Apartment extends Model
         "address",
         "visible",
         "latitude",
-        "longitude"
+        "longitude",
     ];
 
     public function services()
