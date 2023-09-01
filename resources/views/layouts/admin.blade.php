@@ -35,60 +35,59 @@
 
         <div class="container-fluid vh-100">
             <div class="row h-100">
-                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark navbar-dark sidebar collapse">
+                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block navbar-dark sidebar collapse">
                     <div class="position-sticky pt-3">
                         <ul class="nav flex-column">
 
-                            {{-- home --}}
+                            <div class="d-flex align-items-center">
+                                <img src="{{ asset('images/logo/Bool_Bnb_White.png') }}" alt="Logo">
+                                <h1 class="text-white m-0">BoolBnb</h1>
+                            </div>
+                            
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="/">
                                     <i class="fa-solid fa-home-alt fa-lg fa-fw"></i> Home
                                 </a>
                             </li>
 
-                            {{-- dashboard --}}
                             <li class="nav-item">
-                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}" href="{{route('admin.dashboard')}}">
-                                    <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Dashboard
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'sidebarHover' : '' }}" href="{{route('admin.dashboard')}}">
+                                    <i class="fa-solid fa-tachometer-alt fa-lg fa-fw me-2"></i> Dashboard
                                 </a>
                             </li>
 
-                            {{-- appartamenti --}}
                             <li class="nav-item">
-                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.apartments.index' ? 'bg-secondary' : '' }}" href="{{route('admin.apartments.index')}}">
-                                    <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> I tuoi appartamenti
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.apartments.index' ? 'sidebarHover' : '' }}" href="{{route('admin.apartments.index')}}">
+                                    <i class="fa-solid fa-building-user fa-lg fa-fw me-2"></i> I tuoi appartamenti
                                 </a>
                             </li>
 
-                            {{-- aggiungi appartamento --}}
                             <li class="nav-item">
-                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.apartments.create' ? 'bg-secondary' : '' }}" href="{{route('admin.apartments.create')}}">
-                                    <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Aggiungi appartamento
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.apartments.create' ? 'sidebarHover' : '' }}" href="{{route('admin.apartments.create')}}">
+                                    <i class="fa-solid fa-square-plus fa-lg fa-fw me-2"></i> Aggiungi appartamento
                                 </a>
                             </li>
 
-                            {{-- archivio --}}
                             <li class="nav-item">
-                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.apartments.archive' ? 'bg-secondary' : '' }}" href="{{ route('admin.apartments.archive') }}">
-                                    <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Archivio
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.apartments.archive' ? 'sidebarHover' : '' }}" href="{{ route('admin.apartments.archive') }}">
+                                    <i class="fa-solid fa-box-archive fa-lg fa-fw me-2"></i> Archivio
                                 </a>
                             </li>
 
-                            {{-- messaggi--}}
-                            <li class="nav-item">
-                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.messages.index' ? 'bg-secondary' : '' }}" href="{{ route('admin.messages.index') }}">
+                             {{-- messaggi--}}
+                             <li class="nav-item">
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.messages.index' ? 'sidebarHover' : '' }}" href="{{ route('admin.messages.index') }}">
                                     <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Messaggi
                                 </a>
                             </li>
 
                             {{-- sponsorships --}}
                             <li class="nav-item">
-                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.sponsorships.index' ? 'bg-secondary' : '' }}" href="{{ route('admin.sponsorships.index') }}">
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.sponsorships.index' ? 'sidebarHover' : '' }}" href="{{ route('admin.sponsorships.index') }}">
                                     <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Sponsorizzazioni
                                 </a>
                             </li>
 
-                            {{-- logout --}}
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <i class="fa-solid fa-sign-out-alt fa-lg fa-fw"></i> {{ __('Logout') }}
