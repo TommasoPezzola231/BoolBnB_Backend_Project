@@ -4,20 +4,24 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Apartment;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 
 class ApartmentController extends Controller
 {
+    // sponsored apartments
     public function spnsoredApartments()
     {
         $apartments = Apartment::whereHas('sponsorships')->get();
-    
+
         return response()->json(['apartments' => $apartments]);
     }
 
-    public function show($id) {
+    // apartments id
+    public function show($id)
+    {
 
         $apartment = Apartment::with('services', 'images')->find($id);
 
@@ -33,6 +37,7 @@ class ApartmentController extends Controller
         return response()->json($response);
     }
 
+    // apartments search
     public function search(Request $request)
     {
         $city = $request->input('city');
@@ -65,29 +70,21 @@ class ApartmentController extends Controller
         $apartments = Apartment::whereBetween('latitude', [$minLatitude, $maxLatitude])
             ->whereBetween('longitude', [$minLongitude, $maxLongitude])
             ->get();
-        
+
         foreach ($apartments as $apartment) {
             $apartment->load('services'); // Carica i servizi associati all'appartamento
         }
-            
+
 
         return response()->json($apartments);
-        
     }
 
-
-
-
-
-
-
-
-
+    // apartments search plus
     public function searchPlus(Request $request)
     {
         $city = $request->input('city');
-        
-        
+
+
         $url = 'https://api.tomtom.com/search/2/geocode/' . urlencode($city) . '.json';
         $apiKey = 'U6BQ1DicdzYIkj5nrK4823OxJuCY6gyP';
 
@@ -123,28 +120,28 @@ class ApartmentController extends Controller
 
         $apartments = Apartment::whereBetween('latitude', [$minLatitude, $maxLatitude])
             ->whereBetween('longitude', [$minLongitude, $maxLongitude]);
-            if ($numRooms) {
-                $apartments->where('num_rooms', '>=', $request->input('num_rooms'));
-            }
+        if ($numRooms) {
+            $apartments->where('num_rooms', '>=', $request->input('num_rooms'));
+        }
 
-            if ($numBathrooms) {
-                $apartments->where('num_bathrooms', '>=', $request->input('num_bathrooms'));
-            }
+        if ($numBathrooms) {
+            $apartments->where('num_bathrooms', '>=', $request->input('num_bathrooms'));
+        }
 
-            if ($squareMeters) {
-                $apartments->where('square_meters', '>=', $request->input('square_meters'));
-            }
+        if ($squareMeters) {
+            $apartments->where('square_meters', '>=', $request->input('square_meters'));
+        }
 
-            if ($price) {
-                $apartments->where('price', '<=', $request->input('price'));
-            }
+        if ($price) {
+            $apartments->where('price', '<=', $request->input('price'));
+        }
 
-            if ($selectedServices) {
-                $apartments->whereHas('services', function ($query) use ($selectedServices) {
-                    $query->whereIn('service_id', $selectedServices);
-                });
-            }
-        
+        if ($selectedServices) {
+            $apartments->whereHas('services', function ($query) use ($selectedServices) {
+                $query->whereIn('service_id', $selectedServices);
+            });
+        }
+
 
         /*$city = $request->input('city');
         if ($city) {
@@ -152,29 +149,29 @@ class ApartmentController extends Controller
         }*/
 
 
-        
-        
 
 
-        
-        
 
 
-        
-        
 
 
-        
-        
 
 
-        
-        
+
+
+
+
+
+
+
+
+
+
 
 
 
         // Filtra gli appartamenti
-       /* $apartments = Apartment::whereBetween('latitude', [$minLatitude, $maxLatitude])
+        /* $apartments = Apartment::whereBetween('latitude', [$minLatitude, $maxLatitude])
             ->whereBetween('longitude', [$minLongitude, $maxLongitude])
             ->where('city', 'LIKE', '%' . $city . '%')
             ->where('num_rooms', '<=', $numRooms)
@@ -192,5 +189,18 @@ class ApartmentController extends Controller
         }
 
         return response()->json($apartments);
+    }
+
+    // public function for take all services from db
+    public function services()
+    {
+        $services = DB::table('services')->get();
+        // $services = Service::all();
+
+        if (!$services) {
+            return response()->json(['error' => 'Servizi non trovati'], 404);
+        }
+
+        return response()->json(['services' => $services]);
     }
 }
