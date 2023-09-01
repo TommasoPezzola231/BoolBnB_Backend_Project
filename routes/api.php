@@ -20,7 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
+Route::get("/apartments", [ApiApartmentController::class, "allApartments"]);
 Route::get("/apartments", [ApiApartmentController::class, "spnsoredApartments"]);
 Route::get("/apartments/{id}", [ApiApartmentController::class, "show"]);
 Route::get('/apartments/search', [ApiApartmentController::class, 'search']);
