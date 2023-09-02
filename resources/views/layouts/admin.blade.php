@@ -41,7 +41,7 @@
 
                             <div class="d-flex align-items-center">
                                 <img src="{{ asset('images/logo/Bool_Bnb_White.png') }}" alt="Logo">
-                                <h1 class="text-white m-0">BoolBnb</h1>
+                                <h3 class="text-white m-0">BoolBnb</h3>
                             </div>
                             
                             <li class="nav-item">
