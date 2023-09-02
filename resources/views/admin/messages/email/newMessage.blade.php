@@ -7,11 +7,7 @@
     <title>Emails</title>
 </head>
 <body>
-
-    {{-- return $this->from($emailData["email"],  $emailData["name"] . ' ' . $emailData["surname"])
-    ->subject($emailData["object"])
-    ->view("admin.messages.email.newMessage", compact("emailData")); --}}
-
+    {{-- nuova email  --}}
     <h1>Object: {{ $emailData["object"] }}</h1>
     <h2>From: {{ $emailData["name"] . ' ' . $emailData["surname"] }}</h2>
     <h3>Email: {{ $emailData["email"] }}</h3>
