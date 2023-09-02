@@ -2,7 +2,7 @@
 
 namespace App\Mail;
 
-use GuzzleHttp\Psr7\Request;
+use Illuminate\Http\Request;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -12,7 +12,7 @@ use Illuminate\Queue\SerializesModels;
 
 class NewContact extends Mailable
 {
-    use Queueable, SerializesModels, Request;
+    use Queueable, SerializesModels;
 
     public $publicData;
 
@@ -23,12 +23,7 @@ class NewContact extends Mailable
      */
     public function __construct($data)
     {
-        // $this->publicData = $data;
-        // $this->publicData["name"] = $data["name"];
-        // $this->publicData["surname"] = $data["surname"];
-        // $this->publicData["email"] = $data["email"];
-        // $this->publicData["object"] = $data["object"];
-        // $this->publicData["message"] = $data["message"];
+
         $this->publicData = $data;
     }
 
@@ -40,25 +35,25 @@ class NewContact extends Mailable
     public function envelope()
     {
         return new Envelope(
-            replyTo: $this->publicData["email"],
-            subject: $this->publicData["message_subject"],
+            //
+
         );
     }
 
-    // public function build(Request $request)
-    // {
-    //     $emailData = [
-    //         "name" => $request->input("name_sender"),
-    //         'surname' => $request->input("surname_sender"),
-    //         "email" => $request->input("email_sender"),
-    //         "object" => $request->input("message_object"),
-    //         "message" => $request->input("message_text"),
-    //     ];
+    public function build(Request $request)
+    {
+        $emailData = [
+            "name" => $request->input("name_sender"),
+            'surname' => $request->input("surname_sender"),
+            "email" => $request->input("email_sender"),
+            "object" => $request->input("message_object"),
+            "message" => $request->input("message_text"),
+        ];
 
-    //     return $this->from($emailData["email"],  $data["name"].' '.$data["surname"])
-    //         ->subject($emailData["object"])
-    //         ->view("admin.messages", compact("emailData"));
-    // }
+        return $this->from($emailData["email"],  $emailData["name"] . ' ' . $emailData["surname"])
+            ->subject($emailData["object"])
+            ->view("admin.messages.email.newMessage", compact("emailData"));
+    }
 
     /**
      * Get the message content definition.
@@ -68,7 +63,7 @@ class NewContact extends Mailable
     public function content()
     {
         return new Content(
-            view: 'emails.store',
+            view: 'admin.messages.email.newMessage',
         );
     }
 

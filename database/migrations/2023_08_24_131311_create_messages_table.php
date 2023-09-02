@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('surname_sender', 50);
             $table->string('message_object', 80);
             $table->text('message_text');
-            $table->date('sent_at');
+            $table->date('sent_at')->default(now());
             $table->timestamps();
         });
     }
