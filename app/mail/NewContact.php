@@ -40,25 +40,25 @@ class NewContact extends Mailable
     public function envelope()
     {
         return new Envelope(
-            // replyTo: $this->publicData["email"],
-            // subject: $this->publicData["message_subject"],
+            replyTo: $this->publicData["email"],
+            subject: $this->publicData["message_subject"],
         );
     }
 
-    public function build(Request $request)
-    {
-        $emailData = [
-            "name" => $request->input("name_sender"),
-            'surname' => $request->input("surname_sender"),
-            "email" => $request->input("email_sender"),
-            "object" => $request->input("message_object"),
-            "message" => $request->input("message_text"),
-        ];
+    // public function build(Request $request)
+    // {
+    //     $emailData = [
+    //         "name" => $request->input("name_sender"),
+    //         'surname' => $request->input("surname_sender"),
+    //         "email" => $request->input("email_sender"),
+    //         "object" => $request->input("message_object"),
+    //         "message" => $request->input("message_text"),
+    //     ];
 
-        return $this->from($emailData["email"])
-            ->subject($emailData["object"])
-            ->view("admin.messages", compact("emailData"));
-    }
+    //     return $this->from($emailData["email"],  $data["name"].' '.$data["surname"])
+    //         ->subject($emailData["object"])
+    //         ->view("admin.messages", compact("emailData"));
+    // }
 
     /**
      * Get the message content definition.
@@ -68,7 +68,7 @@ class NewContact extends Mailable
     public function content()
     {
         return new Content(
-            view: 'admin.messages.mail.newmessage',
+            view: 'emails.store',
         );
     }
 

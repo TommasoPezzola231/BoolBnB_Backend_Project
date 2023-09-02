@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ApartmentController as ApiApartmentController;
-use App\Http\Controllers\Api\ContactRequestController as ApiContactRequestController;
+use App\Http\Controllers\Api\MessageController as ApiMessageController;
 
 
 /*
@@ -26,4 +26,4 @@ Route::get("/apartments", [ApiApartmentController::class, "spnsoredApartments"])
 Route::get("/apartments/{id}", [ApiApartmentController::class, "show"]);
 Route::get('/apartments/search', [ApiApartmentController::class, 'search']);
 Route::get('/apartments/searchPlus', [ApiApartmentController::class, 'searchPlus']);
-Route::post('/messages/store', [ApiContactRequestController::class, 'store'])->name('messages.store');
+Route::post("/messages/store", [ApiMessageController::class, "store"]);
