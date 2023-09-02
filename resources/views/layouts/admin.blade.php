@@ -77,20 +77,20 @@
                              {{-- messaggi--}}
                              <li class="nav-item">
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.messages.index' ? 'sidebarHover' : '' }}" href="{{ route('admin.messages.index') }}">
-                                    <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Messaggi
+                                    <i class="fa-solid fa-comments fa-lg fa-fw me-2"></i> Messaggi
                                 </a>
                             </li>
 
                             {{-- sponsorships --}}
                             <li class="nav-item">
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.sponsorships.index' ? 'sidebarHover' : '' }}" href="{{ route('admin.sponsorships.index') }}">
-                                    <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Sponsorizzazioni
+                                    <i class="fa-solid fa-credit-card fa-lg fa-fw me-2"></i> Sponsorizzazioni
                                 </a>
                             </li>
 
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    <i class="fa-solid fa-sign-out-alt fa-lg fa-fw"></i> {{ __('Logout') }}
+                                    <i class="fa-solid fa-sign-out-alt fa-lg fa-fw me-2"></i> {{ __('Logout') }}
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
