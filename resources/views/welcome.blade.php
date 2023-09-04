@@ -1,4 +1,4 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 @section('content')
     <div class="jumbotron py-2 bg-light text-center">
         <h1>BoolBnB</h1>
@@ -6,7 +6,7 @@
     </div>
 
     <div class="content">
-        <div class="container">
+        <div class="container"> --}}
             {{-- Carousel (da sistemare, solo placeholder --}}
             {{-- @guest
                 <div class="img_container">
@@ -29,10 +29,10 @@
 
                 </div>
             @endguest --}}
-        </div>
+        {{-- </div> --}}
 
-        <script>
-            // const body = document.body;
+        {{-- <script> --}}
+            {{-- // const body = document.body;
             // const imgs = document.querySelectorAll('.img');
             // const arrowBtns = document.querySelectorAll('.arrow-btn');
 
@@ -73,5 +73,5 @@
             //         activeImages();
             //     })
             // })
-        </script>
-    @endsection
+        // </script> --}}
+    {{-- @endsection --}}

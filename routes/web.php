@@ -20,7 +20,7 @@ use App\Http\Controllers\Admin\SponsorshipController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/login');
 });
 
 Route::middleware(['auth'])
