@@ -5,7 +5,10 @@ use App\Http\Controllers\Admin\ApartmentSponsorshipController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\MessageController;
+use App\Http\Controllers\Admin\PaymentController as AdminPaymentController;
 use App\Http\Controllers\Admin\SponsorshipController;
+use App\Models\PaymentController;
+
 // use App\Models\ApartemntSponsorship;
 
 /*
@@ -41,6 +44,8 @@ Route::middleware(['auth'])
         Route::get('/messages/{apartment_id?}', [MessageController::class, 'index'])->name('messages.index');
         // sponsorizzazioni
         Route::get('/sponsorships', [SponsorshipController::class, 'index'])->name('sponsorships.index');
+        // Pagamenti
+        Route::post('/process-payment', [AdminPaymentController::class, 'processPayment'])->name('process_payment');
     });
 
 require __DIR__ . '/auth.php';
