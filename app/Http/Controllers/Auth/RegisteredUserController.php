@@ -35,13 +35,14 @@ class RegisteredUserController extends Controller
     {
         $current_date = date('Y-m-d');
         $current_date_minus_18 = date('Y-m-d', strtotime('-18 years', strtotime($current_date)));
+        $current_date_minus_110 = date('Y-m-d', strtotime('-110 years', strtotime($current_date)));
 
         $validator = Validator::make(
             $request->all(),
             [
                 'name' => ['required', 'string', 'min:3', 'max:50'],
                 'surname' => ['required', 'string', 'min:3', 'max:50'],
-                'birth_date' => ['required ', 'date_format:Y-m-d', 'before_or_equal:' . $current_date_minus_18],
+                'birth_date' => ['required ', 'date_format:Y-m-d', 'before_or_equal:' . $current_date_minus_18 . '', 'after_or_equal:' . $current_date_minus_110 . ''],
                 'email' => ['required', 'string', 'email', 'max:50', 'unique:' . User::class],
                 'password' => ['required', 'confirmed', Rules\Password::defaults()],
                 'password_confirmation' => ['required', 'same:password'],
@@ -60,6 +61,7 @@ class RegisteredUserController extends Controller
                 'birth_date.required' => 'Devi inserire la tua data di nascita',
                 'birth_date.date_format' => 'La tua data di nascita deve essere nel formato mm/gg/aaaa',
                 'birth_date.before_or_equal' => 'Devi avere almeno 18 anni per registrarti',
+                'birth_date.after_or_equal' => 'Devi avere meno di 110 anni per registrarti',
 
                 'email.required' => 'Devi inserire la tua email',
                 'email.string' => 'La tua email deve essere una stringa',
