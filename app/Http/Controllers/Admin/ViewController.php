@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\view;
 use App\Http\Requests\StoreviewRequest;
 use App\Http\Requests\UpdateviewRequest;
+use Illuminate\Support\Facades\Auth;
 
 class ViewController extends Controller
 {
@@ -16,12 +17,10 @@ class ViewController extends Controller
      */
     public function index()
     {
-        // return view('admin.views.index', [
-        //     'views' => view::all(),
-        // ]);
-        // ??
+        $user = Auth::user();
+        $views = view::where('user_id', $user->id)->get();
 
-
+        return view('admin.dashboard', compact('views'));
     }
 
     /**

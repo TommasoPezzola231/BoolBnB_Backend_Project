@@ -20,11 +20,11 @@ class ViewSeeder extends Seeder
     {
         $apartmentID = Apartment::all(["id"]);
 
-        for ($i=0; $i < 10000; $i++) { 
+        for ($i = 0; $i < 10000; $i++) {
             $newView = new View();
 
             $newView->apartment_id = $apartmentID->random()->id;
-            $newView->ip_adress = $faker->ipv4();
+            $newView->ip_address = $faker->ipv4();
             $newView->viewed_at = now();
 
             $newView->save();

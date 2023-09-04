@@ -9,7 +9,7 @@ class view extends Model
 {
     protected $fillable = [
         'apartment_id',
-        'ip_adress',
+        'ip_address',
         'viewed_at',
     ];
 
