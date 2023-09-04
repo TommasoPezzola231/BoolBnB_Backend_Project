@@ -1,7 +1,8 @@
 @extends('layouts.app')
 @section('content')
     <div class="jumbotron py-2 bg-light text-center">
-
+        <h1>BoolBnB</h1>
+        <p>Scegli il tuo appartamento</p>
     </div>
 
     <div class="content">
