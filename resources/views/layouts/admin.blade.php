@@ -43,9 +43,9 @@
                                 <img src="{{ asset('images/logo/Bool_Bnb_White.png') }}" alt="Logo">
                                 <h3 class="text-white m-0">BoolBnb</h3>
                             </div>
-                            
+
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="/">
+                                <a class="nav-link text-white" href="http://localhost:5174/">
                                     <i class="fa-solid fa-home-alt fa-lg fa-fw"></i> Home
                                 </a>
                             </li>
@@ -89,7 +89,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <a class="nav-link text-white" href="http://localhost:5174/" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <i class="fa-solid fa-sign-out-alt fa-lg fa-fw me-2"></i> {{ __('Logout') }}
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

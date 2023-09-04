@@ -25,7 +25,7 @@
 
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}" style="color: red">
+                <a class="navbar-brand d-flex align-items-center" href="{{ url('http://localhost:5174/') }}" style="color: red">
                     <h1>BoolBnB</h1>
                     {{-- config('app.name', 'Laravel') --}}
                 </a>
@@ -38,7 +38,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('/') }}">{{ __('Home') }}</a>
+                            <a class="nav-link" href="{{url('http://localhost:5174/') }}">{{ __('Home') }}</a>
                         </li>
                     </ul>
 
