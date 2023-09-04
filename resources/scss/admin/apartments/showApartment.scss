@@ -1,0 +1,21 @@
+.container-show {
+    background-color: $bg-light;
+
+
+    h2 {
+        color: $color-primary;
+    }
+}
+
+.image-container {
+
+    max-height: 300px;
+
+    img {
+        max-height: 350px;
+    }
+}
+
+#map {
+    border: 1px solid $color-primary;
+}
