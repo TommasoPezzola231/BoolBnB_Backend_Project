@@ -135,29 +135,6 @@
                             Anteprima
                         </div>
     
-                        <script>
-                            const inputFile = document.getElementById('principal_image');
-                            const imagePreview = document.getElementById('imagePreview');
-                        
-                            inputFile.addEventListener('change', function () {
-                                const file = this.files[0];
-                        
-                                if (file) {
-                                    const reader = new FileReader();
-                        
-                                    reader.onload = function (e) {
-                                        const image = new Image();
-                                        image.src = e.target.result;
-                                        imagePreview.innerHTML = '';
-                                        imagePreview.appendChild(image);
-                                    };
-                        
-                                    reader.readAsDataURL(file);
-                                } else {
-                                    imagePreview.innerHTML = 'Nessuna immagine selezionata';
-                                }
-                            });
-                        </script>
                     </div>
                     <div class="col-12">
                         {{-- servizi --}}
@@ -224,6 +201,31 @@
                 }
             });
         });
+
+
+        // preview immagine
+        const inputFile = document.getElementById('principal_image');
+        const imagePreview = document.getElementById('imagePreview');
+    
+        inputFile.addEventListener('change', function () {
+            const file = this.files[0];
+    
+            if (file) {
+                const reader = new FileReader();
+    
+                reader.onload = function (e) {
+                    const image = new Image();
+                    image.src = e.target.result;
+                    imagePreview.innerHTML = '';
+                    imagePreview.appendChild(image);
+                };
+    
+                reader.readAsDataURL(file);
+            } else {
+                imagePreview.innerHTML = 'Nessuna immagine selezionata';
+            }
+        });
+
     </script>
 
 

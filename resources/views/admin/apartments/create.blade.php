@@ -128,6 +128,10 @@
                         @error('principal_image')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
+
+                        <div id="imagePreview" class="d-flex justify-content-center align-items-center">
+                            Anteprima
+                        </div>
                         
                     </div>
 
@@ -219,7 +223,30 @@
             .catch(error => {
                 console.error('Errore durante il recupero dei suggerimenti:', error);
             });
-    }
+    };
+
+    // preview immagine
+        const inputFile = document.getElementById('principal_image');
+        const imagePreview = document.getElementById('imagePreview');
+
+        inputFile.addEventListener('change', function () {
+            const file = this.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    const image = new Image();
+                    image.src = e.target.result;
+                    imagePreview.innerHTML = '';
+                    imagePreview.appendChild(image);
+                };
+
+                reader.readAsDataURL(file);
+            } else {
+                imagePreview.innerHTML = 'Nessuna immagine selezionata';
+            }
+        });
     </script>
 
 @endsection
