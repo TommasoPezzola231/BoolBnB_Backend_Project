@@ -101,7 +101,7 @@
 
                     <div class="col-md-12 col-lg-6">
                         {{-- input per prezzo --}}
-                    <label for="price">Prezzo per notte</label>
+                    <label for="price" class="mb-2">Prezzo per notte</label>
                     <input class="form-control mb-2" type="text" id="price" name="price" value="{{ old('price') }}" required placeholder="Inserisci il prezzo">
                     @error('price')
                         <div class="bg-danger-subtle rounded">{{ $message }}</div>

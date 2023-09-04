@@ -2,6 +2,8 @@
 @import './partials/variables.scss';
 @import './partials/mixins.scss';
 @import './admin/apartments/create.scss';
+@import './admin/apartments/dashboard.scss';
+@import './admin/apartments/showApartment.scss';
 
 * {
     box-sizing: border-box;
@@ -15,61 +17,8 @@ body {
     line-height: 1.5;
 }
 
-// DAHSBOARD
+// colori 
 
-// side nav bar
-
-#sidebarMenu {
-    background-color: $color-pink;
-    background: linear-gradient(180deg, rgba(245, 129, 129, 1) 23%, rgba(246, 243, 243, 1) 85%, rgba(246, 243, 243, 1) 100%);
-    padding: 0;
-    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
-
-    a:hover {
-        background-color: rgba($color: #ff5a60f3, $alpha: 0.5);
-    }
-
-    ;
-
-    img {
-        width: 40%;
-    }
-
-    ;
-}
-
-.sidebarHover {
-    background-color: $color-primary;
-}
-
-
-// CREATE APARTMENT
-
-.container-form {
-    background-color: $bg-light;
-    padding: 3rem;
-    width: 80%;
-    margin: 3rem auto;
-    border-radius: 20px;
-    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
-}
-
-.service {
-    width: 11rem;
-}
-
-#imagePreview {
-    min-width: 100%;
-    min-height: 320px;
-    border: 3px dashed $color-primary;
+.color-primary {
     color: $color-primary;
-
-    img {
-        max-width: 100%;
-        min-height: 320px;
-    }
-}
-
-.primary-color-button {
-    background-color: $color-primary;
 }
