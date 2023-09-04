@@ -42,19 +42,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('http://localhost:5174/') }}">{{ __('Home') }}</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/') }}">{{ __('Dashboard') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/') }}">{{ __('Appartamenti') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/') }}">{{ __('Messaggi') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/') }}">{{ __('Sponsorizzazioni') }}</a>
-                        </li>
-
                     </ul>
 
                     <!-- Right Side Of Navbar -->
