@@ -17,6 +17,79 @@ body {
 
 // DAHSBOARD
 
+
+//main dashboard
+
+.logo{
+    height: 120px;
+}
+
+//carousel
+
+// :root{
+//     --transition-speed:0.5s;
+//     --btn-bg-color: transparent;
+// }
+
+// .img_container{
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//     transition: var(--transition-speed) ease;
+// }
+
+// .img{
+//     background-position: center;
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     top: -15vh;
+//     left: -15vw;
+//     z-index: 1;
+// }
+
+// .arrow-btn{
+//     position: fixed;
+//     bottom: 1vh;
+// }
+
+// .left-arrow{
+//     left: calc(40vw - 120px);
+// }
+
+// .right-arrow{
+//     right: calc(40vw - 120px);
+// }
+
+// .btn{
+//     background-color: var(--btn-bg-color);
+//     border: none;
+//     color: crimson;
+//     font-size: 3rem;
+//     cursor: pointer;
+// }
+
+// //Animazione per JS
+
+// .animateTransition{
+//     animation: animation var(--transition-speed) ease;
+// }
+
+// @keyframes animation{
+//     0%{
+//         transform: translateX(5px);
+//         filter: blur(4px);
+//     }
+//     50%{
+//         transform: translateX(-5px);
+//         filter: blur(2px);
+//     }
+//     100%{
+//         transform: translateX(0);
+//         filter: blur(0);
+//     }
+// }
+
 // side nav bar
 
 #sidebarMenu {
@@ -73,3 +146,4 @@ body {
 .primary-color-button {
     background-color: $color-primary;
 }
+
