@@ -23,14 +23,17 @@ class MessageController extends Controller
 
         $apartment_id = $request->input('apartment_id');
 
-        if ($apartment_id) {
+        $query = Message::query();
 
-            $messages = Message::where('apartment_id', $apartment_id)->sortByDesc('sent_at')->get();
-        } else {
-            $messages = Message::orderByDesc('sent_at')->get();
+        if ($apartment_id) {
+            $query->where('apartment_id', $apartment_id);
         }
 
-        $apartments = Apartment::all();
+        // Order the messages by sent_at in descending order
+        $messages = $query->orderByDesc('sent_at')->get();
+
+        // Fetch apartments owned by the authenticated user
+        $apartments = Apartment::where('user_id', $user->id)->get();
 
         return view('admin.messages.index', compact('messages', 'user', 'apartment_id', 'apartments'));
     }
