@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ApartmentController as ApiApartmentController;
 use App\Http\Controllers\Api\MessageController as ApiMessageController;
+use App\Http\Controllers\Api\ServiceController;
 use App\Http\Controllers\Api\ViewController as ApiViewController;
 
 
@@ -29,3 +30,4 @@ Route::get('/ricerca', [ApiApartmentController::class, "search"]);
 Route::get('/ricercaAvanzata', [ApiApartmentController::class, 'searchPlus']);
 Route::post("/messages/store", [ApiMessageController::class, "store"]);
 Route::post("/view/store", [ApiViewController::class, "store"]);
+Route::get("/allServices", [ServiceController::class, "index"]);
