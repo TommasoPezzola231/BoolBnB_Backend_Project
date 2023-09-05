@@ -60,7 +60,7 @@
                 <div id="map" class="w-100 ratio ratio-16x9 rounded-4"></div>
             </div>
             <div class="col-6 d-flex align-items-center mt-3">
-                <div class="image-container mb-3 rounded-5">
+                <div class="image-container mb-3 rounded-4">
                     @if ($apartment->full_path_principal_image)
                         <img src="{{ $apartment->full_path_principal_image }}" alt="{{ $apartment->title }}" class="rounded-4 shadow">
                     @else

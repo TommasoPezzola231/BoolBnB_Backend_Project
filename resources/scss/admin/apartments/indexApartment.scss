@@ -1,0 +1,19 @@
+.card-apartment {
+
+
+    img {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .title {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+}
