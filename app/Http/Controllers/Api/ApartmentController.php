@@ -146,10 +146,13 @@ class ApartmentController extends Controller
         }
 
         if ($selectedServices) {
-            $apartments->whereHas('services', function ($query) use ($selectedServices) {
-                $query->whereIn('service_id', $selectedServices);
-            });
+            foreach ($selectedServices as $serviceId) {
+                $apartments->whereHas('services', function ($query) use ($serviceId) {
+                    $query->where('service_id', $serviceId);
+                });
+            }
         }
+        
 
         $apartments = $apartments->get();
         foreach ($apartments as $apartment) {
