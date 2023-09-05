@@ -178,8 +178,16 @@ class ApartmentController extends Controller
     {
         $user = Auth::user();
         $deletedApartments = $user->apartments()->onlyTrashed()->get();
-    
+
         return view('admin.apartments.archive', compact('deletedApartments'));
+    }
+
+    public function restore($id)
+    {
+        $apartment = Apartment::withTrashed()->find($id);
+        $apartment->restore();
+
+        return redirect()->route('admin.apartments.index')->with('success', 'Apartment restored successfully');
     }
 
     /**

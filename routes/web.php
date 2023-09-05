@@ -38,13 +38,9 @@ Route::middleware(['auth'])
         Route::get('/apartments', [ApartmentController::class, 'index'])->name('apartments.index');
         Route::get('/apartments/archive', [ApartmentController::class, 'archive'])->name('apartments.archive');
         Route::resource('apartments', ApartmentController::class);
-        // Route::delete('/admin/apartments/{apartment}', [ApartmentController::class, 'destroy'])->name('admin.apartments.destroy');
-
-        // messaggi
+        Route::get('/apartments/restore/{id}', [ApartmentController::class, 'restore'])->name('apartments.restore');
         Route::get('/messages/{apartment_id?}', [MessageController::class, 'index'])->name('messages.index');
-        // sponsorizzazioni
         Route::get('/sponsorships', [SponsorshipController::class, 'index'])->name('sponsorships.index');
-        // Pagamenti
         Route::post('/process-payment', [AdminPaymentController::class, 'processPayment'])->name('process_payment');
     });
 
