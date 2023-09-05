@@ -21,18 +21,18 @@
         <ul>
             @foreach ($messages as $message)
                 <li>
-                    <h3>{{ $message->name_sender }}</h3>
+                    <h3>{{ $message->name_sender }} {{ $message->surname_sender}}</h3>
                     {{-- Check if sent_at is a valid date --}}
                     @if (\Carbon\Carbon::hasFormat($message->sent_at, 'Y-m-d H:i:s'))
                         {{-- Format sent_at as desired --}}
                         <p>{{ \Carbon\Carbon::parse($message->sent_at)->format('m/d/Y') }}</p>
                     @else
                         {{-- Handle the case when sent_at is not a valid date --}}
-                        <p>Sent at: {{ $message->sent_at }}</p>
+                        <p>Ricevuto il: {{ $message->sent_at }}</p>
                     @endif
-                    <p>{{ $message->surname_sender }}</p>
-                    <p>{{ $message->email_sender }}</p>
-                    <p>{{ $message->message_text }}</p>
+                    <p>Email cliente: {{ $message->email_sender }}</p>
+                    <p>Oggetto: {{ $message->message_object}}</p>
+                    <p>Messaggio: {{ $message->message_text }}</p>
                 </li>
             @endforeach
         </ul>
