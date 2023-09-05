@@ -176,9 +176,10 @@ class ApartmentController extends Controller
 
     public function archive(Apartment $apartment)
     {
-        $apartments = Apartment::onlyTrashed()->get();
-
-        return view('admin.apartments.archive', compact('apartments'));
+        $user = Auth::user();
+        $deletedApartments = $user->apartments()->onlyTrashed()->get();
+    
+        return view('admin.apartments.archive', compact('deletedApartments'));
     }
 
     /**
