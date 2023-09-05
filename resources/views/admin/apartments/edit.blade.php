@@ -161,20 +161,10 @@
                             <option value="1">Si</option>
                         </select>
                     </div>
-                    
-                    
-                    <div class="col-6">
-                        <!-- Form di Cancellazione -->
-                        <form id="deleteForm" action="{{ route('admin.apartments.destroy', $apartment) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button id="deleteButton" class="btn btn-danger form-control my-4" type="button">Cancella Elemento</button>
-                        </form>
-                    </div>
-
-                    <div class="col-6">
+               
+                    <div class="col-12 d-flex justify-content-center">
                         {{-- crea --}}
-                        <button class="btn btn-success my-4 form-control" type="submit" value="Modifica">Modifica</button>
+                        <button class="btn btn-outline-light my-4 primary-color-button" type="submit" value="Modifica">Modifica</button>
                     </div>
                 </div>
             </div>
