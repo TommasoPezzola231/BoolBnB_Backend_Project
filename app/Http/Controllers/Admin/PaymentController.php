@@ -8,6 +8,7 @@ use App\Http\Requests\UpdatePaymentRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Apartment;
 use App\Models\Sponsorship;
+use Braintree\Gateway;
 use Braintree\Transaction;
 use Illuminate\Http\Request;
 
@@ -16,11 +17,20 @@ class PaymentController extends Controller
 
     public function processPayment(Request $request)
     {
+
         $paymentMethod = "creditCard";
         $sponsorshipId = $request->input('sponsorship_id');
         $sponsorship = Sponsorship::find($sponsorshipId);
 
-        $gateway = new \Braintree\Gateway([
+        $sponsorshipId = $request->input('sponsorship_id');
+        $apartmentId = $request->input('apartment_id');
+        $apartment = Apartment::find($apartmentId);
+        $nonce = $request->payment_method_nonce;
+        $price = $sponsorship->price;
+
+
+        // Effettua il pagamento utilizzando Braintree
+        $gateway = new Gateway([
             'environment' => config('services.braintree.environment'),
             'merchantId' => config('services.braintree.merchant_id'),
             'publicKey' => config('services.braintree.public_key'),
@@ -31,9 +41,11 @@ class PaymentController extends Controller
         if ($paymentMethod === 'creditCard') {
             // Elabora la transazione con carta di credito
             $result = $gateway->transaction()->sale([
-                'amount' => $sponsorship->price,
-                'paymentMethodNonce' => $request->input('paymentMethodNonce'),  // Ottieni il nonce di pagamento dal client
-                // Altre informazioni necessarie
+                'amount' => $price,
+                'paymentMethodNonce' => $nonce,
+                'options' => [
+                    'submitForSettlement' => true,
+                ],
             ]);
         } elseif ($paymentMethod === 'paypal') {
             // Elabora la transazione con PayPal
@@ -42,7 +54,13 @@ class PaymentController extends Controller
 
         // Gestisci la risposta di Braintree e restituisci una vista appropriata
         if ($result->success) {
-            // Pagamento riuscito, mostra una vista di conferma
+
+            $durationInHours = $sponsorship->duration;
+            $endTime = now()->addHours($durationInHours);
+
+            $apartment->sponsorships()->attach($sponsorshipId, ['end_time' => $endTime, 'start_time' => now()]);
+
+
             return view('admin.payment.success');
         } else {
             // Pagamento fallito, mostra una vista di errore
