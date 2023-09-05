@@ -3,26 +3,36 @@
 @section('content')
     
     <section>
-        <div class="row">
-            <h2 class="my-3 text-center">Appartamenti eliminati</h2>
-            @foreach ($deletedApartments as $deletedApartment)
 
-                <div class="card col-4 m-2" style="width: 18rem;">
-                    <img src="{{ ($deletedApartment['principal_image']) ? asset('storage/' . $deletedApartment->principal_image) : "https://www.signfix.com.au/wp-content/uploads/2017/09/placeholder-600x400.png" }}" class="card-img-top" alt="{{ $deletedApartment->title }}">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $deletedApartment->title }}</h5>
-                    </div>
-                    <form id="deleteForm" action="{{ route('admin.apartments.destroy', $deletedApartment) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                
-                        <button id="deleteButton" class="btn btn-danger" type="submit">Cancella Elemento</button>
-                    </form>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="my-3">Appartamenti eliminati</h2>
+                    <hr>
+                    <table class="table table-bordered mt-3">
+                        <thead>
+                          <tr class="table-secondary">
+                            <th scope="col">Titolo</th>
+                            <th scope="col">Indirizzo</th>
+                            <th scope="col">Città</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($deletedApartments as $deletedApartment)
+
+                            <tr class="table-danger">
+                                <td>{{$deletedApartment->title}}</td>
+                                <td>{{$deletedApartment->address}}</td>
+                                <td>{{$deletedApartment->city}}</td>
+                            </tr>
+
+                            @endforeach
+                        </tbody>
+                      </table>
                 </div>
-                
-            @endforeach
-
+            </div>
         </div>
+
     </section>
 
 @endsection
