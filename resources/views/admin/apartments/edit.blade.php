@@ -107,7 +107,7 @@
                     <div class="col-md-12 col-lg-6">
                         {{-- input per decrizione --}}
                         <label for="description">Descrizione</label>
-                        <textarea name="description" id="description" name="description" cols="30" rows="15" value="{{ old('description', $apartment->description) }}"required class="form-control mb-2"></textarea>
+                        <textarea name="description" id="description" name="description" cols="30" rows="15" required class="form-control mb-2">{{ old('description', $apartment->description) }}</textarea>
                         @error('description')
                             <div class="bg-danger-subtle rounded">{{ $message }}</div>
                         @enderror
