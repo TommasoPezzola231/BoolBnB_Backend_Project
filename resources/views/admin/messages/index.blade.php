@@ -3,7 +3,7 @@
 @section('content')
     
 
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-4 latosx">
                     <h3 class="mt-4 ms-4">Tutti i messaggi</h3>
@@ -30,10 +30,10 @@
                                 <div>{{ \Carbon\Carbon::parse($message->sent_at)->format('m/d/Y') }}</div>
                             @else
                                 {{-- Handle the case when sent_at is not a valid date --}}
-                                <div>{{ $message->sent_at }}</div>
+                                <div class="text-secondary">{{ $message->sent_at }}</div>
                             @endif
                         </div>
-                        <p>{{ $apartment->title }}</p>
+                        <div class="badge bg-primary mb-3"> {{ $message->apartment_title }}</div>
                         <p>{{ $message->message_object}}</p>
                             
                 
