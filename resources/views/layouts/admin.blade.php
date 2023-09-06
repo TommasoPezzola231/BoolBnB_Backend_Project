@@ -35,12 +35,15 @@
             <div class="row h-100">
                 <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse position-fixed overflow-hidden">
                     <div class="position-sticky pt-3">
-                        <ul class="nav d-flex flex-column justify-content-evenly gap-3 vh-100 p-2">
 
-                            <div class="d-flex align-items-center">
-                                <img src="{{ asset('images/logo/Bool_Bnb_White.png') }}" alt="Logo">
-                                <h3 class="text-white m-0">BoolBnb</h3>
-                            </div>
+                        {{-- logo  --}}
+                        <div class="d-flex align-items-center">
+                            <img src="{{ asset('images/logo/Bool_Bnb_White.png') }}" alt="Logo">
+                            <h3 class="text-white m-0">BoolBnb</h3>
+                        </div>
+
+                        {{-- menu --}}
+                        <ul class="nav d-flex flex-column justify-content-evenly gap-3 vh-100 p-2">
 
                             <li class="nav-item ">
                                 <a class="nav-link text-white" href="http://localhost:5174/">
