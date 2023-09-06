@@ -61,7 +61,7 @@
                         <div class="form-group mt-3">
                             <label for="apartment_id">Scegli un appartamento:</label>
                             <select name="apartment_id" id="apartment_id" class="form-control">
-                                <option value="">Seleziona un appartamento</option>
+                                <option value="">Scegli un appartamento</option>
                                 @foreach ($userApartments as $apartment)
                                 <option value="{{ $apartment->id }}">
                                     {{ $apartment->title }}
