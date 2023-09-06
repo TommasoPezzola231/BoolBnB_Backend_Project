@@ -31,17 +31,19 @@
 
 <body>
     <div id="app">
-
         <div class="container-fluid vh-100">
             <div class="row h-100">
-                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block navbar-dark sidebar collapse">
-                    <div class="position-sticky pt-3">
-                        <ul class="nav flex-column">
+                <nav id="navbarLarge" class="col-md-3 col-lg-2 bg-dark sidebar d-none d-lg-block position-fixed vh-100 ">
+                    <div class="container-fluid vh-100 m-0 p-0">
 
-                            <div class="d-flex align-items-center">
-                                <img src="{{ asset('images/logo/Bool_Bnb_White.png') }}" alt="Logo">
-                                <h3 class="text-white m-0">BoolBnb</h3>
-                            </div>
+                        <!-- Logo -->
+                        <a class="navbar-brand text-white d-flex align-items-center flex-md-column  mb-4" href="#">
+                            <img src="{{ asset('images/logo/Bool_Bnb_White.png') }}" alt="Logo" width="100px" height="100px" class="img-fluid p-0">
+                            <h3 class="text-white m-0">BoolBnb</h3>
+                        </a>
+
+
+                        <ul class="navbar-nav ms-auto d-flex gap-5">
 
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="http://localhost:5174/">
@@ -86,7 +88,7 @@
                                 </a>
                             </li>
 
-                             <li class="nav-item">
+                                <li class="nav-item">
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.apartments.archive' ? 'sidebarHover' : '' }}"
                                     href="{{ route('admin.apartments.archive') }}">
                                     <i class="fa-solid fa-box-archive fa-lg fa-fw me-2"></i> Archivio
@@ -101,19 +103,167 @@
                                     @csrf
                                 </form>
                             </li>
-
                         </ul>
                     </div>
                 </nav>
 
-                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 pb-5">
+                <!-- Navbar for Tablet and Smaller Screens -->
+                <nav id="navbarSmall" class="navbar navbar-expand-lg navbar-dark bg-dark d-lg-none">
+                    <div class="container">
+                          <!-- Logo -->
+                          <a class="navbar-brand" href="#">
+                            <img src="{{ asset('images/logo/Bool_Bnb_White.png') }}" alt="Logo" style="max-width: 100px;">
+                            BoolBnb
+                        </a>
+
+                        <!-- Hamburger button for tablet and smaller screens -->
+                        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu"
+                            aria-controls="sidebarMenu">
+                            <i class="fa-solid fa-bars fa-lg"></i>
+                        </button>
+
+                        <!-- Navbar links (inside a collapse for tablet and smaller screens) -->
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ms-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" href="http://localhost:5174/">
+                                        <i class="fa-solid fa-home-alt fa-lg fa-fw"></i> Home
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'sidebarHover' : '' }}"
+                                        href="{{ route('admin.dashboard') }}">
+                                        <i class="fa-solid fa-tachometer-alt fa-lg fa-fw me-2"></i> Dashboard
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.apartments.index' ? 'sidebarHover' : '' }}"
+                                        href="{{ route('admin.apartments.index') }}">
+                                        <i class="fa-solid fa-building-user fa-lg fa-fw me-2"></i> I tuoi appartamenti
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.apartments.create' ? 'sidebarHover' : '' }}"
+                                        href="{{ route('admin.apartments.create') }}">
+                                        <i class="fa-solid fa-square-plus fa-lg fa-fw me-2"></i> Aggiungi appartamento
+                                    </a>
+                                </li>
+
+                                {{-- messaggi --}}
+                                <li class="nav-item">
+                                    <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.messages.index' ? 'sidebarHover' : '' }}"
+                                        href="{{ route('admin.messages.index') }}">
+                                        <i class="fa-solid fa-comments fa-lg fa-fw me-2"></i> Messaggi
+                                    </a>
+                                </li>
+
+                                {{-- sponsorships --}}
+                                <li class="nav-item">
+                                    <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.sponsorships.index' ? 'sidebarHover' : '' }}"
+                                        href="{{ route('admin.sponsorships.index') }}">
+                                        <i class="fa-solid fa-credit-card fa-lg fa-fw me-2"></i> Sponsorizzazioni
+                                    </a>
+                                </li>
+
+                                    <li class="nav-item">
+                                    <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.apartments.archive' ? 'sidebarHover' : '' }}"
+                                        href="{{ route('admin.apartments.archive') }}">
+                                        <i class="fa-solid fa-box-archive fa-lg fa-fw me-2"></i> Archivio
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" href="http://localhost:5174/" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        <i class="fa-solid fa-sign-out-alt fa-lg fa-fw me-2"></i> {{ __('Logout') }}
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+
+                <!-- Sidebar Offcanvas -->
+                <div class="offcanvas offcanvas-start" data-bs-backdrop="false" tabindex="-1" id="sidebarMenu">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title">Menu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="nav flex-column">
+
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="http://localhost:5174/">
+                                    <i class="fa-solid fa-home-alt fa-lg fa-fw"></i> Home
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'sidebarHover' : '' }}"
+                                    href="{{ route('admin.dashboard') }}">
+                                    <i class="fa-solid fa-tachometer-alt fa-lg fa-fw me-2"></i> Dashboard
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.apartments.index' ? 'sidebarHover' : '' }}"
+                                    href="{{ route('admin.apartments.index') }}">
+                                    <i class="fa-solid fa-building-user fa-lg fa-fw me-2"></i> I tuoi appartamenti
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.apartments.create' ? 'sidebarHover' : '' }}"
+                                    href="{{ route('admin.apartments.create') }}">
+                                    <i class="fa-solid fa-square-plus fa-lg fa-fw me-2"></i> Aggiungi appartamento
+                                </a>
+                            </li>
+
+                            {{-- messaggi --}}
+                            <li class="nav-item">
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.messages.index' ? 'sidebarHover' : '' }}"
+                                    href="{{ route('admin.messages.index') }}">
+                                    <i class="fa-solid fa-comments fa-lg fa-fw me-2"></i> Messaggi
+                                </a>
+                            </li>
+
+                            {{-- sponsorships --}}
+                            <li class="nav-item">
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.sponsorships.index' ? 'sidebarHover' : '' }}"
+                                    href="{{ route('admin.sponsorships.index') }}">
+                                    <i class="fa-solid fa-credit-card fa-lg fa-fw me-2"></i> Sponsorizzazioni
+                                </a>
+                            </li>
+
+                                <li class="nav-item">
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.apartments.archive' ? 'sidebarHover' : '' }}"
+                                    href="{{ route('admin.apartments.archive') }}">
+                                    <i class="fa-solid fa-box-archive fa-lg fa-fw me-2"></i> Archivio
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="http://localhost:5174/" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <i class="fa-solid fa-sign-out-alt fa-lg fa-fw me-2"></i> {{ __('Logout') }}
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <main class="col-md-12 col-lg-10 px-md-4 pb-5 ms-sm-auto">
                     @yield('content')
-
-
                 </main>
             </div>
         </div>
-
     </div>
 </body>
 
