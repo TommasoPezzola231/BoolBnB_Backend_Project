@@ -110,4 +110,8 @@ main {
 
 .primary-color-button {
     background-color: $color-primary;
+
+    &:hover {
+        background-color: darken($color-primary, 10%);
+    }
 }

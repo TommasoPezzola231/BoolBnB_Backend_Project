@@ -45,7 +45,7 @@
                 @csrf
                 <div class="card mb-3" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);">
                     <div class="card-body">
-                        <h2 class="card-title">Sponsorizzazione</h2>
+                        <h2 class="card-title">Aquista una sponsorizzazione</h2>
                         <div class="form-group">
                             <label for="sponsorship_id">Scegli un pacchetto:</label><br>
                             @foreach ($sponsorships as $sponsorship)

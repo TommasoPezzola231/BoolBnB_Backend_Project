@@ -57,7 +57,7 @@
                                 <h3 class="color-primary">Sponsorizzazione</h3>
                                 <ul>
                                     @if ($apartment->sponsorships->isNotEmpty())
-                                        @foreach ($apartment->sponsorships as $sponsorship)
+                                        {{-- @foreach ($apartment->sponsorships as $sponsorship)
                                             <li>
                                                 <strong>Sponsorizzazione attiva:</strong>
                                                 {{ $sponsorship->name_sponsorship }}
@@ -66,7 +66,15 @@
                                                 <strong>Scadenza:</strong>
                                                 {{ $sponsorship->pivot->end_time }}
                                             </li>
-                                        @endforeach
+                                        @endforeach --}}
+                                        <li>
+                                            <strong>Sponsorizzazione attiva:</strong>
+                                            {{ $apartment->sponsorships->last()->name_sponsorship }}
+                                        </li>
+                                        <li>
+                                            <strong>Scadenza:</strong>
+                                            {{ $apartment->sponsorships->last()->pivot->end_time }}
+                                        </li>
                                     @else
                                         <li>
                                             <strong>Nessuna sponsorizzazione attiva</strong>
