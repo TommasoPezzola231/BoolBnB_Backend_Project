@@ -29,6 +29,9 @@ class MessageController extends Controller
             $query->where('apartment_id', $apartment_id);
         }
 
+        // Join the apartments table to get the user_id
+        $query->join('apartments', 'messages.apartment_id', '=', 'apartments.id')->where('apartments.user_id', $user->id);
+
         // Order the messages by sent_at in descending order
         $messages = $query->orderByDesc('sent_at')->get();
 
