@@ -20,11 +20,11 @@
                     <div class="mb-3"><i class="fa-solid fa-location-dot color-primary"></i> {{ $apartment->address }}, {{ $apartment->city }}, {{ $apartment->country }}</div>
                     <div class="mb-3"> {{ $apartment->description }} </div>
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-12 col-lg-12">
                             <h3 class="color-primary">Caratteristiche</h3>
                             <ul>
                                 <li>
-                                    Prezzo: {{ $apartment->price }}
+                                    Prezzo: {{ $apartment->price }} €
                                 </li>
                                 <li>
                                     Stanze: {{ $apartment->num_rooms }}
@@ -42,27 +42,38 @@
                                         Non visibile <i class="fa-solid fa-eye-slash"></i>
                                     @endif
                                 </li>
-                                <li>
-                                    @if ($apartment->sponsorships->isNotEmpty())
-                                    <div class="d-flex align-items-center gap-2">
-                                        Sponsorizzato
-                                        <i class="fas fa-award"></i>
-                                    </div>
-                                    @else
-                                        <div class="d-flex align-items-center gap-2">
-                                            Non sponsorizzato
-                                        </div>
-                                    @endif
-                                </li>
                             </ul>
                         </div>
-                        <div class="col-6">
+                        <div class="col-12 col-lg-12">
                             <h3 class="color-primary">Servizi</h3>
                             <ul>
                                 @foreach ($apartment->services as $service)
                                     <li>{{ $service->name_service }}</li>
                                 @endforeach
                             </ul>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <h3 class="color-primary">Sponsorizzazione</h3>
+                                <ul>
+                                    @if ($apartment->sponsorships->isNotEmpty())
+                                        @foreach ($apartment->sponsorships as $sponsorship)
+                                            <li>
+                                                <strong>Sponsorizzazione attiva:</strong>
+                                                {{ $sponsorship->name_sponsorship }}
+                                            </li>
+                                            <li>
+                                                <strong>Scadenza:</strong>
+                                                {{ $sponsorship->pivot->end_time }}
+                                            </li>
+                                        @endforeach
+                                    @else
+                                        <li>
+                                            <strong>Nessuna sponsorizzazione attiva</strong>
+                                        </li>
+                                    @endif
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>

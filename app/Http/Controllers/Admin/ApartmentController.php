@@ -108,6 +108,16 @@ class ApartmentController extends Controller
      */
     public function show(Apartment $apartment)
     {
+        // Verifica se l'appartamento è associato a sponsorizzazioni
+        $sponsorship = $apartment->sponsorships->first();
+
+        if ($sponsorship) {
+            // Ora puoi accedere all'end_time dalla tabella pivot
+            $endTime = $sponsorship->pivot->end_time;
+
+            // Passa $endTime alla vista
+            return view('admin.apartments.show', compact('apartment', 'endTime'));
+        }
 
         return view('admin.apartments.show', compact('apartment'));
     }
