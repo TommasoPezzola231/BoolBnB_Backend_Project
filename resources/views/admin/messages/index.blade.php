@@ -7,7 +7,7 @@
         <form action="{{ route('admin.messages.index') }}" method="get">
             <label for="apartment_id">Filter by Apartment:</label>
             <select name="apartment_id" id="apartment_id">
-                <option value="">All Apartments</option>
+                <option value="">Tutti i messaggi</option>
                 @foreach ($apartments as $apartment)
                     <option value="{{ $apartment->id }}" {{ $apartment_id == $apartment->id ? 'selected' : '' }}>
                         {{ $apartment->title }}

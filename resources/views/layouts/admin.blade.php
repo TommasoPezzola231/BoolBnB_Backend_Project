@@ -31,19 +31,18 @@
 
 <body>
     <div id="app">
-
         <div class="container-fluid vh-100">
             <div class="row h-100">
-                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block navbar-dark sidebar collapse fixed-top vh-100">
+                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse position-fixed overflow-hidden">
                     <div class="position-sticky pt-3">
-                        <ul class="nav flex-column">
+                        <ul class="nav d-flex flex-column justify-content-evenly gap-3 vh-100 p-2">
 
                             <div class="d-flex align-items-center">
                                 <img src="{{ asset('images/logo/Bool_Bnb_White.png') }}" alt="Logo">
                                 <h3 class="text-white m-0">BoolBnb</h3>
                             </div>
 
-                            <li class="nav-item">
+                            <li class="nav-item ">
                                 <a class="nav-link text-white" href="http://localhost:5174/">
                                     <i class="fa-solid fa-home-alt fa-lg fa-fw"></i> Home
                                 </a>
@@ -107,14 +106,11 @@
                     </div>
                 </nav>
 
-                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 overflow-y-auto">
                     @yield('content')
-
-
                 </main>
             </div>
         </div>
-
     </div>
 </body>
 

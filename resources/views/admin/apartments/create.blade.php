@@ -10,13 +10,13 @@
                     <li>{{ $error }}</li>
                 @endforeach
             </ul>
-            <div>
+        <div>
     @endif
 
     <div class="container-form">
         <form action="{{ route('admin.apartments.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
-    
+
             <h2 class="mb-3">Aggiungi Appartamento</h2>
 
             <div class="container">
@@ -35,10 +35,10 @@
                         {{-- input per indirizzo --}}
                         <label for="address">Indirizzo</label>
                         <input class="form-control mb-2" id="address" type="text" name="address" list="addressSuggestions" value="{{ old('address') }}" onkeyup="fetchAndPopulateSuggestions()"  required placeholder="Inserisci indirizzo">
-                
+
                         <datalist id="addressSuggestions">
                         </datalist>
-                
+
                         @error('address')
                             <div class="bg-danger-subtle rounded">{{ $message }}</div>
                         @enderror
@@ -112,7 +112,7 @@
                         {{-- input per decrizione --}}
                         <label for="description">Descrizione</label>
                         <textarea name="description" id="description" cols="30" rows="15" value="{{ old('description') }}" required placeholder="Inserisci la descrizione" class="form-control mb-2"></textarea>
-                            
+
                         @error('description')
                             <div class="bg-danger-subtle rounded">{{ $message }}</div>
                         @enderror
@@ -132,7 +132,7 @@
                         <div id="imagePreview" class="d-flex justify-content-center align-items-center">
                             Anteprima
                         </div>
-                        
+
                     </div>
 
                     <div class="col-12">
@@ -197,9 +197,9 @@
                 }
             }
         });
-        
+
         function fetchAndPopulateSuggestions() {
-            
+
         var input = document.getElementById('address').value.toLowerCase();
         var inputWithHyphens = input.replace(/ /g, '-');
         var datalist = document.getElementById('addressSuggestions');
@@ -207,7 +207,7 @@
 
         var apiUrl = 'https://api.tomtom.com/search/2/geocode/';
         var fullUrl = `${apiUrl}${input}.json?key=${apiKey}`;
-        
+
         // Effettua la chiamata AJAX per ottenere i suggerimenti dall'API
         fetch(fullUrl)
             .then(response => response.json())
