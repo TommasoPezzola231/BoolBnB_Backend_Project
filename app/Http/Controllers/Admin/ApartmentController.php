@@ -43,8 +43,6 @@ class ApartmentController extends Controller
         return view("admin.apartments.create", compact('services'));
     }
 
-
-
     /**
      * Store a newly created resource in storage.
      *
@@ -99,7 +97,6 @@ class ApartmentController extends Controller
 
         $newApartment->services()->attach($data['serviceID']);
 
-
         return to_route('admin.apartments.show', $newApartment->id);
     }
 
@@ -111,6 +108,7 @@ class ApartmentController extends Controller
      */
     public function show(Apartment $apartment)
     {
+
         return view('admin.apartments.show', compact('apartment'));
     }
 

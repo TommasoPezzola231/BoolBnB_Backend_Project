@@ -30,7 +30,7 @@
                                     Stanze: {{ $apartment->num_rooms }}
                                 </li>
                                 <li>
-                                    Bagni: {{ $apartment->num_bathrooms }} 
+                                    Bagni: {{ $apartment->num_bathrooms }}
                                 </li>
                                 <li>
                                     Metri quadri: {{ $apartment->square_meters }} mq
@@ -39,7 +39,19 @@
                                     @if ($apartment->visible)
                                         Visibile <i class="fa-solid fa-eye"></i>
                                     @else
-                                        Non visibile <i class="fa-solid fa-eye-slash"></i> 
+                                        Non visibile <i class="fa-solid fa-eye-slash"></i>
+                                    @endif
+                                </li>
+                                <li>
+                                    @if ($apartment->sponsorships->isNotEmpty())
+                                    <div class="d-flex align-items-center gap-2">
+                                        Sponsorizzato
+                                        <i class="fas fa-award"></i>
+                                    </div>
+                                    @else
+                                        <div class="d-flex align-items-center gap-2">
+                                            Non sponsorizzato
+                                        </div>
                                     @endif
                                 </li>
                             </ul>
@@ -53,7 +65,6 @@
                             </ul>
                         </div>
                     </div>
-                    
                 </div>
             </div>
             <div class="col-6">
@@ -67,9 +78,9 @@
                         <img src="https://www.signfix.com.au/wp-content/uploads/2017/09/placeholder-600x400.png" class="card-img-top" alt="Placeholder Image">
                     @endif
                 </div>
-            </div> 
+            </div>
             <div class="col-6">
-                qui ci andrebbero le foto col carosello 
+                qui ci andrebbero le foto col carosello
             </div>
             <div class="col-12 d-flex justify-content-end">
                 <a href="{{ route('admin.apartments.edit', $apartment->id) }}"
@@ -84,7 +95,7 @@
                 </form>
             </div>
         </div>
-            
+
     </div>
 
     <script>

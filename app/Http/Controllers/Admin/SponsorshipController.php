@@ -7,6 +7,7 @@ use App\Models\sponsorship;
 use App\Http\Requests\StoresponsorshipRequest;
 use App\Http\Requests\UpdatesponsorshipRequest;
 use Braintree\Gateway;
+use GuzzleHttp\Psr7\Request;
 
 class SponsorshipController extends Controller
 {
@@ -19,6 +20,7 @@ class SponsorshipController extends Controller
     {
         $sponsorships = sponsorship::all();
         $userApartments = auth()->user()->apartments;
+        $userSponsorships = auth()->user()->sponsorships;
 
         $gateway = new Gateway([
             'environment' => config('services.braintree.environment'),
@@ -29,7 +31,7 @@ class SponsorshipController extends Controller
 
         $token = $gateway->clientToken()->generate();
 
-        return view('admin.sponsorships.index', compact('sponsorships', 'userApartments', 'gateway', 'token'));
+        return view('admin.sponsorships.index', compact('sponsorships', 'userApartments', 'gateway', 'token', 'userSponsorships'));
     }
 
     /**
@@ -61,7 +63,6 @@ class SponsorshipController extends Controller
      */
     public function show(sponsorship $sponsorship)
     {
-
         return view('admin.sponsorships.show', compact('sponsorship'));
     }
 
