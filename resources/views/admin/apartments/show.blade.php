@@ -99,7 +99,7 @@
                 </div>
             </div>
             <div class="col-6">
-                qui ci andrebbero le foto col carosello
+               
             </div>
             <div class="col-12 d-flex justify-content-end">
                 <a href="{{ route('admin.apartments.edit', $apartment->id) }}"
