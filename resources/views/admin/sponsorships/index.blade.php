@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <section>
+    <section class="p-4">
         <div class="row">
             <h2 class="my-3">Sponsorizza i tuoi appartamenti</h2>
             <hr>

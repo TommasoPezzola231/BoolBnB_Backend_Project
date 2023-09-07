@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <section>
+    <section class="p-4">
         <section>
             <div class="container-fluid">
                 <div class="row">
