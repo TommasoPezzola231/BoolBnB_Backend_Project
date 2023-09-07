@@ -108,7 +108,7 @@
                 </nav>
 
                 <!-- Navbar for Tablet and Smaller Screens -->
-                <nav id="navbarSmall" class="navbar navbar-expand-lg navbar-dark bg-dark d-lg-none">
+                <nav id="navbarSmall" class="navbar navbar-expand-lg navbar-dark bg-dark d-lg-none position-fixed top-0 left-0 w-100 z-10">
                     <div class="container">
                           <!-- Logo -->
                           <a class="navbar-brand" href="#">
@@ -195,7 +195,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body">
-                        <ul class="nav flex-column">
+                        <ul class="nav flex-column d-flex gap-5">
 
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="http://localhost:5174/">
@@ -234,7 +234,7 @@
 
                             {{-- sponsorships --}}
                             <li class="nav-item">
-                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.sponsorships.index' ? 'sidebarHover' : '' }}"
+                                <a class="nav-link text-white{{ Route::currentRouteName() == 'admin.sponsorships.index' ? 'sidebarHover' : '' }}"
                                     href="{{ route('admin.sponsorships.index') }}">
                                     <i class="fa-solid fa-credit-card fa-lg fa-fw me-2"></i> Sponsorizzazioni
                                 </a>
@@ -259,7 +259,7 @@
                     </div>
                 </div>
 
-                <main class="col-md-12 col-lg-10 px-md-4 pb-5 ms-sm-auto ">
+                <main class="col-md-12 col-lg-10 pb-5 ms-sm-auto main_top">
                     @yield('content')
                 </main>
             </div>
