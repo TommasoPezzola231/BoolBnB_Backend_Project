@@ -23,7 +23,7 @@
                     <div>
 
                         @foreach ($messages as $message)
-                        <div class="message-item p-4" data-apartment-id="{{$message->apartment_id}}">
+                        <div class="message-item border p-4" data-apartment-id="{{$message->apartment_id}}">
                             <div class="d-flex justify-content-between">
                                 <h5>{{ $message->name_sender }} {{ $message->surname_sender}}</h5>
                                  
