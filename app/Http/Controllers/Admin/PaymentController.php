@@ -58,7 +58,6 @@ class PaymentController extends Controller
                 ->withInput();
         }
 
-        dd($request);
         $paymentMethod = "creditCard";
         $sponsorshipId = $request->input('sponsorship_id');
         $sponsorship = Sponsorship::find($sponsorshipId);
