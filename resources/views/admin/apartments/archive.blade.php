@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
-                        <h2 class="my-3">Appartamenti eliminati</h2>
+                        <h2 class="my-3 text-center text-white">Appartamenti eliminati</h2>
                         <hr>
                         @if ($deletedApartments->isEmpty())
                             <div class="col-12 text-center">

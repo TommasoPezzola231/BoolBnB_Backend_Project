@@ -1,8 +1,18 @@
+#container-messages {
+    height: 100vh;
+    // position: fixed;
+}
+
 .latodx {
     padding: 0;
     height: 100vh;
     overflow-y: scroll;
-    background-color: $bg-light;
+    background: #283048;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #859398, #283048);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #859398, #283048);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .latosx {
@@ -23,4 +33,6 @@
 
 .message-item {
     display: none;
+    background-color: $bg-light;
+
 }

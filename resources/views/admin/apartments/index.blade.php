@@ -3,7 +3,7 @@
 @section('content')
     <section class="p-4">
         <div class="row">
-            <h2 class="my-3">I tuoi appartamenti</h2>
+            <h2 class="my-3 text-center text-white">I tuoi appartamenti</h2>
             <hr>
         </div>
         <div class="row mx-auto d-flex flex-wrap">
