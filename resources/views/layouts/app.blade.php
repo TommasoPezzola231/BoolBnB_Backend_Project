@@ -21,71 +21,64 @@
 
 <body>
     <div id="app">
+        <div class="container-fluid vh-100">
+            <div class="row h-100">
+                <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm position-fixed top-0 left-0 w-100 z-10 col-12 d-flex align-items-center px-3">
 
+                    <a class="navbar-brand d-flex align-items-center" href="{{ url('http://localhost:5174/') }}" >
+                        <img class="img-fluid" src="{{ asset('images/logo/Bool_Bnb_Black.png') }}" alt="Logo" width="80px" height="80px">
+                        <h1 class="my_title_color_text m-0">BoolBnB</h1>
+                    </a>
 
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand d-flex align-items-center" href="{{ url('http://localhost:5174/') }}" style="color: red">
-                    <h1>BoolBnB</h1>
-                    {{-- config('app.name', 'Laravel') --}}
-                </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{url('http://localhost:5174/') }}">{{ __('Home') }}</a>
-                        </li>
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <!-- Left Side Of Navbar -->
+                        <ul class="navbar-nav me-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link my_header_color_text" href="{{url('http://localhost:5174/') }}">{{ __('Home') }}</a>
                             </li>
-                            @if (Route::has('register'))
+                        </ul>
+
+                        <!-- Right Side Of Navbar -->
+                        <ul class="navbar-nav ml-auto">
+                            <!-- Authentication Links -->
+                            @guest
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link my_header_color_text" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
+                                @if (Route::has('register'))
+                                    <li class="nav-item">
+                                        <a class="nav-link my_header_color_text" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    </li>
+                                @endif
+                            @endguest
+                        </ul>
+                    </div>
+                </nav>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item"
-                                        href="{{ route('admin.dashboard') }}">{{ __('Dashboard') }}</a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
+                {{-- form --}}
+                <main class="my_bg_form_page col-12">
+                    <div class="my_form_content">
+                        <div class="container py-5 h-100">
+                            <div class="row d-flex justify-content-center align-items-center h-100">
+                                <div class="col col-xl-10">
+                                    <div class="card shadow" style="border-radius: 1rem;">
+                                        <div class="row g-0">
+                                            @yield('content')
+                                        </div>
+                                    </div>
                                 </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
             </div>
-        </nav>
-
-        <main class="">
-            @yield('content')
-        </main>
+        </div>
     </div>
 </body>
 

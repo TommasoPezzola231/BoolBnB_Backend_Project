@@ -1,0 +1,10 @@
+@mixin title{
+    font-weight: bold;
+    background: #E7C2E5;
+    background: -webkit-linear-gradient(to left, #E7C2E5 0%, #F802E4 55%, #7A02FA 100%);
+    background: -moz-linear-gradient(to left, #E7C2E5 0%, #F802E4 55%, #7A02FA 100%);
+    background: linear-gradient(to left, #E7C2E5 0%, #F802E4 55%, #7A02FA 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    // text-shadow: 1px 2px 0px #DEDEDE;
+}

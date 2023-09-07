@@ -25,9 +25,15 @@ class PasswordResetLinkController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $request->validate([
-            'email' => ['required', 'email'],
-        ]);
+        $request->validate(
+            [
+                'email' => ['required', 'email'],
+            ],
+            [
+                'email.required' => 'Devi inserire la tua email',
+                'email.email' => 'Devi inserire un indirizzo email valido',
+            ]
+        );
 
         // We will send the password reset link to this user. Once we have attempted
         // to send the link, we will examine the response then see the message we
@@ -44,6 +50,8 @@ class PasswordResetLinkController extends Controller
             // messaggi errore personalizzati in italiano
             ? back()->with('status', 'Link per il reset della password inviato')
             : back()->withInput($request->only('email'))
-            ->withErrors(['email' => 'Impossibile inviare il link per il reset della password, email non trovata']);
+            ->withErrors(
+                ['email' => 'Impossibile inviare il link per il reset della password, email non trovata']
+            );
     }
 }

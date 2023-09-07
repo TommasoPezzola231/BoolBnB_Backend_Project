@@ -39,72 +39,6 @@ main {
     height: 120px;
 }
 
-//carousel
-
-// :root{
-//     --transition-speed:0.5s;
-//     --btn-bg-color: transparent;
-// }
-
-// .img_container{
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     align-items: center;
-//     transition: var(--transition-speed) ease;
-// }
-
-// .img{
-//     background-position: center;
-//     background-size: cover;
-//     background-repeat: no-repeat;
-//     top: -15vh;
-//     left: -15vw;
-//     z-index: 1;
-// }
-
-// .arrow-btn{
-//     position: fixed;
-//     bottom: 1vh;
-// }
-
-// .left-arrow{
-//     left: calc(40vw - 120px);
-// }
-
-// .right-arrow{
-//     right: calc(40vw - 120px);
-// }
-
-// .btn{
-//     background-color: var(--btn-bg-color);
-//     border: none;
-//     color: crimson;
-//     font-size: 3rem;
-//     cursor: pointer;
-// }
-
-// //Animazione per JS
-
-// .animateTransition{
-//     animation: animation var(--transition-speed) ease;
-// }
-
-// @keyframes animation{
-//     0%{
-//         transform: translateX(5px);
-//         filter: blur(4px);
-//     }
-//     50%{
-//         transform: translateX(-5px);
-//         filter: blur(2px);
-//     }
-//     100%{
-//         transform: translateX(0);
-//         filter: blur(0);
-//     }
-// }
-
 .color-primary {
     color: $color-primary;
 
@@ -122,10 +56,38 @@ main {
     }
 }
 
-// .my_fixed {
-//     height: 100vh;
-//     position: fixed;
-//     top: 0;
-//     left: 0;
+.my_bg_form_page {
+    background: #ADA996;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
 
-// }
+.my_form_content {
+    // margin-top: 18rem;
+    padding-top: 18rem;
+}
+
+.my_title_color_text {
+    font-size: 2rem;
+    font-weight: bold;
+    @include title;
+
+    &:hover {
+      // color: $bg-light-pink;
+
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+    }
+}
+
+.my_header_color_text {
+    color: $color-lavander;
+    text-decoration: none;
+    font-size: 1rem;
+
+    &:hover {
+      color: $headerLinks;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+    }
+  }
