@@ -33,7 +33,7 @@
     <div id="app">
         <div class="container-fluid vh-100">
             <div class="row h-100">
-                <nav id="navbarLarge" class=" col-lg-3 col-xl-3 col-xxl-2  bg-dark sidebar d-none d-lg-block position-fixed vh-100 ">
+                <nav id="navbarLarge" class="col-lg-3 col-xl-3 col-xxl-2 bg-dark sidebar d-none d-lg-block position-fixed vh-100 ">
                     <div class="container-fluid vh-100 m-0 p-0">
 
                         <!-- Logo -->
@@ -109,11 +109,11 @@
 
                 <!-- Navbar for Tablet and Smaller Screens -->
                 <nav id="navbarSmall" class="navbar navbar-expand-lg navbar-dark bg-dark d-lg-none position-fixed top-0 left-0 w-100 z-10">
-                    <div class="container">
-                          <!-- Logo -->
-                          <a class="navbar-brand" href="#">
+                    <div class="container-fluid px-3">
+                        <!-- Logo -->
+                        <a class="navbar-brand d-flex align-items-center" href="#">
                             <img src="{{ asset('images/logo/Bool_Bnb_White.png') }}" alt="Logo" style="max-width: 100px;">
-                            BoolBnb
+                            <h1 class="m-0">BoolBnb</h1>
                         </a>
 
                         <!-- Hamburger button for tablet and smaller screens -->
@@ -121,6 +121,7 @@
                             aria-controls="sidebarMenu">
                             <i class="fa-solid fa-bars fa-lg"></i>
                         </button>
+
 
                         <!-- Navbar links (inside a collapse for tablet and smaller screens) -->
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
