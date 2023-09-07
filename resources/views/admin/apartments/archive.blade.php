@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <section class="p-4">
+    <section class="p-4" class="p-4">
         <div class="container-fluid p-1">
             <div class="row">
                 <div class="col-12">
