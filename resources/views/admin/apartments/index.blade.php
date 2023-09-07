@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <section>
+    <section class="p-4">
         <div class="row">
             <h2 class="my-3">I tuoi appartamenti</h2>
             <hr>
