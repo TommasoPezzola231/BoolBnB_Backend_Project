@@ -11,6 +11,10 @@ use App\Models\Sponsorship;
 use Braintree\Gateway;
 use Braintree\Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
+
+
 
 class PaymentController extends Controller
 {
@@ -18,6 +22,43 @@ class PaymentController extends Controller
     public function processPayment(Request $request)
     {
 
+        // Definisci le regole di validazione
+        $rules = [
+            'sponsorship_id' => 'required|exists:sponsorships,id',
+            'apartment_id' => 'required|exists:apartments,id|user_owns_apartment',
+        ];
+
+        // Personalizza i messaggi di errore, se necessario
+        $messages = [
+            'sponsorship_id.required' => 'Ricordati di selezionare un pacchetto',
+            'sponsorship_id.exists' => 'Il pacchetto con ID :input non esiste.',
+
+            'apartment_id.required' => 'Ricordati di selezionare un appartamento',
+            'apartment_id.exists' => "L'appartamento con ID :input non esiste o non sei il proprietario.",
+            'apartment_id.user_owns_apartment' => "L'appartamento selezionato non appartiene a te.",
+        ];
+
+        Validator::extend('user_owns_apartment', function ($attribute, $value, $parameters, $validator) {
+            // $value è l'ID dell'appartamento da validare
+            // Puoi ottenere l'utente autenticato attuale tramite Auth::user()
+            $user = Auth::user();
+        
+            // Verifica se l'ID dell'appartamento è uno degli appartamenti dell'utente
+            return $user->apartments()->where('id', $value)->exists();
+        });
+        
+
+        // Esegui la validazione
+        $validator = Validator::make($request->all(), $rules, $messages);
+
+        // Verifica se la validazione ha avuto successo
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        dd($request);
         $paymentMethod = "creditCard";
         $sponsorshipId = $request->input('sponsorship_id');
         $sponsorship = Sponsorship::find($sponsorshipId);

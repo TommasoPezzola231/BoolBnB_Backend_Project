@@ -50,17 +50,22 @@
                             <label for="sponsorship_id">Scegli un pacchetto:</label><br>
                             @foreach ($sponsorships as $sponsorship)
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="sponsorship_id" id="sponsorship_{{ $sponsorship->id }}" value="{{ $sponsorship->id }}">
+                                <input class="form-check-input" type="radio" name="sponsorship_id" id="sponsorship_{{ $sponsorship->id }}" value="{{ $sponsorship->id }}" required>
                                 <label class="form-check-label" for="sponsorship_{{ $sponsorship->id }}">
                                     {{ $sponsorship->name_sponsorship }} (Prezzo: {{ $sponsorship->price }}€, Durata: {{ $sponsorship->duration }} ore)
                                 </label>
                             </div>
                             @endforeach
+
+                            {{-- Errore --}}
+                            @error('sponsorship_id')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div class="form-group mt-3">
                             <label for="apartment_id">Scegli un appartamento:</label>
-                            <select name="apartment_id" id="apartment_id" class="form-control">
+                            <select name="apartment_id" id="apartment_id" class="form-control" required>
                                 <option value="">Scegli un appartamento</option>
                                 @foreach ($userApartments as $apartment)
                                 <option value="{{ $apartment->id }}">
@@ -68,6 +73,11 @@
                                 </option>
                                 @endforeach
                             </select>
+
+                            {{-- Errore --}}
+                            @error('apartment_id')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div id="dropin-wrapper" class="mt-3">
