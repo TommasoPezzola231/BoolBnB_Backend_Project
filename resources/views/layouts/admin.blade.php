@@ -108,7 +108,7 @@
                 </nav>
 
                 <!-- Navbar for Tablet and Smaller Screens -->
-                <nav id="navbarSmall" class="navbar navbar-expand-lg navbar-dark bg-dark d-lg-none position-fixed">
+                <nav id="navbarSmall" class="navbar navbar-expand-lg navbar-dark bg-dark d-lg-none">
                     <div class="container">
                           <!-- Logo -->
                           <a class="navbar-brand" href="#">
@@ -259,7 +259,7 @@
                     </div>
                 </div>
 
-                <main class="col-md-12 col-lg-10 px-md-4 pb-5 ms-sm-auto main_top">
+                <main class="col-md-12 col-lg-10 px-md-4 pb-5 ms-sm-auto ">
                     @yield('content')
                 </main>
             </div>
