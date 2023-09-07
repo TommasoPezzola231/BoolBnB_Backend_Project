@@ -5,12 +5,12 @@
     <div class="container-fluid my-4">
         <div class="row">
             <div class="col-12">
-                <h1>Dettagli Appartamento</h1>
+                <h2 class="text-center text-white">Dettagli Appartamento</h2>
                 <hr>
             </div>
         </div>
     </div>
-    <div class="container-fluid container-show rounded-4 shadow p-4">
+    <div class="container container-show rounded-4 shadow p-4">
         <div class="row">
             <div class="col-6">
                 <div class="mb-3">
