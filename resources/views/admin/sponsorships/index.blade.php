@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-12 col-lg-6">
                 <div class="d-flex h-100">
-                    <div class="card flex-fill mb-3" style="background-color: #f0f0f0; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);">
+                    <div class="card flex-fill mb-3 shadow" style="background-color: #f0f0f0; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);">
                         <div class="card-body">
                             <h3 class="card-title">Informazioni sulle sponsorizzazioni</h3>
                             <p class="card-text" style="list-style-type: none; padding-left: 20px;">
@@ -25,7 +25,7 @@
             </div>
             <div class="col-12 col-lg-6">
                 <div class="d-flex h-100">
-                    <div class="card flex-fill mb-3" style="background-color: #e5f5e5; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);">
+                    <div class="card flex-fill mb-3 shadow" style="background-color: #e5f5e5; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);">
                         <div class="card-body">
                             <h3 class="card-title">Informazioni sul pagamento</h3>
                             <p class="card-text" style="list-style-type: none; padding-left: 20px;">
@@ -43,7 +43,7 @@
         <div class="row">
             <form id="payment-form" action="{{ route('admin.process_payment') }}" method="post" class="col-12 col-lg-6 mx-auto">
                 @csrf
-                <div class="card mb-3" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);">
+                <div class="card mb-3 shadow" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);">
                     <div class="card-body">
                         <h2 class="card-title">Aquista una sponsorizzazione</h2>
                         <div class="form-group">
