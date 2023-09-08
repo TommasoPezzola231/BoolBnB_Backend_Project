@@ -68,7 +68,7 @@
                             <select name="apartment_id" id="apartment_id" class="form-control" required>
                                 <option value="">Scegli un appartamento</option>
                                 @foreach ($userApartments as $apartment)
-                                <option value="{{ $apartment->id }}">
+                                <option value="{{ $apartment->id }}" {{ $apartment->id == request('apartment_id') ? 'selected' : '' }}>
                                     {{ $apartment->title }}
                                 </option>
                                 @endforeach
