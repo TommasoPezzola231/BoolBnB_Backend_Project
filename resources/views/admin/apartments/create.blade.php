@@ -132,7 +132,6 @@
                         <div id="imagePreview" class="d-flex justify-content-center align-items-center">
                             Anteprima
                         </div>
-
                     </div>
 
                     <div class="col-12">

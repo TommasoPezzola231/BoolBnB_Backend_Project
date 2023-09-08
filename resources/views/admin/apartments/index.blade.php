@@ -55,11 +55,11 @@
                         {{-- if is not sponsorized show button sponsorize else show sponsorized until date and button to sponsorize again  --}}
                         @if ($apartment->sponsorships->isEmpty())
                             <div class="mt-auto d-flex justify-content-center p-2 ms-2">
-                                <a href="{{ route('admin.sponsorships.index', ['apartment_id' => $apartment->id]) }}" class="btn primary-color-button">Sponsorizza</a>
+                                <a href="{{ route('admin.sponsorships.index', ['apartment_id' => $apartment->id]) }}" class="btn my_btn">Sponsorizza</a>
                             </div>
                         @else
                             <div class="mt-auto d-flex justify-content-center p-2 ms-2">
-                                <a href="{{ route('admin.sponsorships.index', ['apartment_id' => $apartment->id]) }}" class="btn primary-color-button">Prolunga la tua sponsorizzazione</a>
+                                <a href="{{ route('admin.sponsorships.index', ['apartment_id' => $apartment->id]) }}" class="btn my_btn">Prolunga la tua sponsorizzazione</a>
                             </div>
                         @endif
                     </div>

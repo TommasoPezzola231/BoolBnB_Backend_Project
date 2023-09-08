@@ -57,16 +57,6 @@
                                 <h3 class="color-primary">Sponsorizzazione</h3>
                                 <ul>
                                     @if ($apartment->sponsorships->isNotEmpty())
-                                        {{-- @foreach ($apartment->sponsorships as $sponsorship)
-                                            <li>
-                                                <strong>Sponsorizzazione attiva:</strong>
-                                                {{ $sponsorship->name_sponsorship }}
-                                            </li>
-                                            <li>
-                                                <strong>Scadenza:</strong>
-                                                {{ $sponsorship->pivot->end_time }}
-                                            </li>
-                                        @endforeach --}}
                                         <li>
                                             <strong>Sponsorizzazione attiva:</strong>
                                             {{ $apartment->sponsorships->last()->name_sponsorship }}
@@ -89,9 +79,9 @@
             <div class="col-12 col-md-6 mb-3">
                 <div class="rounded-4 bg_img">
                     @if ($apartment->full_path_principal_image)
-                        <img src="{{ $apartment->full_path_principal_image }}" alt="{{ $apartment->title }}" class="rounded-4 shadow img-fluid">
+                        <img src="{{ $apartment->full_path_principal_image }}" alt="{{ $apartment->title }}" class="card-img-top rounded-4 shadow d-flex justify-content-center align-items-center">
                     @else
-                        <img src="https://www.signfix.com.au/wp-content/uploads/2017/09/placeholder-600x400.png" class="card-img-top rounded-4 shadow img-fluid" alt="Placeholder Image">
+                        <img src="https://www.signfix.com.au/wp-content/uploads/2017/09/placeholder-600x400.png" class="card-img-top rounded-4 shadow" alt="Placeholder Image">
                     @endif
                 </div>
             </div>
