@@ -1,9 +1,15 @@
 .card-apartment {
-
-
+    .my_img_container {
+        height: 300px;
+        width: 100%;
+        overflow: hidden;
+    }
     img {
         width: 100%;
+        height: 100%;
+        aspect-ratio: 4/3;
         object-fit: cover;
+        object-position: center-top;
     }
 
     a {

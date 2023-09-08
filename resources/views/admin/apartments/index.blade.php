@@ -18,11 +18,13 @@
                     <div class="card-apartment bg-white p-1 rounded-4 m-3 d-flex flex-column shadow-lg" style="height: 100%;">
                         <a href="{{ route("admin.apartments.show", $apartment->id) }}">
                             <div class="m-2">
-                                @if ($apartment->full_path_principal_image)
-                                    <img src="{{ $apartment->full_path_principal_image }}" class="rounded-4" alt="{{ $apartment->title }}">
-                                @else
-                                    <img src="https://www.signfix.com.au/wp-content/uploads/2017/09/placeholder-600x400.png" class="rounded-4" alt="Placeholder Image">
-                                @endif
+                                <div class="my_img_container">
+                                    @if ($apartment->full_path_principal_image)
+                                        <img src="{{ $apartment->full_path_principal_image }}" class="rounded-4 img-fluid" alt="{{ $apartment->title }}">
+                                    @else
+                                        <img src="https://www.signfix.com.au/wp-content/uploads/2017/09/placeholder-600x400.png" class="rounded-4 img-fluid" alt="Placeholder Image">
+                                    @endif
+                                </div>
                                 <div class="title m-2 w-100 color-primary">
                                     {{ $apartment->title }}
                                 </div>
