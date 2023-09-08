@@ -63,11 +63,12 @@
                                         </li>
                                         <li>
                                             <strong>Scadenza:</strong>
-                                            {{ $apartment->sponsorships->last()->pivot->end_time }}
+                                            {{ \Carbon\Carbon::parse($apartment->sponsorships->last()->pivot->end_time)->format('d/m/Y H:i') }}
                                         </li>
                                     @else
                                         <li>
-                                            <strong>Nessuna sponsorizzazione attiva</strong>
+                                            <strong>Sponsorizzazione attiva:</strong>
+                                            Nessuna
                                         </li>
                                     @endif
                                 </ul>
