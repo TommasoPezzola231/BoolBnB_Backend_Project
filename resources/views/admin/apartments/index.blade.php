@@ -57,7 +57,7 @@
                             </div>
                         @else
                             <div class="mt-auto d-flex justify-content-center p-2 ms-2">
-                                <a href="{{ route('admin.sponsorships.index') }}" class="btn primary-color-button">Allunga la tua sponsorizzazione</a>
+                                <a href="{{ route('admin.sponsorships.index') }}" class="btn primary-color-button">Prolunga la tua sponsorizzazione</a>
                             </div>
                         @endif
                     </div>
