@@ -87,21 +87,21 @@
                 </div>
             </div>
             <div class="col-12 col-md-6 mb-3">
-                <div class="image-container rounded-4">
+                <div class="rounded-4 bg_img">
                     @if ($apartment->full_path_principal_image)
-                        <img src="{{ $apartment->full_path_principal_image }}" alt="{{ $apartment->title }}" class="rounded-4 shadow">
+                        <img src="{{ $apartment->full_path_principal_image }}" alt="{{ $apartment->title }}" class="rounded-4 shadow img-fluid">
                     @else
-                        <img src="https://www.signfix.com.au/wp-content/uploads/2017/09/placeholder-600x400.png" class="card-img-top" alt="Placeholder Image">
+                        <img src="https://www.signfix.com.au/wp-content/uploads/2017/09/placeholder-600x400.png" class="card-img-top rounded-4 shadow img-fluid" alt="Placeholder Image">
                     @endif
                 </div>
             </div>
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-6 mb-3">
                 <div id="map" class="w-100 ratio ratio-16x9 rounded-4"></div>
             </div>
             {{-- <div class="col-6">
 
             </div> --}}
-            <div class="col-12 d-flex justify-content-end">
+            <div class="col-12 d-flex justify-content-md-end justify-content-center">
                 <a href="{{ route('admin.apartments.edit', $apartment->id) }}"
                     class="btn btn-primary me-3">Modifica Elemento</a>
                 {{-- form per la cancellazione + pop up --}}
