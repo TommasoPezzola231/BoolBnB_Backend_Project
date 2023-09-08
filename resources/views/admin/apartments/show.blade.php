@@ -10,9 +10,9 @@
             </div>
         </div>
     </div>
-    <div class="container container-show rounded-4 shadow-lg p-4">
+    <div class="container-show container-show shadow p-4 my_media_small">
         <div class="row">
-            <div class="col-6">
+            <div class="col-12 col-md-6">
                 <div class="mb-3">
                     <h2 class="mb-3">
                         {{ $apartment->title }}
@@ -86,10 +86,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-6">
-                <div id="map" class="w-100 ratio ratio-16x9 rounded-4"></div>
-            </div>
-            <div class="col-6 d-flex align-items-center mt-3">
+            <div class="col-12 col-md-6">
                 <div class="image-container mb-3 rounded-4">
                     @if ($apartment->full_path_principal_image)
                         <img src="{{ $apartment->full_path_principal_image }}" alt="{{ $apartment->title }}" class="rounded-4 shadow">
@@ -98,10 +95,13 @@
                     @endif
                 </div>
             </div>
-            <div class="col-6">
-
+            <div class="col-12 col-md-6 d-flex align-items-center mt-3">
+                <div id="map" class="w-100 ratio ratio-16x9 rounded-4"></div>
             </div>
-            <div class="col-12 d-flex justify-content-end">
+            {{-- <div class="col-6">
+
+            </div> --}}
+            <div class="col-12 d-flex justify-content-end mt-4">
                 <a href="{{ route('admin.apartments.edit', $apartment->id) }}"
                     class="btn btn-primary me-3">Modifica Elemento</a>
                 {{-- form per la cancellazione + pop up --}}
