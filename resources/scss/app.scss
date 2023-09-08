@@ -21,13 +21,19 @@ body {
 
 // bg per tutto il main
 main {
-    background: #283048;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #859398, #283048);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #859398, #283048);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    // background: #283048;
+    // /* fallback for old browsers */
+    // background: -webkit-linear-gradient(to right, #859398, #283048);
+    // /* Chrome 10-25, Safari 5.1-6 */
+    // background: linear-gradient(to right, #859398, #283048);
+    // /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
+    // background: #8e9eab;  /* fallback for old browsers */
+    // background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
+    // background: linear-gradient(to right, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    background: rgb(157,162,167);
+background: linear-gradient(187deg, rgba(157,162,167,1) 8%, rgba(199,200,200,1) 69%, rgba(208,212,215,1) 84%);
 }
 
 // DAHSBOARD
@@ -70,7 +76,8 @@ main {
 .my_title_color_text {
     font-size: 2rem;
     font-weight: bold;
-    @include title;
+    color: $color-primary;
+    // @include title;
 
     &:hover {
       // color: $bg-light-pink;
@@ -81,13 +88,14 @@ main {
 }
 
 .my_header_color_text {
-    color: $color-lavander;
+    // color: $color-primary;
+    color: $color-black;
     text-decoration: none;
     font-size: 1rem;
 
     &:hover {
-      color: $headerLinks;
+      color: $color-primary;
       transition: all 0.3s ease-in-out;
       cursor: pointer;
     }
-  }
+}

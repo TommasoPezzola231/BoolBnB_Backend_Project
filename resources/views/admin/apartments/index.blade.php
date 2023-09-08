@@ -15,7 +15,7 @@
             @else
                 @foreach ($apartments as $apartment)
                 <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 p-3">
-                    <div class="card-apartment bg-white p-1 rounded-4 m-3 d-flex flex-column" style="height: 100%;">
+                    <div class="card-apartment bg-white p-1 rounded-4 m-3 d-flex flex-column shadow-lg" style="height: 100%;">
                         <a href="{{ route("admin.apartments.show", $apartment->id) }}">
                             <div class="m-2">
                                 @if ($apartment->full_path_principal_image)

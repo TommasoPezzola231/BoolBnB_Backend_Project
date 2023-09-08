@@ -10,7 +10,7 @@
             </div>
         </div>
     </div>
-    <div class="container container-show rounded-4 shadow p-4">
+    <div class="container container-show rounded-4 shadow-lg p-4">
         <div class="row">
             <div class="col-6">
                 <div class="mb-3">
@@ -99,7 +99,7 @@
                 </div>
             </div>
             <div class="col-6">
-               
+
             </div>
             <div class="col-12 d-flex justify-content-end">
                 <a href="{{ route('admin.apartments.edit', $apartment->id) }}"

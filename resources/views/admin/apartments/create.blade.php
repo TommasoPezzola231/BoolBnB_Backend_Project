@@ -13,11 +13,11 @@
         <div>
     @endif
 
-    <div class="container-form">
+    <div class="container-form bg-light">
         <form action="{{ route('admin.apartments.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
-            <h2 class="mb-3">Aggiungi Appartamento</h2>
+            <h2 class="mb-3 text-center">Aggiungi Appartamento</h2>
 
             <div class="container">
                 <div class="row">

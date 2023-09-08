@@ -200,7 +200,7 @@
 
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="http://localhost:5174/">
-                                    <i class="fa-solid fa-home-alt fa-lg fa-fw"></i> Home
+                                    <i class="fa-solid fa-home-alt fa-lg fa-fw"></i> Torna al sito
                                 </a>
                             </li>
 
