@@ -23,7 +23,7 @@
     <div id="app">
         <div class="container-fluid vh-100">
             <div class="row h-100">
-                <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm position-fixed top-0 left-0 w-100 z-10 col-12 d-flex align-items-center px-3">
+                <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm position-fixed top-0 left-0 w-100 z-50 col-12 d-flex align-items-center px-3">
 
                     <a class="navbar-brand d-flex align-items-center" href="{{ url('http://localhost:5174/') }}" >
                         <img class="img-fluid" src="{{ asset('images/logo/Bool_Bnb_Black.png') }}" alt="Logo" width="80px" height="80px">
