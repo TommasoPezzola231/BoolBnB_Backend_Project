@@ -4,35 +4,62 @@
 }
 
 .latodx {
-    padding: 0;
+    padding: 0 2rem 0 2rem;
     height: 100vh;
-    overflow-y: scroll;
-    background: #283048;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #859398, #283048);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #859398, #283048);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    overflow-y: auto;
 }
 
 .latosx {
     height: 100vh;
-    overflow-y: scroll;
+    overflow-y: auto;
     background-color: $bg-light;
 }
 
 .apartment-item {
-    border-bottom: 1px solid gainsboro;
+    border-bottom: 2px solid rgb(155, 152, 152);
+    transition: all 0.3s;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $color-pink;
+        transition: all 0.3s;
+    }
 }
 
 .apartment-item.selected {
-    background-color: #f0f0f0;
-
-    cursor: pointer;
+    background-color: $color-primary;
+    transition: all 0.3s;
 }
 
 .message-item {
     display: none;
     background-color: $bg-light;
 
+}
+
+.my_color_badge {
+    background-color: $color-primary;
+    color: rgb(41, 40, 40);
+    padding: 0.5rem;
+}
+
+.my_color {
+    color: $color-primary;
+}
+
+@media (max-width: 990px) {
+    #container-messages {
+        height: 100%;
+    }
+
+    .latodx {
+        height: 100%;
+        overflow-y: auto;
+        padding: 1rem;
+    }
+
+    .latosx {
+        height: 100%;
+        overflow-y: auto;
+    }
 }

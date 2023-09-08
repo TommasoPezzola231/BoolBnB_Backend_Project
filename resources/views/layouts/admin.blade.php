@@ -241,7 +241,7 @@
                                 </a>
                             </li>
 
-                                <li class="nav-item">
+                            <li class="nav-item">
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.apartments.archive' ? 'sidebarHover' : '' }}"
                                     href="{{ route('admin.apartments.archive') }}">
                                     <i class="fa-solid fa-box-archive fa-lg fa-fw me-2"></i> Archivio
