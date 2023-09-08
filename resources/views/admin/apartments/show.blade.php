@@ -86,8 +86,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6">
-                <div class="image-container mb-3 rounded-4">
+            <div class="col-12 col-md-6 mb-3">
+                <div class="image-container rounded-4">
                     @if ($apartment->full_path_principal_image)
                         <img src="{{ $apartment->full_path_principal_image }}" alt="{{ $apartment->title }}" class="rounded-4 shadow">
                     @else
@@ -95,13 +95,13 @@
                     @endif
                 </div>
             </div>
-            <div class="col-12 col-md-6 d-flex align-items-center mt-3">
+            <div class="col-12 col-md-6">
                 <div id="map" class="w-100 ratio ratio-16x9 rounded-4"></div>
             </div>
             {{-- <div class="col-6">
 
             </div> --}}
-            <div class="col-12 d-flex justify-content-end mt-4">
+            <div class="col-12 d-flex justify-content-end">
                 <a href="{{ route('admin.apartments.edit', $apartment->id) }}"
                     class="btn btn-primary me-3">Modifica Elemento</a>
                 {{-- form per la cancellazione + pop up --}}
