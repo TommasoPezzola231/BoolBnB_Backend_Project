@@ -108,7 +108,7 @@
                 </nav>
 
                 <!-- Navbar for Tablet and Smaller Screens -->
-                <nav id="navbarSmall" class="navbar navbar-expand-lg navbar-dark bg-dark d-lg-none position-fixed top-0 left-0 w-100 z-10">
+                <nav id="navbarSmall" class="navbar navbar-expand-lg navbar-dark bg-dark d-lg-none position-fixed top-0 left-0 w-100" style="z-index: 1000;">
                     <div class="container-fluid px-3">
                         <!-- Logo -->
                         <a class="navbar-brand d-flex align-items-center" href="#">
