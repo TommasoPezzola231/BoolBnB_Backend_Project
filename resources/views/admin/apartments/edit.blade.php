@@ -10,20 +10,19 @@
                     <li>{{ $error }}</li>
                 @endforeach
             </ul>
-            <div>
+        <div>
     @endif
 
-    <div class="container-form">
+    <div class="container-form bg-light">
         <form action="{{ route('admin.apartments.update', ['apartment' => $apartment->id]) }}" method="POST"
             enctype="multipart/form-data">
             @csrf
             @method('PUT')
-    
-            <h2>Modifica Appartamento</h2>
-    
+
+            <h2 class="mb-3 text-center">Modifica Appartamento</h2>
+
             <div class="container">
                 <div class="row">
-
                     <div class="col-12">
                         {{-- input per titolo --}}
                         <label for="title">Titolo</label>
@@ -33,6 +32,7 @@
                             <div class="bg-danger-subtle rounded">{{ $message }}</div>
                         @enderror
                     </div>
+
                     <div class="col-12">
                          {{-- input per indirizzo --}}
                         <label for="address">Indirizzo</label>
@@ -42,6 +42,7 @@
                             <div class="bg-danger-subtle rounded">{{ $message }}</div>
                         @enderror
                     </div>
+
                     <div class="col-12">
                        {{-- input citta --}}
                         <label for="city">Città</label>
@@ -51,6 +52,7 @@
                             <div class="bg-danger-subtle rounded">{{ $message }}</div>
                         @enderror
                     </div>
+
                     <div class="col-12">
                         {{-- input per paese --}}
                         <label for="country">Paese</label>
@@ -60,6 +62,7 @@
                             <div class="bg-danger-subtle rounded">{{ $message }}</div>
                         @enderror
                     </div>
+
                     <div class="col-md-12 col-lg-6">
                         {{-- input per stanze --}}
                         <label for="num_rooms" class="form-label">Stanze</label>
@@ -73,6 +76,7 @@
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
+
                     <div class="col-md-12 col-lg-6">
                          {{-- input per bagni --}}
                         <label for="num_bathrooms" class="form-label">Bagno</label>
@@ -86,15 +90,18 @@
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
+
                     <div class="col-md-12 col-lg-6">
                         {{-- input per metri quadrati --}}
                         <label for="square_meters" class="form-label">Metri Quadrati</label>
                         <input type='number' class="form-select mb-2" id="square_meters" name="square_meters" min="10" max="400"
                             value="{{ old('square_meters', $apartment->square_meters) }}">
+
                         @error('square_meters')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
+
                     <div class="col-md-12 col-lg-6">
                         {{-- input per prezzo --}}
                         <label for="price">Prezzo per notte</label>
@@ -104,6 +111,7 @@
                             <div class="bg-danger-subtle rounded">{{ $message }}</div>
                         @enderror
                     </div>
+
                     <div class="col-md-12 col-lg-6">
                         {{-- input per decrizione --}}
                         <label for="description">Descrizione</label>
@@ -112,7 +120,8 @@
                             <div class="bg-danger-subtle rounded">{{ $message }}</div>
                         @enderror
                     </div>
-                    <div class="col-md-12 col-lg-6">
+
+                    <div class="col-md-12 col-lg-6 d-flex flex-column">
                         {{-- input per immagine --}}
                         <label for="principal_image">Carica Immagine</label>
                         <div class="d-flex align-items-center mb-2">
@@ -130,12 +139,11 @@
                         @error('principal_image')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
-    
                         <div id="imagePreview" class="d-flex justify-content-center align-items-center">
                             Anteprima
                         </div>
-    
                     </div>
+
                     <div class="col-12">
                         {{-- servizi --}}
                         <div class="mt-2 service-badge">Seleziona Servizi</div>
@@ -144,36 +152,34 @@
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="{{ $service->id }}" name="serviceID[]"
                                     id="services{{ $i }}" @checked(in_array($service->id, old('services') ?? $apartment->services->pluck('id')->toArray()))>
-                                <label for="services{{ $i }}" class="form-check-label">{{ $service->name_service }}</label>
+                                <label for="services{{ $i }}" class="form-check-label me-2 service">{{ $service->name_service }}</label>
                             </div>
                             @endforeach
-                        @error('services')
-                            <div class="bg-danger-subtle rounded">{{ $message }}</div>
-                        @enderror
+                            @error('services')
+                                <div class="bg-danger-subtle rounded">{{ $message }}</div>
+                            @enderror
                         </div>
-                        
                     </div>
+
                     <div class="col-12 d-flex justify-content-center mt-4">
                         {{-- input per visibilità --}}
                         <label for="visible" class="me-2">Visibilità</label>
                         <select name="visible" id="visible" class="mb-2">
-                            <option value="0">No</option>
                             <option value="1">Si</option>
+                            <option value="0">No</option>
                         </select>
                     </div>
-               
+
                     <div class="col-12 d-flex justify-content-center">
                         {{-- crea --}}
-                        <button class="btn btn-outline-light my-4 primary-color-button" type="submit" value="Modifica">Modifica</button>
+                        <button class="btn my_btn my-2" type="submit" value="Modifica">Modifica</button>
                     </div>
                 </div>
             </div>
-    
         </form>
-    
     </div>
-    
 
+    {{-- script --}}
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const deleteButton = document.getElementById('deleteButton');
@@ -196,28 +202,24 @@
         // preview immagine
         const inputFile = document.getElementById('principal_image');
         const imagePreview = document.getElementById('imagePreview');
-    
+
         inputFile.addEventListener('change', function () {
             const file = this.files[0];
-    
+
             if (file) {
                 const reader = new FileReader();
-    
+
                 reader.onload = function (e) {
                     const image = new Image();
                     image.src = e.target.result;
                     imagePreview.innerHTML = '';
                     imagePreview.appendChild(image);
                 };
-    
+
                 reader.readAsDataURL(file);
             } else {
                 imagePreview.innerHTML = 'Nessuna immagine selezionata';
             }
         });
-
     </script>
-
-
-
 @endsection

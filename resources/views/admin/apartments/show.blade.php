@@ -103,7 +103,7 @@
             </div> --}}
             <div class="col-12 d-flex justify-content-md-end justify-content-center">
                 <a href="{{ route('admin.apartments.edit', $apartment->id) }}"
-                    class="btn btn-primary me-3">Modifica Elemento</a>
+                    class="btn btn-dark me-3">Modifica Elemento</a>
                 {{-- form per la cancellazione + pop up --}}
                 <form id="deleteForm" action="{{ route('admin.apartments.destroy', $apartment) }}"
                     method="POST">
@@ -114,30 +114,52 @@
                 </form>
             </div>
         </div>
+    </div>
 
+    {{-- modal --}}
+    <div id="showModal" class="modal-overlay d-none shadow p-2">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header d-flex align-itmes-center">
+                    <span class="fa-solid fa-exclamation-circle text-danger"></span>
+                    <h3 class="modal-title">Sei sicuro di voler cancellare l'appartamento?</h3>
+                </div>
+                <div class="modal-body">
+                    <p class="text-danger">Una volta cancellato potrai recuperare il tuo appartamento nella sezione <strong class="text-dark">Archivio!</strong>.</p>
+                </div>
+                <div class="modal-footer d-flex justify-content-center  gap-3">
+                    <button id="confirmButton" type="button" class="btn btn-danger">Conferma</button>
+                    <button id="notDelete" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const deleteButton = document.getElementById('deleteButton');
             const deleteForm = document.getElementById('deleteForm');
+            const confirmButton = document.getElementById('confirmButton');
+            const notDelete = document.getElementById('notDelete');
 
             deleteButton.addEventListener('click', function() {
-                // Mostra un popup di conferma
-                const confirmDelete = confirm("Sei sicuro di voler eliminare l'elemento selezionato?");
+                const modal = document.getElementById('showModal');
+                modal.classList.remove('d-none');
+            });
 
-                if (confirmDelete) {
-                    // Invia il modulo per la cancellazione
-                    deleteForm.submit();
-                } else {
-                    console.log("Cancellazione annullata.");
-                }
+            confirmButton.addEventListener('click', function() {
+                deleteForm.submit();
+            });
+
+            notDelete.addEventListener('click', function() {
+                const modal = document.getElementById('showModal');
+                modal.classList.add('d-none');
             });
 
             const latitude = {{ $apartment->latitude }};
             const longitude = {{ $apartment->longitude }};
             let longLat = [{{ $apartment->longitude }}, {{ $apartment->latitude }}]
-            // Inizializza la mappa
+
             const map = tt.map({
                 key: 'U6BQ1DicdzYIkj5nrK4823OxJuCY6gyP',
                 container: "map",
@@ -148,7 +170,6 @@
             map.on('load', () => {
                new tt.Marker().setLngLat(longLat).addTo(map);
             })
-            // Aggiungi un marker per le coordinate
         });
     </script>
 @endsection

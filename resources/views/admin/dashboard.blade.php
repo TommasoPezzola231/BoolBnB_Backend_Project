@@ -7,9 +7,9 @@
 
                 <div class="col-12">
                     <h1 class="text-center text-dark my-3">
-                        {{ __('Benvenuto,') }} {{ auth()->user()->name }}!
+                        {{ __('Benvenuto') }} {{ auth()->user()->name }}!
                         <span><h2>Alla tua dashboard di</h2></span>
-                        <span><h1 class="text-center my_color">{{ __('BoolBnb') }}</h1></span>
+                        <span><h1 class="text-center my_color_heaer_transarent">{{ __('BoolBnb') }}</h1></span>
                     </h1>
                 </div>
 

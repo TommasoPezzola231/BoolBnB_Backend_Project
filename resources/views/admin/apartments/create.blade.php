@@ -156,14 +156,14 @@
                         {{-- input per visibilità --}}
                         <label for="visible" class="me-2">Visibile:</label>
                         <select name="visible" id="visible">
-                            <option value="0">No</option>
                             <option value="1">Si</option>
+                            <option value="0">No</option>
                         </select>
                     </div>
 
                     <div class="col-12 d-flex justify-content-center mt-4">
                         {{-- crea --}}
-                        <button class="btn btn-lg btn-outline-light my-2 primary-color-button" type="submit" value="Modifica">Crea</button>
+                        <button class="btn btn-lg my_btn my-2" type="submit" value="Modifica">Crea</button>
                     </div>
 
                 </div>

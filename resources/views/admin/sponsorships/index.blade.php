@@ -84,7 +84,7 @@
                             <div id="checkout-message"></div>
                             <div id="dropin-container"></div>
                             <input id="nonce" name="payment_method_nonce" type="hidden" required/>
-                            <button id="submit-button" class="btn btn-primary btn-block">Paga</button>
+                            <button id="submit-button" class="btn btn-dark btn-block">Paga</button>
                         </div>
                     </div>
                 </div>

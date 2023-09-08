@@ -1,22 +1,14 @@
-// DAHSBOARD
-
-// side nav bar
-
 #sidebarMenu {
     background-color: $color-pink;
     transition: all 0.3s;
 
     a:hover {
         background-color: rgba($color: #ff5a60f3, $alpha: 0.5);
-    }
-
-    ;
+    };
 
     img {
         width: 40%;
-    }
-
-    ;
+    };
 }
 
 .sidebarHover {
@@ -28,6 +20,73 @@
     margin-top: 0;
 }
 
+#navbarSmall,
+#navbarLarge {
+    background: #000000;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #434343, #000000);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #434343, #000000);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.logo {
+    height: 120px;
+}
+
+.color-primary {
+    color: $color-primary;
+
+    img {
+        max-width: 100%;
+        min-height: 320px;
+    }
+}
+
+.primary-color-button {
+    background-color: $color-primary;
+
+    &:hover {
+        background-color: darken($color-primary, 10%);
+    }
+}
+
+.my_bg_form_page {
+    background: #ADA996;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.my_form_content {
+    padding-top: 18rem;
+}
+
+.my_title_color_text {
+    font-size: 2rem;
+    font-weight: bold;
+    color: $color-primary;
+
+    &:hover {
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+    }
+}
+
+.my_header_color_text {
+    color: $color-black;
+    text-decoration: none;
+    font-size: 1rem;
+
+    &:hover {
+      color: $color-primary;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+    }
+}
+
+// ----------------------------------------------
+//  MEDIA QUERIES
+// ----------------------------------------------
 
 // margin top sidebar
 @media (max-width: 768px) {
@@ -65,14 +124,3 @@
         transition: all 0.3s;
     }
 }
-
-#navbarSmall,
-#navbarLarge {
-    background: #000000;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #434343, #000000);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #434343, #000000);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-

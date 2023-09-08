@@ -1,11 +1,11 @@
 @import '~bootstrap/scss/bootstrap';
 @import './partials/variables.scss';
-@import './partials/mixins.scss';
 @import './admin/apartments/create.scss';
 @import './admin/apartments/dashboard.scss';
 @import './admin/apartments/showApartment.scss';
 @import './admin/apartments/indexApartment.scss';
 @import './messages/messages.scss';
+@import './admin/apartments/modal.scss';
 
 * {
     box-sizing: border-box;
@@ -17,6 +17,10 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
     line-height: 1.5;
+}
+
+.my_color_heaer_transarent {
+   color: $color-primary_transparent;
 }
 
 .my_btn {
@@ -32,65 +36,4 @@ body {
 main {
     background: rgb(157,162,167);
     background: linear-gradient(187deg, rgba(157,162,167,1) 8%, rgba(199,200,200,1) 69%, rgba(208,212,215,1) 84%);
-}
-
-// DAHSBOARD
-
-.logo {
-    height: 120px;
-}
-
-.color-primary {
-    color: $color-primary;
-
-    img {
-        max-width: 100%;
-        min-height: 320px;
-    }
-}
-
-.primary-color-button {
-    background-color: $color-primary;
-
-    &:hover {
-        background-color: darken($color-primary, 10%);
-    }
-}
-
-.my_bg_form_page {
-    background: #ADA996;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
-.my_form_content {
-    // margin-top: 18rem;
-    padding-top: 18rem;
-}
-
-.my_title_color_text {
-    font-size: 2rem;
-    font-weight: bold;
-    color: $color-primary;
-    // @include title;
-
-    &:hover {
-      // color: $bg-light-pink;
-
-      transition: all 0.3s ease-in-out;
-      cursor: pointer;
-    }
-}
-
-.my_header_color_text {
-    // color: $color-primary;
-    color: $color-black;
-    text-decoration: none;
-    font-size: 1rem;
-
-    &:hover {
-      color: $color-primary;
-      transition: all 0.3s ease-in-out;
-      cursor: pointer;
-    }
 }
