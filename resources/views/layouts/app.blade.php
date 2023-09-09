@@ -10,10 +10,19 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <!-- Fontawesome 6 cdn -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css'
+        integrity='sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=='
+        crossorigin='anonymous' referrerpolicy='no-referrer'
+    />
+
+    {{-- fav icon  --}}
+    <link rel="shortcut icon" href="{{ asset('images/logo/favicon_black.ico') }}" type="image/x-icon">
 
     <!-- Usando Vite -->
     @vite(['resources/js/app.js'])
@@ -23,7 +32,7 @@
     <div id="app">
         <div class="container-fluid vh-100">
             <div class="row h-100">
-                <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm position-fixed top-0 left-0 w-100 z-50 col-12 d-flex align-items-center px-3">
+                <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm position-fixed top-0 left-0 w-100 col-12 d-flex align-items-center px-3 my_z_index">
 
                     <a class="navbar-brand d-flex align-items-center" href="{{ url('http://localhost:5174/') }}" >
                         <img class="img-fluid" src="{{ asset('images/logo/Bool_Bnb_Black.png') }}" alt="Logo" width="80px" height="80px">
@@ -40,7 +49,7 @@
                         <!-- Left Side Of Navbar -->
                         <ul class="navbar-nav me-auto">
                             <li class="nav-item">
-                                <a class="nav-link my_header_color_text" href="{{url('http://localhost:5174/') }}">{{ __('Home') }}</a>
+                                <a class="nav-link my_header_color_text" href="{{url('http://localhost:5174/') }}">{{ __('Home pubblica') }}</a>
                             </li>
                         </ul>
 
@@ -81,5 +90,4 @@
         </div>
     </div>
 </body>
-
 </html>

@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\PaymentController as AdminPaymentController;
 use App\Http\Controllers\Admin\SponsorshipController;
+
 use App\Models\PaymentController;
 
 // use App\Models\ApartemntSponsorship;
@@ -45,3 +46,8 @@ Route::middleware(['auth'])
     });
 
 require __DIR__ . '/auth.php';
+
+// Route::get('error404', [ErrorController::class, 'error404'])->name('error404');
+Route::get('error404', function () {
+    return view('errors.404');
+})->name('error404');

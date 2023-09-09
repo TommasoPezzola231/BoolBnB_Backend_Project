@@ -23,6 +23,10 @@ body {
    color: $color-primary_transparent;
 }
 
+.my_z_index {
+    z-index: 1000;
+}
+
 .my_btn {
     background-color: $color-primary;
     transition: all 0.3s;
