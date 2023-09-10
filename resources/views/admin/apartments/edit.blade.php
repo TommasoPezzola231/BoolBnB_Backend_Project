@@ -94,7 +94,7 @@
                     <div class="col-md-12 col-lg-6">
                         {{-- input per metri quadrati --}}
                         <label for="square_meters" class="form-label">Metri Quadrati</label>
-                        <input type='number' class="form-select mb-2" id="square_meters" name="square_meters" min="10" max="400"
+                        <input type='number' class="form-control mb-2" id="square_meters" name="square_meters" min="10" max="400"
                             value="{{ old('square_meters', $apartment->square_meters) }}">
 
                         @error('square_meters')
