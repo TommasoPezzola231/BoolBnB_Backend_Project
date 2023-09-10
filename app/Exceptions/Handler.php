@@ -54,15 +54,44 @@ class Handler extends ExceptionHandler
 
     public function render($request, Throwable $exception)
     {
-        // Check if the exception is an instance of UploadException with your specific message
+        // errore 400 per file vuoto
         if ($exception instanceof UploadException && $exception->getMessage() === 'Uploaded file is empty') {
             return response()->view('errors.400', [], 400);
         }
 
+        // errore 404 per model non trovato
         if ($exception instanceof NotFoundHttpException) {
             return response()->view('errors.404', [], 404);
         }
 
+        // -------------------------------
+        // -------------------------------
+        // -------------------------------
+        // -------------------------------
+        // Prova di gestione erorre 500 ma se abilito non funziona più il 401
+        // erroore 500 server error
+        // if ($exception instanceof \Exception) {
+        //     return response()->view('errors.500', [], 500);
+        // }
+
         return parent::render($request, $exception);
+    }
+
+    // Errore 401 non autenticato (non loggato)
+    /**
+     * Convert an authentication exception into an unauthenticated response.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Auth\AuthenticationException  $exception
+     * @return \Illuminate\Http\Response
+     */
+    protected function unauthenticated($request, AuthenticationException $exception)
+    {
+        if ($request->expectsJson()) {
+            return response()->json(['message' => $exception->getMessage()], 401);
+        }
+
+        // Se la richiesta non aspetta JSON, restituisci la vista personalizzata
+        return response()->view('errors.401', [], 401);
     }
 }
