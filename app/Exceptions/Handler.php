@@ -5,6 +5,7 @@ namespace App\Exceptions;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpFoundation\File\Exception\UploadException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
 
@@ -53,6 +54,11 @@ class Handler extends ExceptionHandler
 
     public function render($request, Throwable $exception)
     {
+        // Check if the exception is an instance of UploadException with your specific message
+        if ($exception instanceof UploadException && $exception->getMessage() === 'Uploaded file is empty') {
+            return response()->view('errors.400', [], 400);
+        }
+
         if ($exception instanceof NotFoundHttpException) {
             return response()->view('errors.404', [], 404);
         }

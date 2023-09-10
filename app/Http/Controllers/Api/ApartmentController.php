@@ -28,7 +28,8 @@ class ApartmentController extends Controller
         return response()->json(['apartments' => $apartments]);
     }
 
-    public function show($id) {
+    public function show($id)
+    {
 
         $apartment = Apartment::with('services', 'images', 'user')->where('visible', 1)->find($id);
 
@@ -41,7 +42,7 @@ class ApartmentController extends Controller
             "apartment" => $apartment,
             "user_name" => $apartment->user
         ];
-        
+
 
         return response()->json($response);
     }
@@ -152,7 +153,7 @@ class ApartmentController extends Controller
                 });
             }
         }
-        
+
 
         $apartments = $apartments->get();
         foreach ($apartments as $apartment) {

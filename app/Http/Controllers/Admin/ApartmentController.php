@@ -9,6 +9,7 @@ use App\Models\Service;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreApartmentRequest;
 use App\Http\Requests\UpdateApartmentRequest;
+use App\Models\view;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
@@ -79,13 +80,20 @@ class ApartmentController extends Controller
         $data['longitude'] = $longitudine;
 
 
-        if (array_key_exists("principal_image", $data)) {
+        // if (array_key_exists("principal_image", $data)) {
 
-            //$img_path = $data["principal_image"]->store("uploads");
+        //     //$img_path = $data["principal_image"]->store("uploads");
+        //     $img_path = Storage::put("uploads", $data["principal_image"]);
+        //     $data['principal_image'] = $img_path;
+        // }
+
+        if (array_key_exists("principal_image", $data)) {
             $img_path = Storage::put("uploads", $data["principal_image"]);
             $data['principal_image'] = $img_path;
+        } else {
+            $data['principal_image'] = "uploads/default.jpg";
+            return response()->json(['error' => 'Image not provided'], 404);
         }
-
 
         $newApartment = new Apartment();
 
@@ -163,11 +171,28 @@ class ApartmentController extends Controller
         $data['latitude'] = $latitudine;
         $data['longitude'] = $longitudine;
 
-        if (array_key_exists("principal_image", $data)) {
+        // if (array_key_exists("principal_image", $data)) {
 
-            //$img_path = $data["principal_image"]->store("uploads");
-            $img_path = Storage::put("uploads", $data["principal_image"]);
-            $data['principal_image'] = $img_path;
+        //     //$img_path = $data["principal_image"]->store("uploads");
+        //     $img_path = Storage::put("uploads", $data["principal_image"]);
+        //     $data['principal_image'] = $img_path;
+        // }
+        if (array_key_exists("principal_image", $data)) {
+            $file = $data["principal_image"];
+            if ($file->isValid() && $file->getSize() > 0) {
+                $img_path = Storage::put("uploads", $file);
+                $data['principal_image'] = $img_path;
+
+                if (!$img_path) {
+                    // Image upload failed, return a custom response with a 404 status code or an error message
+                    return response()->view('errors.404', [], 404);
+                }
+            } else {
+                // Handle the case where the uploaded file is empty
+                return response()->view('errors.400', [], 400);
+            }
+        } else {
+            $data['principal_image'] = "uploads/default.jpg";
         }
 
         //$apartment = new Apartment();

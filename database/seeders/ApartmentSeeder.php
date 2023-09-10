@@ -24,6 +24,8 @@ class ApartmentSeeder extends Seeder
         Schema::enableForeignKeyConstraints();
 
         $apartments = [
+
+            // fatto
             [
                 'user_id' => 1,
                 'title' => 'Appartamento elegante nel centro storico',
@@ -37,10 +39,12 @@ class ApartmentSeeder extends Seeder
                 'square_meters' => 100,
                 'address' => 'Via del Corso, 123',
                 "service" => ["Wi-fi", "Aria condizionata", "Riscaldamento", "Colazione", "TV",],
-                'latitude' => 43.86987,
-                'longitude' => 11.01201,
+                'latitude' => 41.905511079166274,
+                'longitude' => 12.478738297772155,
                 'visible' => 1
             ],
+
+            // fatto
             [
                 'user_id' => 2,
                 'title' => 'Appartamento accogliente vicino alla stazione',
@@ -53,11 +57,13 @@ class ApartmentSeeder extends Seeder
                 'num_bathrooms' => 1,
                 'square_meters' => 75,
                 'address' => 'Viale delle Palme, 45',
-                "service" => ["Wi-fi", "Palestra"],
-                'latitude' => 43.18608,
-                'longitude' => 10.55127,
+                "service" => ["Wi-fi", "Palestra", "Sauna"],
+                'latitude' => 41.89578460720377,
+                'longitude' => 12.563920963132409,
                 'visible' => 1
             ],
+
+            // fatto
             [
                 'user_id' => 1,
                 'title' => 'Monolocale moderno nel centro storico',
@@ -69,12 +75,14 @@ class ApartmentSeeder extends Seeder
                 'num_rooms' => 2,
                 'num_bathrooms' => 1,
                 'square_meters' => 80,
-                'address' => 'Via Roma 123',
+                'address' => 'Via Costanzo Cloro, 53',
                 'service' => ['Wi-fi', 'Aria condizionata', 'Colazione', 'TV', 'Cucina', 'Lavatrice'],
-                'latitude' => 41.35988,
-                'longitude' => 15.30843,
+                'latitude' => 41.85850626341571,
+                'longitude' => 12.482477809653604,
                 'visible' => 1
             ],
+
+            // fatto
             [
                 'user_id' => 4,
                 'title' => 'Appartamento Capi',
@@ -86,12 +94,14 @@ class ApartmentSeeder extends Seeder
                 'num_rooms' => 3,
                 'num_bathrooms' => 2,
                 'square_meters' => 120,
-                'address' => 'Via Milano 456',
+                'address' => 'Via Venti Settembre, 4',
                 'service' => ['Piscina', 'Cucina', 'Kit di pronto soccorso', 'Asciugacapelli', 'Fumo permesso', 'Posto auto', 'Aria condizionata'],
-                'latitude' => 45.74289,
-                'longitude' => 8.67418,
+                'latitude' => 41.90342464994527,
+                'longitude' => 12.491479682083584,
                 'visible' => 1
             ],
+
+            // fatto
             [
                 'user_id' => 3,
                 'title' => 'Appartamento accogliente',
@@ -103,12 +113,14 @@ class ApartmentSeeder extends Seeder
                 'num_rooms' => 2,
                 'num_bathrooms' => 1,
                 'square_meters' => 80,
-                'address' => 'Via Roma 123',
+                'address' => 'Via Francesco Massi, 12',
                 'service' => ['Wi-fi', 'Aria condizionata', 'Posto auto', 'TV', 'Cucina', 'Lavatrice', 'Fumo permesso'],
-                'latitude' => 41.35988,
-                'longitude' => 15.30843,
+                'latitude' => 41.87496164690176,
+                'longitude' =>  12.461992743839069,
                 'visible' => 1
             ],
+
+            // fatto
             [
                 'user_id' => 2,
                 'title' => 'Appartamento con ingresso indipendente',
@@ -122,10 +134,12 @@ class ApartmentSeeder extends Seeder
                 'square_meters' => 120,
                 'address' => 'Via Milano 456',
                 'service' => ['Piscina', 'Palestra', 'Cucina'],
-                'latitude' => 45.74289,
-                'longitude' => 8.67418,
+                'latitude' => 41.898052343842835,
+                'longitude' => 12.491380984278171,
                 'visible' => 1
             ],
+
+            // fatto
             [
                 'user_id' => 3,
                 'title' => 'Villa con piscina',
@@ -139,10 +153,12 @@ class ApartmentSeeder extends Seeder
                 'square_meters' => 50,
                 'address' => 'Via Napoli 789',
                 'service' => ['Piscina', 'Fumo permesso', 'Posto auto', 'Aria condizionata', 'TV', 'Cucina', 'Lavatrice', 'Asciugacapelli'],
-                'latitude' => 40.99266,
-                'longitude' => 14.42039,
+                'latitude' => 41.90133969104458,
+                'longitude' => 12.49427744459165,
                 'visible' => 1
             ],
+
+            // fatto
             [
                 "user_id" => 1,
                 "title" => "Camera singola in appartamento condiviso",
@@ -154,12 +170,14 @@ class ApartmentSeeder extends Seeder
                 "num_rooms" => 2,
                 "num_bathrooms" => 1,
                 "square_meters" => 60,
-                "address" => "Via Boccea, 123",
+                "address" => "Via di Valle Melaina, 36B,",
                 "service" => ["Wi-fi", "Aria condizionata", "Riscaldamento"],
-                "latitude" => 41.9023,
-                "longitude" => 12.42447,
-                'visible' => 0
+                "latitude" => 41.94850501138211,
+                "longitude" =>  12.52598024546362,
+                'visible' => 1,
             ],
+
+            // fatto
             [
                 "user_id" => 1,
                 "title" => "Roof garden con vista sulla città",
@@ -171,12 +189,14 @@ class ApartmentSeeder extends Seeder
                 "num_rooms" => 2,
                 "num_bathrooms" => 1,
                 "square_meters" => 150,
-                "address" => "Via Trionfale, 12",
+                "address" => "Piazza del Popolo, 18",
                 "service" => ["Wi-fi", "Aria condizionata", "Riscaldamento", "Palestra", "Posto auto", "TV", "Cucina", "Lavatrice", "Asciugacapelli"],
-                "latitude" => 41.91103,
-                'longitude' => 12.45415,
+                "latitude" => 41.910507139118515,
+                'longitude' =>  12.477624292002645,
                 'visible' => 1
             ],
+
+            // fatto
             [
                 "user_id" => 2,
                 "title" => "Appartamento con vista sulla città",
@@ -190,10 +210,12 @@ class ApartmentSeeder extends Seeder
                 "square_meters" => 110,
                 "address" => "Via Del Babbuino, 15",
                 "service" => ["Piscina", "Palestra", "Posto auto", "TV", "Cucina", "Lavatrice", "Asciugacapelli"],
-                "latitude" => 41.90961,
-                'longitude' => 12.47772,
-                'visible' => 0
+                "latitude" => 41.90979871203679,
+                'longitude' => 12.477661111266144,
+                'visible' => 1
             ],
+
+            // fatto
             [
                 "user_id" => 2,
                 "title" => "Appartamento accogliente nel cuore della città",
@@ -205,13 +227,14 @@ class ApartmentSeeder extends Seeder
                 "num_rooms" => 3,
                 "num_bathrooms" => 1,
                 "square_meters" => 50,
-                "address" => "Via dei Calzaiuoli, 67",
+                "address" => "Via Torino, 67",
                 "service" => ["Wi-fi", "Riscaldamento", "TV", "Cucina", "Lavatrice", "Asciugacapelli"],
-                "latitude" => 43.77124,
-                'longitude' => 11.25532,
+                "latitude" => 41.90543160695788,
+                'longitude' => 12.494452311695795,
                 'visible' => 1
             ],
 
+            // fatto
             [
                 "user_id" => 2,
                 "title" => "Appartamento panoramico con Fumo permesso",
@@ -223,13 +246,14 @@ class ApartmentSeeder extends Seeder
                 "num_rooms" => 4,
                 "num_bathrooms" => 2,
                 "square_meters" => 150,
-                "address" => "Via Della Pineta Sacchetti, 15",
+                "address" => "Via Giovanni Stefano Roccatagliata, 4",
                 "service" => ["Aria condizionata", "Riscaldamento", "Posto auto", "TV", "Cucina", "Lavatrice", "Asciugacapelli"],
-                "latitude" => 41.93508,
-                'longitude' => 12.42585,
+                "latitude" => 41.87514737787551,
+                'longitude' =>  12.45119205544209,
                 'visible' => 1
             ],
 
+            // fatto
             [
                 "user_id" => 4,
                 "title" => "Appartamento rustico nelle colline",
@@ -243,11 +267,12 @@ class ApartmentSeeder extends Seeder
                 "square_meters" => 90,
                 "address" => "Via Trionfale, 155",
                 "service" => ["Camino", "Posto auto", "TV", "Cucina", "Lavatrice", "Asciugacapelli"],
-                "latitude" => 41.91835,
-                'longitude' => 12.44948,
+                "latitude" => 41.92399940197016,
+                'longitude' => 12.44778911546081,
                 'visible' => 1
             ],
 
+            // fatto
             [
                 "user_id" => 1,
                 "title" => "Bilocale moderno",
@@ -261,8 +286,8 @@ class ApartmentSeeder extends Seeder
                 "square_meters" => 180,
                 "address" => "Via Trionfale, 199",
                 "service" => ["Piscina", "Aria Condizionata", "Posto auto", "TV", "Cucina", "Lavatrice", "Asciugacapelli"],
-                "latitude" => 41.92356,
-                'longitude' => 12.44793,
+                "latitude" => 41.88916288175388,
+                'longitude' => 12.520630241545156,
                 'visible' => 1
             ],
             [
@@ -278,11 +303,12 @@ class ApartmentSeeder extends Seeder
                 "square_meters" => 160,
                 "address" => "Via Casilina, 51",
                 "service" => ["Posto auto", "TV", "Cucina", "Lavatrice", "Asciugacapelli", "Fumo permesso"],
-                "latitude" => 41.77594,
-                'longitude' => 12.9112,
+                "latitude" => 41.88916288175388,
+                'longitude' => 12.520630241545156,
                 'visible' => 1
             ],
 
+            // fatto
             [
                 "user_id" => 3,
                 "title" => "Appartamento storico nel quartiere antico",
@@ -294,13 +320,14 @@ class ApartmentSeeder extends Seeder
                 "num_rooms" => 3,
                 "num_bathrooms" => 1,
                 "square_meters" => 60,
-                "address" => "Via Di Vigna Murata, 5",
-                "service" => ["Riscaldamento", "Wi-fi", "Aria condizionata"],
-                "latitude" => 41.82743,
-                'longitude' => 12.48063,
+                "address" => "Via Ciro il Grande, 21",
+                "service" => ["Riscaldamento", "Wi-fi", "Aria condizionata", "Posto auto", "TV", "Cucina", "Lavatrice", "Asciugacapelli"],
+                "latitude" => 41.8353372523217,
+                'longitude' => 12.471995262806587,
                 'visible' => 1
             ],
 
+            // fatto
             [
                 "user_id" => 2,
                 "title" => "Appartamento tranquillo con vista sulle colline verdi",
@@ -314,11 +341,12 @@ class ApartmentSeeder extends Seeder
                 "square_meters" => 75,
                 "address" => "Via Di Vigna Murata, 59",
                 "service" => ["Wi-fi", "Posto auto", "TV", "Cucina", "Lavatrice", "Asciugacapelli"],
-                "latitude" => 41.83026,
-                'longitude' => 12.49408,
+                "latitude" =>  41.83843593793925,
+                'longitude' => 12.50122428724222,
                 'visible' => 1
             ],
 
+            // fatto
             [
                 "user_id" => 3,
                 "title" => "Appartamento spazioso con vista sulla montagna",
@@ -332,11 +360,12 @@ class ApartmentSeeder extends Seeder
                 "square_meters" => 120,
                 "address" => "Via Dei Castelli Romani, 16",
                 "service" => ["Camino", "Palestra", "Posto auto", "TV", "Cucina", "Lavatrice", "Asciugacapelli"],
-                "latitude" => 41.77395,
-                'longitude' => 12.68454,
+                "latitude" => 41.87155852595092,
+                'longitude' => 12.540258763713075,
                 'visible' => 1
             ],
 
+            // fatto
             [
                 "user_id" => 4,
                 "title" => "Appartamento accogliente nel quartiere alla moda",
@@ -349,12 +378,13 @@ class ApartmentSeeder extends Seeder
                 "num_bathrooms" => 1,
                 "square_meters" => 100,
                 "address" => "Via Gregorio VII, 59",
-                "service" => ["Wi-fi", "Riscaldamento"],
-                "latitude" => 41.89744,
-                'longitude' => 12.45067,
+                "service" => ["Wi-fi", "Riscaldamento", "Posto auto", "TV", "Cucina", "Lavatrice", "Asciugacapelli"],
+                "latitude" => 41.897581045753086,
+                'longitude' => 12.450658026607364,
                 'visible' => 1
             ],
 
+            // fatto
             [
                 "user_id" => 2,
                 "title" => "Appartamento elegante in zona esclusiva",
@@ -368,9 +398,9 @@ class ApartmentSeeder extends Seeder
                 "square_meters" => 200,
                 "address" => "Via Del Quirinale, 256",
                 "service" => ["Piscina", "Palestra", "Posto auto"],
-                "latitude" => 41.90066,
-                'longitude' => 12.48889,
-                'visible' => 0
+                "latitude" => 41.900848210230265,
+                'longitude' => 12.488908940101268,
+                'visible' => 1
             ],
         ];
 
