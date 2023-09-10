@@ -1,42 +1,57 @@
 @extends('layouts.admin')
 
 @section('content')
-
-    <div class="col-12">
-        <h1 class="text-center my-3">Statistiche</h1>
-    </div>
-    <div class="col-12">
-        <div class="col-6 mx-auto text-center">
-            <h2>Statistiche Generali</h2>
-            <p>Statistiche per anno di tutti i tuoi appartamenti</p>
+    <section class="p-4">
+        <div class="row">
+            <h2 class="my-3 text-center bold">Statistiche</h2>
+            <hr>
         </div>
-        {{-- stats tutti appartamenti e tutti gli anni dello user --}}
-        <div class="col-6 mx-auto my-5">
-            <canvas id="myYearlyChart" width="400" height="400"></canvas>
-        </div>
-    </div>
 
-    {{-- stats singolo appartamento e tutti gli anni dello user --}}
-    <div class="col-12">
-        <select id="apartmentFilter">
-            @foreach ($userApartments as $apartment)
-                <option value="{{ $apartment->id }}">{{ $apartment->title }}</option>
-            @endforeach
-        </select>
-    </div>
+        @if ($views->isEmpty())
+            <div class="col-12 text-center">
+                <h3 class="text-white">Non hai nessuna statistica da visualizzare</h3>
+                <div class="d-flex justify-content-center align-items-center gap-3 flex-column flex-md-row">
+                    <button class="btn my_btn"><a class="text-decoration-none my_link" href="{{ route('admin.apartments.create') }}">Aggiungi un appartamento</a></button>
+                    <button class="btn my_btn"><a class="text-decoration-none my_link" href="{{ route('admin.sponsorships.index') }}">Sponsorizza i tuoi appartamenti</a></button>
+                </div>
+            </div>
 
-    <div class="col-12">
-        <select id="yearFilter">
-            <option value="all">Tutti gli anni</option>
-            @foreach ($years as $year)
-                <option value="{{ $year }}">{{ $year }}</option>
-            @endforeach
-        </select>
-    </div>
+        @else
 
-    <div class="col-6 mx-auto my-5">
-        <canvas id="myYearlyApartmentChart" width="400" height="400"></canvas>
-    </div>
+            <div class="col-12">
+                <div class="col-6 mx-auto text-center">
+                    <h2>Statistiche Generali</h2>
+                    <p>Statistiche per anno di tutti i tuoi appartamenti</p>
+                </div>
+                {{-- stats tutti appartamenti e tutti gli anni dello user --}}
+                <div class="col-6 mx-auto my-5">
+                    <canvas id="myYearlyChart" width="400" height="400"></canvas>
+                </div>
+            </div>
+
+            {{-- stats singolo appartamento e tutti gli anni dello user --}}
+            <div class="col-12">
+                <select id="apartmentFilter">
+                    @foreach ($userApartments as $apartment)
+                        <option value="{{ $apartment->id }}">{{ $apartment->title }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="col-12">
+                <select id="yearFilter">
+                    <option value="all">Tutti gli anni</option>
+                    @foreach ($years as $year)
+                        <option value="{{ $year }}">{{ $year }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="col-6 mx-auto my-5">
+                <canvas id="myYearlyApartmentChart" width="400" height="400"></canvas>
+            </div>
+        @endif
+    </section>
 
     <script>
 

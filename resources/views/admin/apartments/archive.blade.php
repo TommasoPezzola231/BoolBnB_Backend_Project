@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 
 @section('content')
-    <section class="p-md-5 m-xl-5">
+    <section class="p-4">
         <div class="container-fluid p-1">
             <div class="row">
                 <div class="col-12">
-                    <h2 class="my-3 text-center text-white">Appartamenti eliminati</h2>
+                    <h2 class="my-3 text-center">Appartamenti eliminati</h2>
                     <hr>
                     @if ($deletedApartments->isEmpty())
                         <div class="col-12 text-center">

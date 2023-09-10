@@ -66,6 +66,30 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="col-12 col-md-6 mb-3">
+                            <div class="card shadow h-100 cursor-pointer">
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title">Visualizzzare le Statistiche dei tuoi appartamenti</h5>
+                                    <p class="card-text flex-grow-1">Trovi i dati delle visualizzazioni che hanno i tuoi appartamenti per permetterti di avere un andamento generale e ti permette di capire quando conviene sponsorizzare un appartamento</p>
+                                    <div class="d-flex align-items-center">
+                                        <a class="btn my_btn" href="{{ route('admin.stats.index') }}"> {{ __('Osserva le tue statistiche') }} </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 mx-auto mb-3">
+                            <div class="card shadow h-100 cursor-pointer">
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title">Archiviare i tuoi appartamenti</h5>
+                                    <p class="card-text flex-grow-1">Al momento dell'eliminazione del tuo appartamento, puoi trovarlo nella sezione dell'archivio ed è possibile recuperarlo senza che tu perda i tuoi dati</p>
+                                    <div class="d-flex align-items-center">
+                                        <a class="btn my_btn" href="{{ route('admin.apartments.archive') }}"> {{ __('Vedi il tuo archivio') }} </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="col-12 mx-auto">

@@ -3,14 +3,14 @@
 @section('content')
     <section class="p-4">
         <div class="row">
-            <h2 class="my-3 text-center text-white">I tuoi appartamenti</h2>
+            <h2 class="my-3 text-center bold">I Tuoi Appartamenti</h2>
             <hr>
         </div>
         <div class="row mx-auto d-flex flex-wrap">
             @if ($apartments->isEmpty())
                 <div class="col-12 text-center">
-                    <h3>Non hai ancora aggiunto nessun appartamento.</h3>
-                    <a class=" text-decoration-none text-white" href="{{ route('admin.apartments.create') }}">Aggiungi un appartamento</a>
+                    <h3 class="text-white">Non hai ancora aggiunto nessun appartamento.</h3>
+                    <button class="btn my_btn mt-2"><a class="text-decoration-none my_link"href="{{ route('admin.apartments.create') }}">Aggiungi un appartamento</a></button>
                 </div>
             @else
                 @foreach ($apartments as $apartment)

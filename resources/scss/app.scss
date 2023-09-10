@@ -37,6 +37,16 @@ body {
     }
 }
 
+.my_link {
+    color: $color-black;
+    transition: all 0.3s;
+
+    &:hover {
+        color: $color-white;
+        text-decoration: none;
+    }
+}
+
 main {
     background: rgb(157,162,167);
     background: linear-gradient(187deg, rgba(157,162,167,1) 8%, rgba(199,200,200,1) 69%, rgba(208,212,215,1) 84%);

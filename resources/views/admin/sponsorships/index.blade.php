@@ -4,7 +4,7 @@
 
     <section class="p-4">
         <div class="row">
-            <h2 class="my-3 text-center text-white">Sponsorizza i tuoi appartamenti</h2>
+            <h2 class="my-3 text-center">Sponsorizza I Tuoi Appartamenti</h2>
             <hr>
         </div>
         {{-- informazioni --}}
