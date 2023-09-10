@@ -24,36 +24,40 @@
         @else
 
             <div class="col-12">
-                <div class="col-6 mx-auto text-center">
-                    <h2>Statistiche Generali</h2>
-                    <p>Statistiche per anno di tutti i tuoi appartamenti</p>
+                <div class="col-12 col-lg-8 col-xxl-5 mx-auto text-center my-5">
+                    <div class="card p-2 my-3 shadow my_bg_chart">
+                        <div>
+                            <h2>Statistiche Generali</h2>
+                            <p class="text-white">Statistiche per anno di tutti i tuoi appartamenti</p>
+                        </div>
+                        {{-- stats tutti appartamenti e tutti gli anni dello user --}}
+                        <canvas class="px-4" id="myYearlyChart" width="400" height="400"></canvas>
+                    </div>
                 </div>
-                {{-- stats tutti appartamenti e tutti gli anni dello user --}}
-                <div class="col-6 mx-auto my-5">
-                    <canvas id="myYearlyChart" width="400" height="400"></canvas>
+
+                <div class="col-12 col-lg-8 col-xxl-5 mx-auto text-center my-5">
+                    <div class="card p-2 my-3 shadow my_bg_chart">
+                        <div>
+                            <h2>Statistiche Singolo Appartamento</h2>
+                            <p class="text-white">Statistiche per anno di tutti i tuoi appartamenti</p>
+                        </div>
+                        <div class="d-flex flex-column justify-content-center align-items-center gap-3">
+                            <select id="apartmentFilter" class="my_select">
+                                @foreach ($userApartments as $apartment)
+                                    <option value="{{ $apartment->id }}">{{ $apartment->title }}</option>
+                                @endforeach
+                            </select>
+                            <select id="yearFilter" class="my_select">
+                                <option value="all">Tutti gli anni</option>
+                                @foreach ($years as $year)
+                                    <option value="{{ $year }}">{{ $year }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        {{-- stats singolo appartamento e tutti gli anni dello user --}}
+                        <canvas class="px-4" id="myYearlyApartmentChart" width="200" height="200"></canvas>
+                    </div>
                 </div>
-            </div>
-
-            {{-- stats singolo appartamento e tutti gli anni dello user --}}
-            <div class="col-12">
-                <select id="apartmentFilter">
-                    @foreach ($userApartments as $apartment)
-                        <option value="{{ $apartment->id }}">{{ $apartment->title }}</option>
-                    @endforeach
-                </select>
-            </div>
-
-            <div class="col-12">
-                <select id="yearFilter">
-                    <option value="all">Tutti gli anni</option>
-                    @foreach ($years as $year)
-                        <option value="{{ $year }}">{{ $year }}</option>
-                    @endforeach
-                </select>
-            </div>
-
-            <div class="col-6 mx-auto my-5">
-                <canvas id="myYearlyApartmentChart" width="400" height="400"></canvas>
             </div>
         @endif
     </section>
@@ -70,9 +74,10 @@
             data: {
                 labels: Object.keys(dataYearly),
                 datasets: [{
-                    label: 'Visualizzazioni totali dei tuoi appartamenti per anno',
+                    label: 'Visualizzazioni',
                     data: Object.values(dataYearly),
                     backgroundColor: 'rgba(255, 90, 96, 0.953)',
+                    color: 'rgb(255,255,255)',
                     borderColor: 'rgb(72, 72, 72)',
                     borderWidth: 1
                 }]
@@ -82,7 +87,8 @@
                     y: {
                         beginAtZero: true
                     }
-                }
+                },
+
             }
         });
 
@@ -94,9 +100,9 @@
             data: {
                 labels: [],
                 datasets: [{
-                    label: 'Visualizzazioni dell\'appartamento per totale di anni e mesi',
+                    label: 'Visualizzazioni',
                     data: [],
-                    backgroundColor: 'rgba(255, 90, 96, 0.953)',
+                    backgroundColor: 'rgb(255, 205, 86)',
                     borderColor: 'rgb(72, 72, 72)',
                     borderWidth: 1
                 }]
@@ -106,7 +112,7 @@
                     y: {
                         beginAtZero: true
                     }
-                }
+                },
             }
         });
 
@@ -141,6 +147,7 @@
 
                 // update dell'asse x per mostrare i mesi
                 var months = ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"];
+
                 myYearlyApartmentChart.data.labels = months;
                 myYearlyApartmentChart.data.datasets[0].data = Object.values(filteredDataForYear);
             } else {

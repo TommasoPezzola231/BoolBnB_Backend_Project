@@ -37,6 +37,25 @@ body {
     }
 }
 
+.my_bg_chart {
+    background-color: $color-secondary;
+    transition: all 0.3s;
+}
+
+.my_select {
+    background-color: $color-black;
+    color: $bg-light;
+    transition: all 0.3s;
+    padding: 0.5rem;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $color-black;
+        color: $bg-light;
+    }
+}
+
 .my_link {
     color: $color-black;
     transition: all 0.3s;
