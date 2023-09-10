@@ -10,9 +10,14 @@
         @if ($views->isEmpty())
             <div class="col-12 text-center">
                 <h3 class="text-white">Non hai nessuna statistica da visualizzare</h3>
-                <div class="d-flex justify-content-center align-items-center gap-3 flex-column flex-md-row">
+                <div class="d-flex justify-content-center align-items-center gap-3 flex-column flex-md-row mt-2">
                     <button class="btn my_btn"><a class="text-decoration-none my_link" href="{{ route('admin.apartments.create') }}">Aggiungi un appartamento</a></button>
                     <button class="btn my_btn"><a class="text-decoration-none my_link" href="{{ route('admin.sponsorships.index') }}">Sponsorizza i tuoi appartamenti</a></button>
+                </div>
+                <div class="col-12 mx-auto">
+                    <div class="d-flex justify-center">
+                        <img src="http://localhost:8000/images/logo/Bool_Bnb_Black.png" alt="logo" class="img-fluid mx-auto">
+                    </div>
                 </div>
             </div>
 

@@ -11,6 +11,11 @@
                         <div class="col-12 text-center">
                             <h3 class="text-white">Non hai nessun appartamento archiviato</h3>
                         </div>
+                        <div class="col-12 mx-auto">
+                            <div class="d-flex justify-center">
+                                <img src="http://localhost:8000/images/logo/Bool_Bnb_Black.png" alt="logo" class="img-fluid mx-auto">
+                            </div>
+                        </div>
                     @else
                         <div class="table-responsive overflow-hidden">
                             <table class="table table-bordered mt-3">

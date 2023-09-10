@@ -12,6 +12,11 @@
                     <h3 class="text-white">Non hai ancora aggiunto nessun appartamento.</h3>
                     <button class="btn my_btn mt-2"><a class="text-decoration-none my_link"href="{{ route('admin.apartments.create') }}">Aggiungi un appartamento</a></button>
                 </div>
+                <div class="col-12 mx-auto">
+                    <div class="d-flex justify-center">
+                        <img src="http://localhost:8000/images/logo/Bool_Bnb_Black.png" alt="logo" class="img-fluid mx-auto">
+                    </div>
+                </div>
             @else
                 @foreach ($apartments as $apartment)
                 <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-4 p-3">
