@@ -55,7 +55,10 @@ class Apartment extends Model
             ->withPivot('end_time');
     }
 
-    //protected $casts = ['services' => 'array'];
+    public function views()
+    {
+        return $this->hasMany(View::class);
+    }
 
     protected $appends = [
         'full_path_principal_image',

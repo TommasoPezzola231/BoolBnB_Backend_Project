@@ -7,7 +7,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\PaymentController as AdminPaymentController;
 use App\Http\Controllers\Admin\SponsorshipController;
-
+use App\Http\Controllers\Admin\ViewController;
 use App\Models\PaymentController;
 
 // use App\Models\ApartemntSponsorship;
@@ -43,11 +43,11 @@ Route::middleware(['auth'])
         Route::get('/messages/{apartment_id?}', [MessageController::class, 'index'])->name('messages.index');
         Route::get('/sponsorships', [SponsorshipController::class, 'index'])->name('sponsorships.index');
         Route::post('/process-payment', [AdminPaymentController::class, 'processPayment'])->name('process_payment');
+        Route::get('/stats', [ViewController::class, 'index'])->name('stats.index');
     });
 
 require __DIR__ . '/auth.php';
 
-// Route::get('error404', [ErrorController::class, 'error404'])->name('error404');
 Route::get('error404', function () {
     return view('errors.404');
 })->name('error404');

@@ -25,9 +25,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
     <!-- Libreria TomTom per visualizzare la mappa -->
-    <link rel="stylesheet" type="text/css"
-        href="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.18.0/maps/maps.css" />
+    <link rel="stylesheet" type="text/css"href="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.18.0/maps/maps.css" />
     <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.18.0/maps/maps-web.min.js"></script>
+
+    {{-- chart.js --}}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <!-- Usando Vite -->
     @vite(['resources/js/app.js'])
@@ -59,6 +61,12 @@
                                 <a class="nav-link text-white d-flex align-items-center {{ Route::currentRouteName() == 'admin.dashboard' ? 'sidebarHover' : '' }}"
                                     href="{{ route('admin.dashboard') }}">
                                     <i class="fa-solid fa-tachometer-alt fa-lg fa-fw me-2"></i> Dashboard
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.stats.index' ? 'sidebarHover' : '' }}" href="{{ route('admin.stats.index') }}">
+                                    <i class="fa-solid fa-chart-simple fa-lg fa-fw me-2"></i> Statistiche
                                 </a>
                             </li>
 
@@ -143,6 +151,12 @@
                                     </a>
                                 </li>
 
+                                <li>
+                                    <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.stats.index' ? 'sidebarHover' : '' }}" href="{{ route('admin.stats.index') }}">
+                                        <i class="fa-solid fa-chart-simple fa-lg fa-fw me-2"></i> Statistiche
+                                    </a>
+                                </li>
+
                                 <li class="nav-item">
                                     <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.apartments.index' ? 'sidebarHover' : '' }}"
                                         href="{{ route('admin.apartments.index') }}">
@@ -212,6 +226,12 @@
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'sidebarHover' : '' }}"
                                     href="{{ route('admin.dashboard') }}">
                                     <i class="fa-solid fa-tachometer-alt fa-lg fa-fw me-2"></i> Dashboard
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.stats.index' ? 'sidebarHover' : '' }}" href="{{ route('admin.stats.index') }}">
+                                    <i class="fa-solid fa-chart-simple fa-lg fa-fw me-2"></i> Statistiche
                                 </a>
                             </li>
 
