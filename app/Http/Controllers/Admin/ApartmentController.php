@@ -192,7 +192,8 @@ class ApartmentController extends Controller
                 return response()->view('errors.400', [], 400);
             }
         } else {
-            $data['principal_image'] = "uploads/default.jpg";
+            // maintain the old image path if no new file was uploaded for this request
+            $data['principal_image'] = $apartment->principal_image;
         }
 
         //$apartment = new Apartment();
