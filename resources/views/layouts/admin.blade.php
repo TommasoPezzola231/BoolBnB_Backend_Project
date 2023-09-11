@@ -51,14 +51,12 @@
 
                         <ul class="navbar-nav ms-auto d-flex gap-5">
 
-                            {{-- torna al sito --}}
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link text-white" href="http://localhost:5174/">
                                     <span class="fa-solid fa-home-alt fa-lg fa-fw me-2"></span>Torna al sito
                                 </a>
                             </li>
 
-                            {{-- dashboard --}}
                             <li class="nav-item">
                                 <a class="nav-link text-white d-flex align-items-center {{ Route::currentRouteName() == 'admin.dashboard' ? 'sidebarHover' : '' }}"
                                     href="{{ route('admin.dashboard') }}">
@@ -66,14 +64,12 @@
                                 </a>
                             </li>
 
-                            {{-- statistiche --}}
                             <li>
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.stats.index' ? 'sidebarHover' : '' }}" href="{{ route('admin.stats.index') }}">
                                     <i class="fa-solid fa-chart-simple fa-lg fa-fw me-2"></i> Statistiche
                                 </a>
                             </li>
 
-                            {{-- i tuoi appartamenti --}}
                             <li class="nav-item">
                                 <a class="nav-link text-white d-flex align-items-center {{ Route::currentRouteName() == 'admin.apartments.index' ? 'sidebarHover' : '' }}"
                                     href="{{ route('admin.apartments.index') }}">
@@ -81,7 +77,6 @@
                                 </a>
                             </li>
 
-                            {{-- aggiungi appartamento --}}
                             <li class="nav-item">
                                 <a class="nav-link text-white d-flex align-items-center {{ Route::currentRouteName() == 'admin.apartments.create' ? 'sidebarHover' : '' }}"
                                     href="{{ route('admin.apartments.create') }}">
@@ -105,15 +100,13 @@
                                 </a>
                             </li>
 
-                            {{-- archivio --}}
-                            <li class="nav-item">
+                                <li class="nav-item">
                                 <a class="nav-link text-white d-flex align-items-center {{ Route::currentRouteName() == 'admin.apartments.archive' ? 'sidebarHover' : '' }}"
                                     href="{{ route('admin.apartments.archive') }}">
                                     <i class="fa-solid fa-box-archive fa-lg fa-fw me-2"></i> Archivio
                                 </a>
                             </li>
 
-                            {{-- logout --}}
                             <li class="nav-item">
                                 <a class="nav-link text-white d-flex align-items-center" href="http://localhost:5174/" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <i class="fa-solid fa-sign-out-alt fa-lg fa-fw me-2"></i> {{ __('Logout') }}
@@ -291,7 +284,7 @@
                     </div>
                 </div>
 
-                <main class="col-md-12 col-lg-10 px-0 mx-0 ms-sm-auto ">
+                <main class="col-md-12 col-lg-9 col-xl-9 col-xxl-10 px-0 mx-0 ms-sm-auto main_top">
                     @yield('content')
                 </main>
             </div>
