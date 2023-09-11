@@ -27,7 +27,7 @@
                 {{-- lato sinistro --}}
                 <div class="col-12 col-lg-4 col-xl-3 col-xxl-2 d p-0 latosx">
                     <div class="mt-3 pt-3">
-                        <h3 class="mt-3 ms-3 text-center">I Tuoi Appartamenti</h3>
+                        <h3 class="mt-3 text-center">I Tuoi Appartamenti</h3>
                         <div class="col-12 mt-5">
                             @foreach ($apartments as $apartment)
                                 <div class="col-12 p-3 apartment-item" data-apartment-id="{{$apartment->id}}">
