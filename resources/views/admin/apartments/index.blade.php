@@ -34,7 +34,7 @@
                                     {{ $apartment->title }}
                                 </div>
                                 <p class="ms-2 fw-light text-secondary">
-                                    {{ $apartment->address }}, {{ $apartment->city }}
+                                    {{ $apartment->address }}
                                 </p>
                                 @if ($apartment->visible)
                                     <div class="d-flex align-items-center gap-2 ms-2">

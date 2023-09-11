@@ -17,7 +17,7 @@
                     <h2 class="mb-3">
                         {{ $apartment->title }}
                     </h2>
-                    <div class="mb-3"><i class="fa-solid fa-location-dot color-primary"></i> {{ $apartment->address }}, {{ $apartment->city }}, {{ $apartment->country }}</div>
+                    <div class="mb-3"><i class="fa-solid fa-location-dot color-primary"></i> {{ $apartment->address }}</div>
                     <div class="mb-3"> {{ $apartment->description }} </div>
                     <div class="row">
                         <div class="col-12 col-lg-12">
@@ -86,15 +86,16 @@
                     @endif
                 </div>
             </div>
-            <div class="col-12 col-md-6 mb-3">
+
+            {{-- mappa --}}
+            <div class="col-10 mx-auto">
                 <div id="map" class="w-100 ratio ratio-16x9 rounded-4"></div>
             </div>
-            {{-- <div class="col-6">
-
-            </div> --}}
-            <div class="col-12 d-flex justify-content-md-end justify-content-center">
+          
+            <div class="col-12 mt-5 d-flex justify-content-md-end justify-content-center">
                 <a href="{{ route('admin.apartments.edit', $apartment->id) }}"
                     class="btn btn-dark me-3">Modifica Elemento</a>
+
                 {{-- form per la cancellazione + pop up --}}
                 <form id="deleteForm" action="{{ route('admin.apartments.destroy', $apartment) }}"
                     method="POST">
@@ -116,7 +117,7 @@
                     <h3 class="modal-title">Sei sicuro di voler cancellare l'appartamento?</h3>
                 </div>
                 <div class="modal-body">
-                    <p class="text-danger">Una volta cancellato potrai recuperare il tuo appartamento nella sezione <strong class="text-dark">Archivio!</strong>.</p>
+                    <p class="text-danger">Una volta cancellato potrai recuperare il tuo appartamento nella sezione <strong class="text-dark">Archivio</strong>.</p>
                 </div>
                 <div class="modal-footer d-flex justify-content-center  gap-3">
                     <button id="confirmButton" type="button" class="btn btn-danger">Conferma</button>
