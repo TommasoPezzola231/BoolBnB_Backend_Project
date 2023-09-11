@@ -182,44 +182,61 @@
     {{-- script --}}
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            const inputFile = document.getElementById('principal_image');
+            const imagePreview = document.getElementById('imagePreview');
+    
+            // aggiorna l'anteprima dell'immagine
+            function updateImagePreview(file) {
+                if (file) {
+                    const reader = new FileReader();
+    
+                    reader.onload = function (e) {
+                        const image = new Image();
+                        image.src = e.target.result;
+                        imagePreview.innerHTML = '';
+                        imagePreview.appendChild(image);
+                    };
+    
+                    reader.readAsDataURL(file);
+                } else {
+                    imagePreview.innerHTML = 'Nessuna immagine selezionata';
+                }
+            }
+    
+            // Aggiorna l'anteprima dell'immagine quando viene selezionato un nuovo file
+            inputFile.addEventListener('change', function () {
+                const file = this.files[0];
+                updateImagePreview(file);
+            });
+    
+            // Imposta l'URL dell'immagine esistente nell'anteprima se presente
+            const imageUrl = '{{ $apartment->principal_image ? asset("/storage") . "/" . $apartment->principal_image : "" }}';
+            
+            if (imageUrl) {
+                const image = new Image();
+                image.src = imageUrl;
+                imagePreview.innerHTML = '';
+                imagePreview.appendChild(image);
+            } else {
+                imagePreview.innerHTML = 'Nessuna immagine selezionata';
+            }
+    
+            // conferma eliminazione
             const deleteButton = document.getElementById('deleteButton');
             const deleteForm = document.getElementById('deleteForm');
-
+    
             deleteButton.addEventListener('click', function() {
-                // Mostra un popup di conferma
                 const confirmDelete = confirm("Sei sicuro di voler eliminare l'elemento selezionato?");
-
+    
                 if (confirmDelete) {
-                    // Invia il modulo per la cancellazione
                     deleteForm.submit();
                 } else {
                     console.log("Cancellazione annullata.");
                 }
             });
         });
-
-
-        // preview immagine
-        const inputFile = document.getElementById('principal_image');
-        const imagePreview = document.getElementById('imagePreview');
-
-        inputFile.addEventListener('change', function () {
-            const file = this.files[0];
-
-            if (file) {
-                const reader = new FileReader();
-
-                reader.onload = function (e) {
-                    const image = new Image();
-                    image.src = e.target.result;
-                    imagePreview.innerHTML = '';
-                    imagePreview.appendChild(image);
-                };
-
-                reader.readAsDataURL(file);
-            } else {
-                imagePreview.innerHTML = 'Nessuna immagine selezionata';
-            }
-        });
     </script>
+    
+    
+    
 @endsection
