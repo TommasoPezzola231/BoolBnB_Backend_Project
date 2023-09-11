@@ -23,7 +23,7 @@ class ApartmentController extends Controller
     // sponsored apartments
     public function spnsoredApartments()
     {
-        $apartments = Apartment::whereHas('sponsorships')->where('visible', 1)->get();
+        $apartments = Apartment::whereHas('sponsorships')->where('visible', 1)->paginate(4);
 
         return response()->json(['apartments' => $apartments]);
     }
