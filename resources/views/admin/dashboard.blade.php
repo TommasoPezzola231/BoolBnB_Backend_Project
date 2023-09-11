@@ -7,15 +7,15 @@
 
                 <div class="col-12">
                     <h1 class="text-center text-dark my-3">
-                        {{ __('Benvenuto') }} {{ auth()->user()->name }}!
-                        <span><h2>Alla tua dashboard di</h2></span>
+                        {{ __('Ciao') }} {{ auth()->user()->name }}!
+                        <span><h2>Benvenuto nella tua dashboard di</h2></span>
                         <span><h1 class="text-center my_color_heaer_transarent">{{ __('BoolBnb') }}</h1></span>
                     </h1>
                 </div>
 
                 <div class="col-10 mx-auto my-5">
                     <div class="col-12 mx-auto">
-                        <p class="text-dark text-center">Siamo felici di averti qui. La tua dashboard è il luogo dove gestire i tuoi appartamenti sulla piattaforma. Ecco alcune delle cose che puoi fare:</p>
+                        <p class="text-dark text-center fs-5">Siamo felici di averti qui. La tua dashboard è il luogo dove gestire i tuoi appartamenti sulla piattaforma. Ecco alcune delle cose che puoi fare:</p>
                     </div>
 
                     <div class="row">
