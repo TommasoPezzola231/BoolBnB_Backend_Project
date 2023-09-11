@@ -42,12 +42,12 @@
                             <p class="text-white">Statistiche per anno di tutti i tuoi appartamenti</p>
                         </div>
                         <div class="d-flex flex-column justify-content-center align-items-center gap-3">
-                            <select id="apartmentFilter" class="my_select">
+                            <select id="apartmentFilter" class="my_select form-select-sm">
                                 @foreach ($userApartments as $apartment)
                                     <option value="{{ $apartment->id }}">{{ $apartment->title }}</option>
                                 @endforeach
                             </select>
-                            <select id="yearFilter" class="my_select">
+                            <select id="yearFilter" class="my_select form-select-sm">
                                 <option value="all">Tutti gli anni</option>
                                 @foreach ($years as $year)
                                     <option value="{{ $year }}">{{ $year }}</option>
