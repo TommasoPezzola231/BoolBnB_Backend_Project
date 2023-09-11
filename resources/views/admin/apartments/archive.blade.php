@@ -33,6 +33,7 @@
                                             <td>{{$deletedApartment->title}}</td>
                                             <td>{{$deletedApartment->address}}</td>
                                             <td>{{$deletedApartment->city}}</td>
+                                            {{-- restore --}}
                                             <td>
                                                 <a href="{{route('admin.apartments.restore', $deletedApartment->id)}}" class="btn btn-success">Recupera</a>
                                             </td>
