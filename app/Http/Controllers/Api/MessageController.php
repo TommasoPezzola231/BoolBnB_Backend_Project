@@ -26,6 +26,29 @@ class MessageController extends Controller
             'apartment_id' => '',
         ]);
 
+        $customMessages = [
+            'name_sender.required' => 'Il Nome è obbligatorio',
+            'name_sender.string' => 'Il Nome deve essere una stringa.',
+            'name_sender.max' => 'Il Nome non può superare :max caratteri',
+
+            'surname_sender.required' => 'Il Cognome è obbligatorio.',
+            'surname_sender.string' => 'Il Cognome deve essere una stringa',
+            'surname_sender.max' => 'Il Cognome non può superare :max caratteri',
+
+            'email_sender.required' => 'Il campo Email è obbligatorio',
+            'email_sender.email' => 'Il campo Email deve essere un indirizzo email valido',
+            'email_sender.max' => 'Il campo Email non può superare :max caratteri',
+
+            'message_object.required' => 'Il campo Oggetto è obbligatorio',
+            'message_object.string' => 'Il campo Oggetto deve essere una stringa',
+            'message_object.max' => 'Il campo Oggetto non può superare :max caratteri',
+
+            'message_text.required' => 'Il campo Messaggio è obbligatorio',
+            'message_text.string' => 'Il campo Messaggio deve essere una stringa.',
+        ];
+
+        $validator->setCustomMessages($customMessages);
+
         if ($validator->fails()) {
             return response()->json([
                 'success' => false,
