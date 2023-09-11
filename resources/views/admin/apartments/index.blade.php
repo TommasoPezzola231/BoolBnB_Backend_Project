@@ -61,7 +61,7 @@
                                 @endif
                             </div>
                         </a>
-                        {{-- if is not sponsorized show button sponsorize else show sponsorized until date and button to sponsorize again  --}}
+                        {{-- sponsorizza / prolunga sponsorizzazione  --}}
                         @if ($apartment->sponsorships->isEmpty())
                             <div class="mt-auto d-flex justify-content-center p-2 ms-2">
                                 <a href="{{ route('admin.sponsorships.index', ['apartment_id' => $apartment->id]) }}" class="btn my_btn">Sponsorizza</a>
