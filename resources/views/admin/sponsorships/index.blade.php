@@ -30,7 +30,7 @@
                             <h3 class="card-title">Informazioni sul pagamento</h3>
                             <p class="card-text" style="list-style-type: none; padding-left: 20px;">
                                 &bull; Il pagamento avviene tramite carta di credito. <br>
-                                &bull; Il pagamento è sicuro e avviene tramite Braintree. <br>
+                                &bull; Il pagamento è sicuro e avviene tramite <a target="_blank" class="text-decoration-none" href="https://www.braintreepayments.com/it?referrer=https%3A%2F%2Fwww.google.com%2F">Braintree</a>. <br>
                                 &bull; Non ci sono costi aggiuntivi per il pagamento. <br>
                                 &bull; Il pagamento è unico e non ricorrente. <br>
                             </p>
@@ -41,18 +41,42 @@
         </div>
         {{-- cards sponsorizzazioni e form pagamento --}}
         <div class="row">
-            <form id="payment-form" action="{{ route('admin.process_payment') }}" method="post" class="col-12 col-lg-6 mx-auto">
+            <form id="payment-form" action="{{ route('admin.process_payment') }}" method="post" class="col-12 col-lg-8 mx-auto">
                 @csrf
-                <div class="card mb-3 shadow" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);">
+                <div class="card col-12 mb-3 shadow" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);">
                     <div class="card-body">
-                        <h2 class="card-title">Aquista una sponsorizzazione</h2>
+                        <h2 class="card-title mb-3">Aquista una sponsorizzazione</h2>
                         <div class="form-group">
-                            <label for="sponsorship_id">Scegli un pacchetto:</label><br>
+                            <label class="mb-3" for="sponsorship_id">Scegli un pacchetto:</label><br>
                             @foreach ($sponsorships as $sponsorship)
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="sponsorship_id" id="sponsorship_{{ $sponsorship->id }}" value="{{ $sponsorship->id }}" required>
-                                <label class="form-check-label" for="sponsorship_{{ $sponsorship->id }}">
-                                    {{ $sponsorship->name_sponsorship }} (Prezzo: {{ $sponsorship->price }}€, Durata: {{ $sponsorship->duration }} ore)
+                            <div class="form-check d-flex align-items-center">
+
+                                {{-- test classi colorate --}}
+                                @php
+                                $bgClass = '';
+                    
+                                if ($sponsorship->name_sponsorship === 'Bronzo') {
+                                    $bgClass = 'bronze-background';
+                                } elseif ($sponsorship->name_sponsorship === 'Argento') {
+                                    $bgClass = 'silver-background';
+                                } elseif ($sponsorship->name_sponsorship === 'Oro') {
+                                    $bgClass = 'gold-background';
+                                }
+                                @endphp
+
+                                <input class="form-check-input mb-2 me-2 " type="radio" name="sponsorship_id" id="sponsorship_{{ $sponsorship->id }}" value="{{ $sponsorship->id }}" required>
+                                <label class="form-check-label py-1 mb-2 rounded-4 text-white form-control col-12 d-flex justify-content-between align-items-center flex-md-row gap-2  {{ $bgClass }}" for="sponsorship_{{ $sponsorship->id }}">
+                                    <div class="col-4 text-center d-md-flex justify-content-center">
+                                        <div>{{ $sponsorship->name_sponsorship }}</div>
+                                    </div> 
+                                    <div class="col-4 text-center d-md-flex justify-content-center gap-1">
+                                        <div>Prezzo:</div>
+                                        <div>{{ $sponsorship->price }}€</div>
+                                    </div>
+                                    <div class="col-4 text-center d-md-flex justify-content-center gap-1">
+                                        <div>Durata:</div>
+                                        <div>{{ $sponsorship->duration }} ore</div>
+                                    </div> 
                                 </label>
                             </div>
                             @endforeach

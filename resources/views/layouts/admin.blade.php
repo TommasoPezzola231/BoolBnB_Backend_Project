@@ -66,6 +66,13 @@
                                 </a>
                             </li>
 
+                            {{-- statistiche --}}
+                            <li>
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.stats.index' ? 'sidebarHover' : '' }}" href="{{ route('admin.stats.index') }}">
+                                    <i class="fa-solid fa-chart-simple fa-lg fa-fw me-2"></i> Statistiche
+                                </a>
+                            </li>
+
                             {{-- i tuoi appartamenti --}}
                             <li class="nav-item">
                                 <a class="nav-link text-white d-flex align-items-center {{ Route::currentRouteName() == 'admin.apartments.index' ? 'sidebarHover' : '' }}"
@@ -95,13 +102,6 @@
                                 <a class="nav-link text-white d-flex align-items-center {{ Route::currentRouteName() == 'admin.sponsorships.index' ? 'sidebarHover' : '' }}"
                                     href="{{ route('admin.sponsorships.index') }}">
                                     <i class="fa-solid fa-credit-card fa-lg fa-fw me-2"></i> Sponsorizzazioni
-                                </a>
-                            </li>
-
-                            {{-- statistiche --}}
-                            <li>
-                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.stats.index' ? 'sidebarHover' : '' }}" href="{{ route('admin.stats.index') }}">
-                                    <i class="fa-solid fa-chart-simple fa-lg fa-fw me-2"></i> Statistiche
                                 </a>
                             </li>
 

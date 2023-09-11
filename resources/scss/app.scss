@@ -6,6 +6,7 @@
 @import './admin/apartments/indexApartment.scss';
 @import './messages/messages.scss';
 @import './admin/apartments/modal.scss';
+@import './admin/apartments/sponsorship.scss';
 
 * {
     box-sizing: border-box;
@@ -20,7 +21,7 @@ body {
 }
 
 .my_color_heaer_transarent {
-   color: $color-primary_transparent;
+    color: $color-primary_transparent;
 }
 
 .my_z_index {
@@ -67,6 +68,6 @@ body {
 }
 
 main {
-    background: rgb(157,162,167);
-    background: linear-gradient(187deg, rgba(157,162,167,1) 8%, rgba(199,200,200,1) 69%, rgba(208,212,215,1) 84%);
+    background: rgb(157, 162, 167);
+    background: linear-gradient(187deg, rgba(157, 162, 167, 1) 8%, rgba(199, 200, 200, 1) 69%, rgba(208, 212, 215, 1) 84%);
 }
