@@ -4,11 +4,15 @@
 
     a:hover {
         background-color: rgba($color: #ff5a60f3, $alpha: 0.5);
-    };
+    }
+
+    ;
 
     img {
         width: 40%;
-    };
+    }
+
+    ;
 }
 
 .sidebarHover {
@@ -52,9 +56,12 @@
 }
 
 .my_bg_form_page {
-    background: #ADA996;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #ADA996;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .my_form_content {
@@ -67,8 +74,8 @@
     color: $color-primary;
 
     &:hover {
-      transition: all 0.3s ease-in-out;
-      cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
     }
 }
 
@@ -78,9 +85,9 @@
     font-size: 1rem;
 
     &:hover {
-      color: $color-primary;
-      transition: all 0.3s ease-in-out;
-      cursor: pointer;
+        color: $color-primary;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
     }
 }
 
