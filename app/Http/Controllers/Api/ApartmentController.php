@@ -76,10 +76,15 @@ class ApartmentController extends Controller
         $minLongitude = $cityCoordinates['longitude'] - 0.18;
         $maxLongitude = $cityCoordinates['longitude'] + 0.18;
 
-        $apartments = Apartment::whereBetween('latitude', [$minLatitude, $maxLatitude])
+        $apartments = Apartment::select('apartments.*')
+            ->addSelect(DB::raw('CASE WHEN apartment_sponsorship.id IS NOT NULL THEN 1 ELSE 0 END as is_sponsored'))
+            ->leftJoin('apartment_sponsorship', 'apartments.id', '=', 'apartment_sponsorship.apartment_id')
+            ->whereBetween('latitude', [$minLatitude, $maxLatitude])
             ->whereBetween('longitude', [$minLongitude, $maxLongitude])
             ->where('visible', 1)
+            ->orderByRaw('CASE WHEN apartment_sponsorship.id IS NOT NULL THEN 0 ELSE 1 END, apartment_sponsorship.end_time DESC')
             ->get();
+
 
         foreach ($apartments as $apartment) {
             $apartment->load('services'); // Carica i servizi associati all'appartamento
@@ -127,6 +132,7 @@ class ApartmentController extends Controller
         $price = $request->input('price');
         $selectedServices = $request->input('serviceID', []);
 
+
         $apartments = Apartment::whereBetween('latitude', [$minLatitude, $maxLatitude])
             ->whereBetween('longitude', [$minLongitude, $maxLongitude])
             ->where('visible', 1);
@@ -154,8 +160,13 @@ class ApartmentController extends Controller
             }
         }
 
+        // Ordina gli appartamenti in base alla sponsorizzazione
+        $apartments = $apartments
+            ->leftJoin('apartment_sponsorship', 'apartments.id', '=', 'apartment_sponsorship.apartment_id')
+            ->select('apartments.*', DB::raw('CASE WHEN apartment_sponsorship.id IS NOT NULL THEN 1 ELSE 0 END as is_sponsored'))
+            ->orderByDesc('apartment_sponsorship.end_time')
+            ->get();
 
-        $apartments = $apartments->get();
         foreach ($apartments as $apartment) {
             $apartment->load('services'); // Carica i servizi associati all'appartamento
         }
