@@ -28,7 +28,7 @@ class UpdateApartmentRequest extends FormRequest
             'description' => 'required|min:5',
             'principal_image' => 'nullable',
             'serviceID' => 'required|exists:services,id',
-            'price' => 'required|',
+            'price' => 'required|regex:/^\d+(\.\d{1,2})?$/',
             'country' => 'required|min:3|max:50',
             'city' => 'required|min:3|max:50',
             'num_rooms' => 'required|integer|between:1,15',
@@ -61,7 +61,7 @@ class UpdateApartmentRequest extends FormRequest
             'serviceID.required' => "Devi inserire almeno un servizio",
 
             'price.required' => 'Indica il prezzo',
-            'price.decimal' => 'Indica il prezzo',
+            'price.regex' => 'Il prezzo non deve contenere simboli',
 
             'country.required' => 'Aggiungi città',
             'country.min' => 'Devi inserire almeno :min Caratteri',

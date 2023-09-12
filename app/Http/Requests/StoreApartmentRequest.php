@@ -28,7 +28,7 @@ class StoreApartmentRequest extends FormRequest
             'description' => 'required|min:5',
             'principal_image' => 'nullable',
             'serviceID' => 'required|exists:services,id',
-            'price' => 'required|integer|regex:/^\d+$/',
+            'price' => 'required|regex:/^\d+(\.\d{1,2})?$/',
             'country' => 'required|min:3|max:50',
             'city' => 'required|min:3|max:50',
             'num_rooms' => 'required|integer|between:1,15',
