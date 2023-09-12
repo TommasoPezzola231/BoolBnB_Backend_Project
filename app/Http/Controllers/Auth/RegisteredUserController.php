@@ -66,7 +66,7 @@ class RegisteredUserController extends Controller
                 'email.required' => 'Devi inserire la tua email',
                 'email.string' => 'La tua email deve essere una stringa',
                 'email.email' => 'La tua email deve essere nel formato',
-                'email.unique' => 'Questa password è già registrata',
+                'email.unique' => 'Questa email è già registrata',
                 'email.max' => 'La tua email deve essere lunga al massimo 255 caratteri',
 
                 'password.required' => 'Devi inserire la tua password',

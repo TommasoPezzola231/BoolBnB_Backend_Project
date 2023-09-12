@@ -102,7 +102,7 @@
                         inputElements.forEach(function(inputElement) {
                             inputElement.addEventListener('input', function() {
                                 this.classList.remove('is-invalid');
-                                this.nextElementSibling.remove();
+                                // this.nextElementSibling.remove();
 
 
 

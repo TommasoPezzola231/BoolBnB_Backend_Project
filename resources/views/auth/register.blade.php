@@ -67,7 +67,7 @@
                         </span>
                         @enderror
 
-                        <label for="email" class="form-label">{{ __('email') }}</label>
+                        <label for="email" class=" d-block form-label">{{ __('email') }}</label>
                     </div>
 
                     {{-- password --}}
@@ -141,7 +141,7 @@
                 inputElements.forEach(function(inputElement) {
                     inputElement.addEventListener('input', function() {
                         this.classList.remove('is-invalid');
-                        this.nextElementSibling.remove();
+                        // this.nextElementSibling.remove();
                     });
                 });
                 // se non ci sono piu errori manda i dati al server + redirect
