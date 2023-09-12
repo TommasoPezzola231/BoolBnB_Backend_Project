@@ -23,7 +23,7 @@ class MessageSeeder extends Seeder
                 "surname_sender" => "Johnson",
                 "email_sender" => "alice@example.com",
                 "message_object" => "Richiesta informazioni",
-                "message_text" => "Ciao, sono interessata a affittare il tuo appartamento.",
+                "message_text" => "Ciao, sono interessata a prenotare il tuo appartamento per una settimana a settembre. Potresti dirmi se è disponibile in quelle date?",
                 "sent_at" => now()->subDays(7),
             ],
             [
@@ -59,7 +59,7 @@ class MessageSeeder extends Seeder
                 "surname_sender" => "Bianchi",
                 "email_sender" => 'laura.bianchi@example.com',
                 "message_object" => "Richiesta informazioni",
-                "message_text" => "Ciao, mi piacerebbe vedere l'appartamento di persona. È possibile organizzare una visita?",
+                "message_text" => "Salve, sto pianificando una vacanza e sono interessato al tuo appartamento. Potresti darmi più dettagli sulla distanza dalla spiaggia?",
                 "sent_at" => now()->subDays(2),
             ],
             [
@@ -68,7 +68,7 @@ class MessageSeeder extends Seeder
                 "surname_sender" => "Rossi",
                 "email_sender" => 'elena.rossi@example.com',
                 "message_object" => "Richiesta informazioni",
-                "message_text" => "Salve, vorrei prenotare una visita per valutare le dimensioni degli spazi. Quando è possibile?",
+                "message_text" => "Salve, sto pianificando una vacanza e sono interessato al tuo appartamento. Potresti darmi più dettagli sulla distanza dalla spiaggia?",
                 "sent_at" => now()->subDays(3),
             ],
             [
@@ -122,7 +122,7 @@ class MessageSeeder extends Seeder
                 "surname_sender" => "Ferrari",
                 "email_sender" => 'laura1@example.com',
                 "message_object" => "Richiesta informazioni",
-                "message_text" => "Ciao, ho visto l'annuncio e mi piacerebbe prenotare un'appuntamento per visitare l'appartamento domani mattina.",
+                "message_text" => "Ciao, ho visto le tue foto e l'appartamento sembra incredibile! Mi piacerebbe saperne di più sulla zona e sulle attrazioni locali.",
                 "sent_at" => now()->subDays(2),
             ],
             [
@@ -131,7 +131,7 @@ class MessageSeeder extends Seeder
                 "surname_sender" => "Russo",
                 "email_sender" => 'andrea56@example.com',
                 "message_object" => "Richiesta informazioni",
-                "message_text" => "Buonasera, l'appartamento è disponibile per il mese di settembre? Mi piacerebbe affittarlo per un mese.",
+                "message_text" => "Buonasera, mi piacerebbe prenotare l'appartamento per tutto il mese di settembre, è disponibile?",
                 "sent_at" => now()->subDays(8),
             ],
             [
@@ -140,7 +140,7 @@ class MessageSeeder extends Seeder
                 "surname_sender" => "Marini",
                 "email_sender" => 'elena@example.com',
                 "message_object" => "Richiesta informazioni",
-                "message_text" => "Salve, vorrei avere maggiori dettagli sul contratto di locazione e sulle spese condominiali.",
+                "message_text" => "Buongiorno, vorrei prenotare il tuo appartamento per il prossimo weekend lungo. È disponibile?",
                 "sent_at" => now()->subDays(6),
             ],
             [
@@ -176,7 +176,7 @@ class MessageSeeder extends Seeder
                 "surname_sender" => "Bianchi",
                 "email_sender" => 'giuliaB7@example.com',
                 "message_object" => "Richiesta informazioni",
-                "message_text" => "Ciao, vorrei prenotare una visita per vedere l'appartamento di persona. Quando sarebbe possibile?",
+                "message_text" => "Ciao, sto pianificando una vacanza con la mia famiglia e mi interesserebbe affittare il tuo appartamento. Potresti dirmi di più sulla disponibilità e sui servizi inclusi?",
                 "sent_at" => now()->subDays(5),
             ],
             [
@@ -203,7 +203,7 @@ class MessageSeeder extends Seeder
                 "surname_sender" => "Gialli",
                 "email_sender" => 'marcoG@example.com',
                 "message_object" => "Richiesta informazioni",
-                "message_text" => "Salve, sono interessato all'appartamento ma ho alcune domande sul contratto di locazione. Potremmo discuterne?",
+                "message_text" => "Salve, sono un viaggiatore d'affari e sto cercando un luogo confortevole dove soggiornare durante il mio prossimo viaggio. Il tuo appartamento sembra una buona scelta. Posso avere informazioni sulla connessione Wi-Fi e sulla zona circostante?",
                 "sent_at" => now()->subDays(5),
             ],
             [
@@ -212,7 +212,7 @@ class MessageSeeder extends Seeder
                 "surname_sender" => "D'Amico",
                 "email_sender" => 'carla.D@example.com',
                 "message_object" => "Richiesta informazioni",
-                "message_text" => "Ciao, mi piacerebbe prenotare una visita per l'appartamento. Potrebbe essere possibile nel fine settimana?",
+                "message_text" => "Buongiorno, sto cercando un luogo tranquillo per scrivere il mio libro e il tuo appartamento sembra ideale. C'è una scrivania o un angolo studio?",
                 "sent_at" => now()->subDays(3),
             ],
             [
@@ -230,7 +230,7 @@ class MessageSeeder extends Seeder
                 "surname_sender" => "Baldinelli",
                 "email_sender" => 'anna123@example.com',
                 "message_object" => "Richiesta informazioni",
-                "message_text" => "Salve, vorrei avere informazioni sulla durata minima del contratto di locazione. Ho bisogno di affittare per almeno un anno.",
+                "message_text" => "Salve, sono un gruppo di amici in cerca di un appartamento spazioso per le nostre vacanze estive. Il tuo appartamento può ospitare 6 persone?",
                 "sent_at" => now()->subDays(6),
             ],
             [
@@ -248,7 +248,7 @@ class MessageSeeder extends Seeder
                 "surname_sender" => "Conti",
                 "email_sender" => "paola@example.com",
                 "message_object" => "Richiesta informazioni",
-                "message_text" => "Salve, sono interessata all'appartamento. Quando sarebbe possibile una visita?",
+                "message_text" => "Ciao, sono un appassionato di fotografia e ho bisogno di una vista panoramica per i miei progetti. Il tuo appartamento offre una vista mozzafiato?",
                 "sent_at" => now()->subDays(5),
             ],
             [
@@ -266,7 +266,7 @@ class MessageSeeder extends Seeder
                 "surname_sender" => "Ricci",
                 "email_sender" => 'silvia@example.com',
                 "message_object" => "Richiesta informazioni",
-                "message_text" => "Ciao, ho visto le foto dell'appartamento e sembra fantastico. Vorrei visitarlo al più presto.",
+                "message_text" => "Buongiorno, sto pianificando una vacanza attiva e mi interessa sapere se ci sono sentieri per escursioni o piste ciclabili vicino al tuo appartamento.",
                 "sent_at" => now()->subDays(8),
             ],
             [
@@ -293,7 +293,7 @@ class MessageSeeder extends Seeder
                 "surname_sender" => "Romano",
                 "email_sender" => 'fabio@example.com',
                 "message_object" => "Richiesta informazioni",
-                "message_text" => "Ciao, ho bisogno di un appartamento vicino alle scuole. Questa zona è adatta?",
+                "message_text" => "Ciao! Sono interessata a prenotare la tua casa per una settimana a giugno. Potresti confermare la disponibilità e dirmi di più sui servizi inclusi?",
                 "sent_at" => now()->subDays(5),
             ],
             [
@@ -302,7 +302,7 @@ class MessageSeeder extends Seeder
                 "surname_sender" => "Santoro",
                 "email_sender" => 'giulia@example.com',
                 "message_object" => "Richiesta informazioni",
-                "message_text" => "Salve, c'è un balcone o un terrazzo nell'appartamento? Mi piace trascorrere tempo all'aperto.",
+                "message_text" => "Salve, c'è un balcone o un terrazzo nell'appartamento?",
                 "sent_at" => now()->subDays(7),
             ],
             [
@@ -329,7 +329,7 @@ class MessageSeeder extends Seeder
                 "surname_sender" => "Gallo",
                 "email_sender" => 'federico@example.com',
                 "message_object" => "Richiesta informazioni",
-                "message_text" => "Salve, vorrei conoscere le spese condominiali. Sono molto importanti per me.",
+                "message_text" => "Ciao! Sono interessata a prenotare la tua casa per una settimana a giugno. Potresti confermare la disponibilità e dirmi di più sui servizi inclusi?",
                 "sent_at" => now()->subDays(5),
             ],
             [
@@ -374,7 +374,7 @@ class MessageSeeder extends Seeder
                 "surname_sender" => "Martini",
                 "email_sender" => 'giovanna@example.com',
                 "message_object" => "Richiesta informazioni",
-                "message_text" => "Buongiorno, ho bisogno di spazio per il mio ufficio a casa. Questo appartamento ha una stanza extra?",
+                "message_text" => "Ciao! Siamo una coppia in cerca di un posto accogliente per una settimana a Roma. La tua casa sembra perfetta. È disponibile dal 15 agosto al 22 agosto? Quali sono i costi totali?",
                 "sent_at" => now()->subDays(5),
             ],
             [
@@ -392,7 +392,7 @@ class MessageSeeder extends Seeder
                 "surname_sender" => "Coppola",
                 "email_sender" => 'sara@example.com',
                 "message_object" => "Richiesta informazioni",
-                "message_text" => "Ciao, ho bisogno di un appartamento con una cucina ben attrezzata. Questo lo ha?",
+                "message_text" => "Salve! Siamo un gruppo di amici che desidera esplorare Roma. La tua casa sembra fantastica. Potresti dirci quanto dista dalla stazione ferroviaria principale e se ci sono ristoranti locali nelle vicinanze?",
                 "sent_at" => now()->subDays(4),
             ],
             [
@@ -401,7 +401,7 @@ class MessageSeeder extends Seeder
                 "surname_sender" => "Russo",
                 "email_sender" => 'alessio@example.com',
                 "message_object" => "Richiesta informazioni",
-                "message_text" => "Buongiorno, vorrei sapere se è possibile noleggiare questo appartamento per una settimana.",
+                "message_text" => "Buongiorno, vorrei sapere se è possibile prenotare questo appartamento per una settimana.",
                 "sent_at" => now()->subDays(7),
             ],
             [
@@ -428,7 +428,7 @@ class MessageSeeder extends Seeder
                 "surname_sender" => "Pellegrini",
                 "email_sender" => 'elena@example.com',
                 "message_object" => "Richiesta informazioni",
-                "message_text" => "Buongiorno, vorrei sapere se è possibile affittare solo per sei mesi.",
+                "message_text" => "Ciao! Siamo una famiglia con due bambini e stiamo cercando una sistemazione economica a Roma per una settimana. Potresti darmi un'idea delle tariffe per il tuo appartamento nel mese di luglio?",
                 "sent_at" => now()->subDays(5),
             ],
             [
@@ -446,7 +446,7 @@ class MessageSeeder extends Seeder
                 "surname_sender" => "Costa",
                 "email_sender" => 'serena@example.com',
                 "message_object" => "Richiesta informazioni",
-                "message_text" => "Ciao, mi piacerebbe vedere l'appartamento di persona. È possibile organizzare una visita?",
+                "message_text" => "Buongiorno! Siamo un gruppo di 6 amici che cercano una casa spaziosa a Roma per una vacanza. Potresti dirci se ci sono bar o caffetterie nelle vicinanze e se l'appartamento ha un balcone?",
                 "sent_at" => now()->subDays(6),
             ],
             [
@@ -464,7 +464,7 @@ class MessageSeeder extends Seeder
                 "surname_sender" => "Galli",
                 "email_sender" => 'alessandra@example.com',
                 "message_object" => "Richiesta informazioni",
-                "message_text" => "Salve, ho bisogno di spazio per un ufficio in casa. Questo appartamento ha una stanza extra?",
+                "message_text" => "Ciao! Stiamo pianificando una vacanza a Roma per il nostro anniversario e la tua casa sembra incantevole. È disponibile per le date dal 10 settembre al 15 settembre? Quali servizi extra offri per gli ospiti?",
                 "sent_at" => now()->subDays(5),
             ],
             [
