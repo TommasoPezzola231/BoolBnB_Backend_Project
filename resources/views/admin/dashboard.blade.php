@@ -9,7 +9,7 @@
                     <h1 class="text-center text-dark my-3">
                         {{ __('Ciao') }} {{ auth()->user()->name }}!
                         <span><h2>Benvenuto nella tua dashboard di</h2></span>
-                        <span><h1 class="text-center my_color_heaer_transarent">{{ __('BoolBnb') }}</h1></span>
+                        <span><h1 class="text-center my_color_heaer_transarent bold">{{ __('BoolBnb') }}</h1></span>
                     </h1>
                 </div>
 

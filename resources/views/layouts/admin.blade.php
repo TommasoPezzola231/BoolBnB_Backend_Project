@@ -19,10 +19,13 @@
         crossorigin='anonymous' referrerpolicy='no-referrer'
     />
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Raleway&display=swap"
+    rel="stylesheet"
+    />
 
     <!-- Libreria TomTom per visualizzare la mappa -->
     <link rel="stylesheet" type="text/css"href="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.18.0/maps/maps.css" />
@@ -45,7 +48,7 @@
                         <!-- Logo -->
                         <a class="navbar-brand text-white d-flex align-items-center flex-md-column  mb-4" href="#">
                             <img src="{{ asset('images/logo/Bool_Bnb_White.png') }}" alt="Logo" width="100px" height="100px" class="img-fluid p-0">
-                            <h3 class="text-white m-0">BoolBnb</h3>
+                            <h3 class="text-white m-0 bold">BoolBnb</h3>
                         </a>
 
 
