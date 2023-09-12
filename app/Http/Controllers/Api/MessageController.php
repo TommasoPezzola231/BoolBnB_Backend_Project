@@ -64,6 +64,7 @@ class MessageController extends Controller
         $message->message_object = $request->input('message_object');
         $message->message_text = $request->input('message_text');
         $message->apartment_id = $request->input('apartment_id');
+        $message->sent_at = now();
         $message->save();
 
         $apartment = Apartment::find($request->input('apartment_id'));
