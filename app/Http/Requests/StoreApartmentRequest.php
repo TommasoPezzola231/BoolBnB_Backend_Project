@@ -28,7 +28,7 @@ class StoreApartmentRequest extends FormRequest
             'description' => 'required|min:5',
             'principal_image' => 'nullable',
             'serviceID' => 'required|exists:services,id',
-            'price' => 'required|',
+            'price' => 'required|integer|regex:/^\d+$/',
             'country' => 'required|min:3|max:50',
             'city' => 'required|min:3|max:50',
             'num_rooms' => 'required|integer|between:1,15',
@@ -61,6 +61,8 @@ class StoreApartmentRequest extends FormRequest
             'serviceID.required' => "Devi inserire almeno un servizio",
 
             'price.required' => 'Indica il prezzo',
+            'price.integer' => 'Il prezzo deve essere un numero intero',
+            'price.regex' => 'Il prezzo non deve contenere simboli',
 
             'country.required' => 'Aggiungi città',
             'country.min' => 'Devi inserire almeno :min Caratteri',
@@ -72,7 +74,10 @@ class StoreApartmentRequest extends FormRequest
 
             'num_rooms.required' => 'Indica il numero di stanze disponibili',
             'num_bathrooms.required' => 'Indica il numero di bagni disponibili',
+
             'square_meters.required' => 'Indica i metri quadri disponibili',
+            'square_meters.integer' => 'I metri quadri devono essere un numero intero',
+            'square_meters.between' => 'I metri quadri devono essere tra 10 e 400',
 
             'address.required' => 'Aggiungi indirizzo',
             'address.min' => 'Devi inserire almeno :min Caratteri',
