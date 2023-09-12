@@ -68,7 +68,7 @@
                         <select class="form-select mb-2" id="num_rooms" name="num_rooms">
                             <option selected disabled>Seleziona numero di stanze</option>
                             @for ($i = 1; $i <= 15; $i++)
-                                <option value="{{ $i }}">{{ $i }}</option>
+                                <option value="{{ $i }}" @selected(old('num_rooms') == $i)>{{ $i }}</option>
                             @endfor
                         </select>
                         @error('num_rooms')
@@ -82,7 +82,8 @@
                         <select class="form-control mb-2" id="num_bathrooms" name="num_bathrooms">
                             <option selected disabled value="">Seleziona numero di bagni</option>
                             @for ($i = 1; $i <= 7; $i++)
-                                <option value="{{ $i }}">{{ $i }}</option>
+                                {{-- <option value="{{ $i }}">{{ $i }}</option> --}}
+                                <option value="{{ $i }}" @selected(old('num_bathrooms') == $i)>{{ $i }}</option>
                             @endfor
                         </select>
                         @error('num_bathrooms')
@@ -93,7 +94,7 @@
                     <div class="col-md-12 col-lg-6">
                         {{-- input per metri quadrati --}}
                         <label for="square_meters" class="form-label">Metri Quadrati</label>
-                        <input type='number' class="form-control mb-2" id="square_meters" name="square_meters" min="10" max="400" placeholder="Inserisci metri quadri">
+                        <input type='number' class="form-control mb-2" id="square_meters" name="square_meters" min="10" max="400" value="{{ old('square_meters') }}" placeholder="Inserisci metri quadri">
                         @error('square_meters')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -111,7 +112,7 @@
                     <div class="col-md-12 col-lg-6">
                         {{-- input per decrizione --}}
                         <label for="description">Descrizione</label>
-                        <textarea name="description" id="description" cols="30" rows="15" value="{{ old('description') }}" required placeholder="Inserisci la descrizione" class="form-control mb-2"></textarea>
+                        <textarea name="description" id="description" cols="30" rows="15" required placeholder="Inserisci la descrizione" class="form-control mb-2">{{ old('description') }}</textarea>
 
                         @error('description')
                             <div class="bg-danger-subtle rounded">{{ $message }}</div>
@@ -123,7 +124,7 @@
                         <label for="principal_image">Carica Immagine</label>
                         <div class="d-flex align-items-center mb-2">
                             <input type="file" name="principal_image" id="principal_image" value="{{ old('principal_image') }}"
-                                class="form-control mb-2 @error('principal_image') is-invalid @enderror">
+                                class="form-control mb-2 @error('principal_image') is-invalid @enderror" required>
                         </div>
                         @error('principal_image')
                             <div class="invalid-feedback">{{ $message }}</div>
@@ -141,7 +142,7 @@
                             @foreach ($services as $i => $service)
                                 <div class="form-check">
                                     <input class="form-check-input mb-2" type="checkbox" value="{{ $service->id }}" name="serviceID[]"
-                                        id="services{{ $i }}">
+                                        id="services{{ $i }}" @if(is_array(old('serviceID')) && in_array($service->id, old('serviceID'))) checked @endif >
                                     <label for="services{{ $i }}" class="form-check-label me-2 service">{{ $service->name_service }}</label>
                                 </div>
                             @endforeach
