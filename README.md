@@ -9,9 +9,7 @@
 <img src="https://img.shields.io/badge/vite-3.00-red" alt="Vite 3.00" />
 </p>
 
-# Titolo Progetto
-
-BoolBnB - Laravel 9.x
+# BoolBnB - Laravel 9.x
 
 - Sviluppata da 
     [Valerio](https://github.com/valeriobilli),
