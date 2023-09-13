@@ -1,12 +1,15 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
-<img src="https://img.shields.io/badge/template-tested-green" alt="Build Status">
 <img src="https://img.shields.io/badge/license-boolean_95-blue" alt="Licensed to Boolean Students" />
 <img src="https://img.shields.io/badge/laravel-9.19-red" alt="Laravel 9.19" />
 <img src="https://img.shields.io/badge/laravel_breeze-1.19.2-red" alt="Laravel Breeze 1.19.2" />
 <img src="https://img.shields.io/badge/bootstrap-5.22-red" alt="Bootstrap 5.22" />
-<img src="https://img.shields.io/badge/vite-3.00-red" alt="Vite 3.00" />
+<img src="https://img.shields.io/badge/vite-3.00-green" alt="Vite 3.00" />
+<img src="https://img.shields.io/badge/braintree-3.59-yellow" alt="Braintree 3.59" />
+<img src="https://img.shields.io/badge/tomtom-7.77-purple" alt="TomTom 7.77" />
+<img src="https://img.shields.io/badge/mailtrap-2.0-blue" alt="Mailtrap 2.0" />
+<img src="https://img.shields.io/badge/chart.js-3.5.1-green" alt="Chart.js 3.5.1" />
 </p>
 
 # BoolBnB - Laravel 9.x
@@ -17,7 +20,7 @@
     [Lorenzo](https://github.com/LorenzoSeverini),
     [Marika](https://github.com/MarikaDiGirolamo),
 
-# Descrizione
+### Descrizione
 
 - Replica di webb-app come Airbnb/Booking.com per la ricerca di appartamenti in affitto. 
 
@@ -40,29 +43,31 @@
 - Chart per la visualizzazione dei dati: Chart.js.
 
 
-# Tecnologie utilizzate
+### Tecnologie utilizzate
 
-- [Laravel 9.x](https://laravel.com/docs/9.x).
+- [Laravel 9.x](https://laravel.com/docs/9.x)
 
-- [Laravel Breeze](https://laravel.com/docs/10.x/starter-kits).
+- [Laravel Breeze](https://laravel.com/docs/10.x/starter-kits)
 
-- [Bootstrap 5.22](https://getbootstrap.com/docs/5.1/getting-started/introduction/).
+- [Bootstrap](https://getbootstrap.com/docs/5.1/getting-started/introduction/)
 
-- [Vite 3.00](https://vitejs.dev/guide/).
+- [Vite](https://vitejs.dev/guide/)
 
-- [Braintree](https://developers.braintreepayments.com/guides/overview).
+- [Braintree](https://developers.braintreepayments.com/guides/overview)
 
-- [TomTom](https://developer.tomtom.com/).
+- [TomTom](https://developer.tomtom.com/)
 
-- [Mailtrap](https://mailtrap.io/).
+- [Mailtrap](https://mailtrap.io/)
 
-- [Chart.js](https://www.chartjs.org/).
+- [Chart.js](https://www.chartjs.org/)
 
-# Logo BoolBnB 
+- [Fontawesome](https://fontawesome.com/)
+
+### Logo BoolBnB 
 
 ![Logo](/public/images/logo/Bool_BnB_White.png)
 
-# Screenshots
+### Screenshots
 
 ![Screenshot](/public/images/screenshots/screenshot-1.png)
 
