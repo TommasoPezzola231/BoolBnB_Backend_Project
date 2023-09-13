@@ -69,20 +69,20 @@
 
 ### Screenshots
 
-![Screenshot](/public/images/screenshots/screenshot-1.png)
+![Screenshot](/public/images/screenshots/Screenshot-1.png)
 
-![Screenshot](/public/images/screenshots/screenshot-2.png)
+![Screenshot](/public/images/screenshots/Screenshot-2.png)
 
-![Screenshot](/public/images/screenshots/screenshot-3.png)
+![Screenshot](/public/images/screenshots/Screenshot-3.png)
 
-![Screenshot](/public/images/screenshots/screenshot-4.png)
+![Screenshot](/public/images/screenshots/Screenshot-4.png)
 
-![Screenshot](/public/images/screenshots/screenshot-5.png)
+![Screenshot](/public/images/screenshots/Screenshot-5.png)
 
-![Screenshot](/public/images/screenshots/screenshot-6.png)
+![Screenshot](/public/images/screenshots/Screenshot-6.png)
 
-![Screenshot](/public/images/screenshots/screenshot-7.png)
+![Screenshot](/public/images/screenshots/Screenshot-7.png)
 
-![Screenshot](/public/images/screenshots/screenshot-8.png)
+![Screenshot](/public/images/screenshots/Screenshot-8.png)
 <!-- prova -->
 
