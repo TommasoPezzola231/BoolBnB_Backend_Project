@@ -83,6 +83,6 @@
 
 ![Screenshot](/public/images/screenshots/Screenshot-7.png)
 
-![Screenshot](/public/images/screenshots/screenshot-8.png)
+![Screenshot](/public/images/screenshots/Screenshot-8.png)
 
 <!-- Prova -->
