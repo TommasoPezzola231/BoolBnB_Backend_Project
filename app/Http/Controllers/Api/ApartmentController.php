@@ -53,7 +53,7 @@ class ApartmentController extends Controller
         $city = $request->input('city');
 
         $url = 'https://api.tomtom.com/search/2/geocode/' . urlencode($city) . '.json';
-        $apiKey = 'U6BQ1DicdzYIkj5nrK4823OxJuCY6gyP';
+        $apiKey = env('TOMTOM_API_KEY');
 
         $response = Http::get($url, [
             'key' => $apiKey
